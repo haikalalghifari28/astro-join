@@ -1,0 +1,138 @@
+---
+import AboutImage from "../../images/hero.jpeg";
+---
+
+<section
+  id="about-company"
+  class="relative overflow-hidden bg-slate-100 py-10 lg:py-16"
+>
+
+  <!-- Background Top Shape -->
+  <div
+    class="absolute left-0 top-0 h-80 w-full bg-[#382d26]"
+  >
+    <svg
+      class="absolute bottom-0 left-0 w-full"
+      viewBox="0 0 1440 120"
+      preserveAspectRatio="none"
+    >
+      <path
+        fill="#f1f5f9"
+        d="M0,40 C480,140 960,140 1440,40 L1440,120 L0,120 Z"
+      />
+    </svg>
+
+  </div>
+
+  <div class="relative z-10 mx-auto max-w-7xl px-6 lg:px-12">
+    <!-- Heading -->
+    <article
+      class="mx-auto max-w-4xl text-center"
+    >
+
+      <h2
+        class="text-2xl font-bold leading-tight text-white md:text-[42px]"
+      >
+        Audit Struktur Bangunan Teliti, 
+        <br>
+        Keamanan Terpercaya
+      </h2>
+
+      <p
+        class="mt-6 text-md md:text-xl leading-relaxed text-slate-200"
+      >
+        Solusi teknis menyeluruh untuk memastikan kepatuhan standar SNI 
+        <br>dan keamanan jangka panjang bangunan Anda.
+      </p>
+
+    </article>
+
+    <!-- Content -->
+    <div class="relative mt-20 md:mt-30 grid items-center gap-12 lg:grid-cols-12">
+      <!-- CARD -->
+      <article
+        class="
+        relative
+        z-20
+        bg-white
+        p-8
+        shadow-xl
+        lg:col-span-5
+        lg:-mr-24
+        lg:p-12
+      "
+      >
+
+        <h3
+          class="text-xl md:text-3xl font-bold text-amber-950"
+        >
+          Tentang Kami
+        </h3>
+
+        <p
+          class="mt-6 text-md md:text-lg leading-relaxed text-slate-600"
+        >
+          PT. Join Teknologi Internasional adalah firma multidisiplin independen yang berdedikasi untuk memberikan layanan manajemen lengkap di bidang konstruksi dan infrastruktur. Sebagai konsultan audit struktur yang berpengalaman, kami memahami bahwa keamanan aset properti Anda adalah prioritas utama.
+        </p>
+
+        <a
+          href="/markets"
+          class="
+          text-sm
+          md:text-lg
+          mt-8
+          inline-flex
+          items-center
+          gap-3
+          font-bold
+          uppercase
+          tracking-wide
+          text-amber-950
+          transition
+          hover:text-amber-800
+        "
+        >
+          Selengkapnya
+
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 5l7 7-7 7"
+            />
+          </svg>
+
+        </a>
+
+      </article>
+
+      <!-- IMAGE -->
+      <div
+        class="lg:col-span-7"
+      >
+
+        <img
+          src={AboutImage.src}
+          alt="Professional engineering team discussing project plans"
+          class="
+          h-full
+          w-full
+          object-cover
+          shadow-2xl
+        "
+        />
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>

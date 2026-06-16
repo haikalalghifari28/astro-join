@@ -1,0 +1,234 @@
+---
+const services = [
+  {
+    title: "Audit Struktur & Assessment Gedung",
+    description:
+      "Pengujian NDT (Non-Destructive Test), Hardness Test, dan Ultrasonic Pulse Velocity (UPV) untuk evaluasi kekuatan beton dan baja.",
+    icon: "/icons/audit.png",
+  },
+  {
+    title: "Perizinan Bangunan Gedung (PBG)",
+    description:
+      "Transformasi dari IMB ke PBG dengan proses yang transparan dan tepat waktu.",
+    icon: "/icons/design.png",
+  },
+  {
+    title: "Perencanaan Mekanikal, Elektrikal, & Plumbing (MEP)",
+    description:
+      "Desain teknik mendetail mencakup sipil, ME (Mekanikal Elektrikal), dan plumbing atau MEP.",
+    icon: "/icons/drawing.png",
+  },
+  {
+    title: "Manajemen Konstruksi & Pengawasan",
+    description:
+      "Memastikan proyek berjalan sesuai spesifikasi teknik dan standar keselamatan.",
+    icon: "/icons/traffic.png",
+  },
+  {
+    title: "Sertifikat Laik Fungsi (SLF)",
+    description:
+      "Jasa pengurusan SLF mulai dari kajian teknis hingga terbit sertifikat untuk pemenuhan regulasi pemerintah.",
+    icon: "/icons/soil.png",
+  },
+  {
+    title: "Penyelidikan Tanah & Geoteknik",
+    description:
+      "Sondir dan Boring untuk memastikan daya dukung pondasi bangunan.",
+    icon: "/icons/rab.png",
+  },
+   {
+    title: "Jasa Audit & Hitung Struktur Bangunan",
+    description:
+      "Jasa hitung struktur bangunan dengan pemodelan digital & Non-Destructive Test (NDT) untuk laporan teknis valid.",
+    icon: "/icons/rab.png",
+  },
+];
+
+const reasons = [
+    {
+        title: "Tenaga Ahli Bersertifikat",
+        description:
+        "Tim engineer berpengalaman dengan lisensi resmi.",
+        icon: "/icons/rab.png",
+    },
+    {
+        title: "Peralatan Modern",
+        description:
+        "Menggunakan alat ukur kalibrasi terbaru untuk akurasi data.",
+        icon: "/icons/rab.png",
+    },
+    {
+        title: "Laporan Komprehensif",
+        description:
+        "Hasil audit detail yang diakui oleh instansi teknis terkait.",
+        icon: "/icons/rab.png",
+    },
+    {
+        title: "Layanan Seluruh Indonesia",
+        description:
+        "Berbasis di Alam Sutera, siap melayani proyek di berbagai wilayah.",
+        icon: "/icons/rab.png",
+    },
+];
+---
+
+<section
+  id="services"
+  class="bg-slate-50 py-20 lg:py-28"
+>
+  <div class="mx-auto max-w-7xl px-6">
+
+    <header class="mx-auto max-w-4xl text-center">
+
+      <h2
+        class="text-2xl md:text-4xl font-bold text-amber-950 lg:text-6xl"
+      >
+        Layanan Kami
+      </h2>
+
+      <p
+        class="mx-auto mt-6 max-w-3xl text-lg text-slate-600"
+      >
+        Sebagai konsultan teknik sipil, kami menyediakan berbagai layanan
+        profesional untuk memastikan proyek berjalan optimal.
+      </p>
+
+    </header>
+
+    <div
+      class="mt-20 grid gap-12 md:grid-cols-2"
+    >
+
+      {
+        services.map((service) => (
+
+          <article
+            class="flex gap-6"
+          >
+
+            <div
+              class="
+              flex
+              h-28
+              w-28
+              shrink-0
+              items-center
+              justify-center
+              rounded-2xl
+              bg-amber-950
+            "
+            >
+              <img
+                src={service.icon}
+                alt={service.title}
+                class="h-14 w-14 object-contain"
+              />
+            </div>
+
+            <div>
+
+              <h3
+                class="text-2xl font-bold text-amber-950"
+              >
+                {service.title}
+              </h3>
+
+              <p
+                class="mt-3 leading-relaxed text-slate-600"
+              >
+                {service.description}
+              </p>
+
+            </div>
+
+          </article>
+
+        ))
+      }
+
+    </div>
+
+  </div>
+</section>
+
+<section
+  class="bg-slate-50 pb-24"
+>
+  <div
+    class="mx-auto max-w-7xl px-6"
+  >
+
+    <header
+      class="text-center"
+    >
+
+      <h2
+        class="text-2xl md:text-4xl font-bold uppercase text-amber-950"
+      >
+        Mengapa Memilih Kami?
+      </h2>
+
+    </header>
+
+    <div
+      class="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-4"
+    >
+
+      {
+        reasons.map((reason) => (
+
+          <article
+            class="
+            rounded-2xl
+            bg-white
+            p-10
+            text-center
+            shadow-lg
+            transition
+            hover:-translate-y-2
+            hover:shadow-xl
+          "
+          >
+
+            <div
+              class="
+              mx-auto
+              flex
+              h-16
+              w-16
+              items-center
+              justify-center
+              rounded-full
+              border-4
+              border-amber-950
+              text-amber-950
+            "
+            >
+              ★
+            </div>
+
+             <div>
+
+              <h3
+                class="text-2xl mt-6 font-bold text-amber-950"
+              >
+                {reason.title}
+              </h3>
+
+              <p
+                class="mt-3 leading-relaxed text-slate-600"
+              >
+                {reason.description}
+              </p>
+
+            </div>
+
+          </article>
+
+        ))
+      }
+
+    </div>
+
+  </div>
+</section>
