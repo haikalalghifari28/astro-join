@@ -1,16 +1,4 @@
----
-// import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-import '../styles/global.css';
-import { Icon } from 'astro-icon/components'
-import Navbar from '../components/Navbar.astro';
-
-import Footer from '../components/Footer.astro';
----
-
-<Layout>
-	<Navbar />
-    <section
+<section
   class="relative overflow-hidden bg-[#382d26] py-28 lg:py-36"
 >
 
@@ -21,7 +9,7 @@ import Footer from '../components/Footer.astro';
     <span
       class="font-semibold uppercase tracking-[0.3em] text-sm md:text-md lg:text-lg text-orange-500"
     >
-      Layanan
+      Tentang Perusahaan
     </span>
 
     <h1
@@ -34,8 +22,8 @@ import Footer from '../components/Footer.astro';
         lg:text-5xl
       "
     >
-      Kami Memberikan Layanan Terbaik Untuk Anda. <br>
-
+      Konsultan Audit Struktur & <br>
+      Manajemen Konstruksi Profesional
     </h1>
 
     <p
@@ -51,11 +39,12 @@ import Footer from '../components/Footer.astro';
         text-white/80
       "
     >
-      Cek <b>Layanan</b> Kami Pada Pilihan yang Tersedia di Navbar Atas Pada Website Ini.
+      PT Join Teknologi Internasional merupakan firma multidisiplin
+      independen yang menyediakan layanan audit struktur,
+      konsultansi teknik, dan manajemen proyek konstruksi
+      untuk berbagai sektor industri di Indonesia.
     </p>
 
   </div>
 
 </section>
-	<Footer />
-</Layout>

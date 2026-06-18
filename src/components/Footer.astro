@@ -1,0 +1,302 @@
+---
+import Logo from "../images/logo.png";
+---
+
+<style>
+  .footer-link {
+  color: rgb(148 163 184);
+  transition: all 0.3s ease;
+}
+
+.footer-link:hover {
+  color: white;
+}
+</style>
+
+
+<footer
+  class="
+    bg-black
+    text-white
+  "
+>
+  <div
+    class="
+      mx-auto
+      max-w-7xl
+      px-6
+      py-16
+      lg:px-12
+    "
+  >
+
+    <div
+      class="
+        grid
+        gap-12
+        md:grid-cols-2
+        lg:grid-cols-4
+      "
+    >
+
+      <!-- COMPANY -->
+      <section>
+
+        <img
+          src={Logo.src}
+          alt="PT Join Teknologi Internasional"
+          class="h-16"
+        />
+
+        <p
+          class="
+            mt-6
+            text-sm
+            leading-relaxed
+            text-slate-400
+          "
+        >
+          PT Join Teknologi Internasional merupakan
+          perusahaan konsultan teknik sipil yang
+          menyediakan layanan audit struktur,
+          desain struktur, investigasi geoteknik,
+          ANDALALIN, dan estimasi biaya konstruksi.
+        </p>
+
+      </section>
+
+      <!-- MENU -->
+      <nav
+        aria-labelledby="footer-menu"
+      >
+
+        <h3
+          id="footer-menu"
+          class="
+            text-lg
+            font-semibold
+          "
+        >
+          Navigasi
+        </h3>
+
+        <ul
+          class="
+            mt-6
+            space-y-3
+          "
+        >
+
+          <li>
+            <a
+              href="/"
+              class="footer-link"
+            >
+              Beranda
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="/tentang"
+              class="footer-link"
+            >
+              Tentang Kami
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="/layanan"
+              class="footer-link"
+            >
+              Proyek
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="/proyek"
+              class="footer-link"
+            >
+              Klien
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="/artikel"
+              class="footer-link"
+            >
+              Kontak
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="/kontak"
+              class="footer-link"
+            >
+              Artikel
+            </a>
+          </li>
+
+        </ul>
+
+      </nav>
+
+      <!-- SERVICES -->
+      <section>
+
+        <h3
+          class="
+            text-lg
+            font-semibold
+          "
+        >
+          Layanan
+        </h3>
+
+        <ul
+          class="
+            mt-6
+            space-y-3
+          "
+        >
+
+          <li>
+            <a
+              href="/layanan/audit-struktur"
+              class="footer-link"
+            >
+              Audit Struktur
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="/layanan/desain-struktur"
+              class="footer-link"
+            >
+              Desain Struktur
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="/layanan/geoteknik"
+              class="footer-link"
+            >
+              Investigasi Geoteknik
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="/layanan/andalalin"
+              class="footer-link"
+            >
+              ANDALALIN
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="/layanan/rab"
+              class="footer-link"
+            >
+              Estimasi Anggaran
+            </a>
+          </li>
+
+        </ul>
+
+      </section>
+
+      <!-- CONTACT -->
+      <address
+        class="not-italic"
+      >
+
+        <h3
+          class="
+            text-lg
+            font-semibold
+          "
+        >
+          Hubungi Kami
+        </h3>
+
+        <ul
+          class="
+            mt-6
+            space-y-4
+            text-slate-400
+          "
+        >
+
+          <li>
+            Jl. Nama Jalan No. 123,
+            Jakarta, Indonesia
+          </li>
+
+          <li>
+            <a
+              href="tel:+6281234567890"
+              class="footer-link"
+            >
+              +62 812 3456 7890
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="mailto:info@perusahaan.com"
+              class="footer-link"
+            >
+              info@perusahaan.com
+            </a>
+          </li>
+
+        </ul>
+
+      </address>
+
+    </div>
+
+  </div>
+
+  <!-- Bottom -->
+  <div
+    class="
+      border-t
+      border-slate-800
+    "
+  >
+    <div
+      class="
+        mx-auto
+        flex
+        max-w-7xl
+        flex-col
+        gap-4
+        px-6
+        py-6
+        text-sm
+        text-slate-500
+        md:flex-row
+        md:items-center
+        md:justify-between
+        lg:px-12
+      "
+    >
+
+      <p>
+        © {new Date().getFullYear()}
+        PT Join Teknologi Internasional.
+        All rights reserved.
+      </p>
+    </div>
+  </div>
+
+</footer>

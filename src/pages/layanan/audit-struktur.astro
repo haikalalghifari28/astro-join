@@ -1,0 +1,972 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import '../../styles/global.css';
+import { Icon } from 'astro-icon/components'
+import HeroImage from "../../images/hero.jpeg";
+import { Image } from "astro:assets";
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+
+const reasons = [
+  {
+    icon: "heroicons:shield-check",
+    title: "Menjaga Keselamatan",
+    description:
+      "Mencegah potensi kegagalan struktur yang dapat membahayakan penghuni bangunan.",
+  },
+  {
+    icon: "heroicons:building-office",
+    title: "Mengetahui Kondisi Aktual",
+    description:
+      "Memahami kesehatan struktur berdasarkan data dan hasil pengujian lapangan.",
+  },
+  {
+    icon: "heroicons:magnifying-glass",
+    title: "Deteksi Dini Kerusakan",
+    description:
+      "Mengidentifikasi area kritis sebelum berkembang menjadi masalah besar.",
+  },
+  {
+    icon: "heroicons:scale",
+    title: "Kepatuhan Regulasi",
+    description:
+      "Memenuhi persyaratan teknis dan administrasi seperti SLF maupun kebutuhan legal lainnya.",
+  },
+];
+
+const benefits = [
+  {
+    title: "Rekomendasi Teknis yang Akurat",
+    description:
+      "Laporan berbasis data lapangan dan analisis struktur sehingga keputusan perbaikan lebih tepat.",
+  },
+  {
+    title: "Mengurangi Risiko Kegagalan Struktur",
+    description:
+      "Potensi kerusakan dapat diidentifikasi lebih awal sebelum menjadi masalah besar.",
+  },
+  {
+    title: "Memenuhi Persyaratan Regulasi",
+    description:
+      "Mendukung kebutuhan SLF, PBG, dan dokumen teknis lainnya.",
+  },
+  {
+    title: "Efisiensi Biaya Perawatan",
+    description:
+      "Menghindari pengeluaran besar akibat kerusakan yang tidak terdeteksi sejak dini.",
+  },
+];
+
+const tests = [
+  {
+    number: "01",
+    title: "Inspeksi Visual",
+    description:
+      "Pemetaan elemen struktur untuk mendeteksi retak, deformasi, serta indikasi penurunan fondasi sebelum dilakukan pengujian lanjutan.",
+  },
+  {
+    number: "02",
+    title: "Pengujian Material",
+    description:
+      "Pengujian Non-Destructive Test (NDT) seperti Hammer Test, UPV, dan Core Drill untuk memperoleh data kuat tekan beton aktual.",
+  },
+  {
+    number: "03",
+    title: "Analisis & Hitung",
+    description:
+      "Komputasi kapasitas daya dukung bangunan menggunakan perangkat lunak analisis struktur untuk mengevaluasi beban riil.",
+  },
+  {
+    number: "04",
+    title: "Evaluasi Standar",
+    description:
+      "Membandingkan hasil analisis dengan standar keamanan, regulasi bangunan, serta persyaratan kelayakan yang berlaku.",
+  },
+];
+
+const faqs = [
+  {
+    question: "Apa bedanya inspeksi biasa dengan audit + hitung struktur?",
+    answer:
+      "Inspeksi visual hanya melihat kerusakan luar. Hitung struktur memasukkan data lapangan ke dalam pemodelan komputasi untuk mengetahui sisa kapasitas beban aktual bangunan secara matematis.",
+  },
+  {
+    question: "Kapan sebuah bangunan wajib melakukan audit struktur?",
+    answer:
+      "Saat muncul indikasi kerusakan struktural (retak pada balok/kolom, fondasi turun), akan ada alih fungsi bangunan (penambahan beban operasional), rencana penambahan lantai, atau pengecekan pasca-bencana.",
+  },
+  {
+    question: "Benarkah hitung struktur bisa menekan biaya perbaikan?",
+    answer:
+      "Sangat benar. Dengan hitungan akurat, perbaikan hanya difokuskan pada elemen yang terbukti melemah. Ini mencegah rekomendasi overkill seperti pembongkaran area yang sebenarnya masih aman.",
+  },
+  {
+    question:
+      "Dokumen apa saja yang akan saya terima di akhir proyek?",
+    answer:
+      "Anda akan menerima Laporan Evaluasi Teknis, Rekomendasi Metode Perbaikan, serta RAB/BoQ detail yang siap digunakan sebagai panduan lelang kontraktor pelaksana perbaikan.",
+  },
+];
+---
+
+<Layout>
+	<Navbar />
+    <!-- HERO -->
+    <section class="relative h-140 lg:h-170 overflow-hidden">
+
+    <!-- Background Image -->
+    <img
+        src={HeroImage.src}
+        alt=""
+        class="absolute inset-0 h-full w-full object-cover"
+    />
+    <div class="absolute inset-0 bg-black/70"></div>
+
+    <!-- Content -->
+    <div
+        class="relative z-10 flex h-full items-center justify-start"
+    >
+        <div class="mx-10 lg:mx-40 max-w-5xl px-6 text-left text-white">
+
+        <h1
+            class="text-[27px] font-bold leading-tight md:text-4xl lg:text-5xl"
+        >
+        Jasa Audit & Hitung Struktur <br> Bangunan 
+        Profesional
+        </h1>
+
+        <p
+            class="mt-8 max-w-3xl text-sm leading-relaxed text-white/90 md:text-xl"
+        >Pastikan keamanan gedung dan hindari pembengkakan biaya perbaikan dengan evaluasi dan perhitungan daya dukung struktur yang akurat dan independen.
+
+        </p>
+
+        <div class="mt-10">
+            <a
+            href="https://wa.me/6281376928398"
+            target="_blank"
+            class="inline-flex items-center gap-2 rounded-full bg-green-600 px-6 py-2 md:px-7 md:py-3 text-xs md:text-lg font-bold tracking-wide text-white transition hover:bg-green-700"
+            >
+            <!-- WhatsApp icon SVG -->
+            <svg class="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
+            </svg>
+            Konsultasi
+            </a>
+        </div>
+
+        </div>
+    </div>
+
+    </section>
+
+    <!-- APA ITU AUDIT STRUKTUR -->
+     <section class="bg-white py-20 lg:py-28">
+        <div
+            class="mx-auto max-w-7xl px-6"
+        >
+
+            <div
+            class="
+                grid
+                gap-14
+                lg:grid-cols-2
+                lg:items-center
+            "
+            >
+
+            <!-- LEFT -->
+
+            <div>
+
+                <span
+                class="
+                    text-sm md:text-base lg:text-lg
+                    font-semibold
+                    uppercase
+                    tracking-[0.25em]
+                    text-orange-500
+                "
+                >
+                Audit Struktur
+                </span>
+
+                <h1
+                class="
+                    mt-4
+                    text-xl
+                    md:text-2xl
+                    lg:text-4xl
+                    font-bold
+                    leading-tight
+                    text-amber-950
+                "
+                >
+                Apa Itu Audit Struktur Bangunan?
+                </h1>
+
+                <p
+                class="
+                    mt-8
+                    text-sm
+                    leading-relaxed
+                    text-slate-600
+                    md:text-md
+                    lg:text-lg
+                "
+                >
+                Audit struktur merupakan proses pemeriksaan
+                menyeluruh terhadap kondisi bangunan untuk
+                mengetahui tingkat keamanan, kelayakan fungsi,
+                serta kemampuan struktur dalam menahan beban
+                sesuai standar yang berlaku.
+                </p>
+
+                <p
+                class="
+                    mt-6
+                    text-base
+                    leading-relaxed
+                    text-slate-600
+                    md:text-lg
+                "
+                >
+                Melalui proses evaluasi teknis yang sistematis,
+                tim engineer kami dapat mengidentifikasi
+                kerusakan, penurunan mutu material, serta
+                memberikan rekomendasi perbaikan atau
+                perkuatan yang diperlukan.
+                </p>
+
+            </div>
+
+            <!-- RIGHT -->
+
+            <div
+                class="relative"
+            >
+
+                <div
+                class="
+                    absolute
+                    -bottom-6
+                    -left-6
+                    h-full
+                    w-full
+                    rounded-3xl
+                    bg-orange-50
+                "
+                ></div>
+
+                <Image
+                src={HeroImage}
+                alt="Audit Struktur Bangunan"
+                width={1000}
+                loading="eager"
+                class="
+                    relative
+                    z-10
+                    rounded-3xl
+                    object-cover
+                    shadow-2xl
+                "
+                />
+
+            </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- MENGAPA AUDIT STRUKTUR PENTING -->
+     <section class="bg-slate-50 py-20">
+        <div class="mx-auto max-w-7xl px-6">
+
+            <header
+            class="max-w-2xl"
+            >
+
+            <span
+                class="
+                text-sm
+                md:text-base
+                lg:text-lg
+                font-semibold
+                uppercase
+                tracking-[0.25em]
+                text-orange-500
+                "
+            >
+                Mengapa Perlu Melakukan Audit Struktur?
+            </span>
+
+            <h2
+                class="
+                mt-4
+                text-xl md:text-2xl lg:text-4xl
+                font-bold
+                text-amber-950
+                "
+            >
+                Investasi untuk Keamanan
+                dan Umur Bangunan Anda
+            </h2>
+
+            <p
+                class="
+                mt-6
+                text-sm
+                md:text-base
+                lg:text-lg
+                text-slate-600
+                "
+            >
+                Audit struktur tidak hanya untuk memenuhi
+                regulasi, tetapi juga melindungi aset,
+                operasional bisnis, dan keselamatan penghuni.
+            </p>
+
+            </header>
+
+            <div
+            class="
+                mt-14
+                grid
+                gap-6
+                md:grid-cols-2
+                xl:grid-cols-4
+            "
+            >
+
+            {
+                reasons.map((item) => (
+
+                <article
+                    class="
+                    group
+                    rounded-3xl
+                    border
+                    border-slate-200
+                    bg-white
+                    p-8
+                    transition-all
+                    duration-300
+                    hover:-translate-y-2
+                    hover:shadow-xl
+                    "
+                >
+
+                    <div
+                    class="
+                        flex
+                        h-12
+                        w-12
+                        md:h-16
+                        md:w-16
+                        items-center
+                        justify-center
+                        rounded-2xl
+                        bg-orange-100
+                    "
+                    >
+
+                    <Icon
+                        name={item.icon}
+                        class="
+                        h-8
+                        w-8
+                        text-orange-600
+                        "
+                    />
+
+                    </div>
+
+                    <h3
+                    class="
+                        mt-6
+                        text-xl
+                        md:text-2xl
+                        font-bold
+                        text-amber-950
+                    "
+                    >
+                    {item.title}
+                    </h3>
+
+                    <p
+                    class="
+                        mt-4
+                        text-sm
+                        md:text-base
+                        lg:text-lg
+                        leading-relaxed
+                        text-slate-600
+                    "
+                    >
+                    {item.description}
+                    </p>
+
+                </article>
+
+                ))
+            }
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PENGUJIAN -->
+    <section
+    class="
+        bg-white
+        py-20
+        md:py-24
+    "
+    >
+
+    <div
+        class="mx-auto max-w-7xl px-6"
+    >
+
+        <header
+        class="mx-auto max-w-4xl text-center"
+        >
+
+        <span
+            class="
+            text-sm
+            md:text-base
+            font-semibold
+            uppercase
+            tracking-[0.25em]
+            text-orange-500
+            "
+        >
+            Metode Pengujian
+        </span>
+
+        <h2
+            class="
+            mt-4
+            text-2xl
+            font-bold
+            text-amber-950
+            md:text-3xl
+            lg:text-4xl
+            "
+        >
+            Jenis Pengujian yang Kami Lakukan
+        </h2>
+
+        <p
+            class="
+            mt-6
+            text-sm
+            md:text-base
+            lg:text-lg
+            leading-relaxed
+            text-slate-600
+            "
+        >
+            Kombinasi inspeksi lapangan, pengujian material,
+            dan analisis rekayasa untuk menghasilkan evaluasi
+            struktur yang akurat dan dapat dipertanggungjawabkan.
+        </p>
+
+        </header>
+
+        <div
+        class="
+            mt-16
+            grid
+            gap-12
+            lg:grid-cols-2
+            lg:items-center
+        "
+        >
+
+        <!-- LEFT -->
+        <div
+            class="space-y-8"
+        >
+
+            {
+            tests.map((item) => (
+
+                <article
+                class="
+                    group
+                    border-b
+                    border-slate-200
+                    pb-8
+                "
+                >
+
+                <div
+                    class="
+                    flex
+                    gap-5
+                    items-start
+                    "
+                >
+
+                    <span
+                    class="
+                        text-4xl
+                        font-bold
+                        text-orange-500
+                        lg:text-5xl
+                    "
+                    >
+                    {item.number}
+                    </span>
+
+                    <div>
+
+                    <h3
+                        class="
+                        text-base
+                        md:text-xl
+                        font-bold
+                        text-amber-950
+                        transition
+                        group-hover:text-orange-500
+                        "
+                    >
+                        {item.title}
+                    </h3>
+
+                    <p
+                        class="
+                        mt-3
+                        text-sm
+                        md:text-base
+                        lg:text-lg
+                        leading-relaxed
+                        text-slate-600
+                        "
+                    >
+                        {item.description}
+                    </p>
+
+                    </div>
+
+                </div>
+
+                </article>
+
+            ))
+            }
+
+        </div>
+
+         <!-- IMAGE GRID -->
+            <div>
+
+                <div
+                class="
+                    grid
+                    grid-cols-2
+                    gap-4
+                "
+                >
+
+                <img
+                    src={HeroImage.src}
+                    alt="Audit Struktur Gedung"
+                    class="
+                    h-44
+                    md:h-56
+                    w-full
+                    rounded-3xl
+                    object-cover
+                    shadow-lg
+                    "
+                />
+
+                <img
+                    src={HeroImage.src}
+                    alt="Pengujian Struktur Bangunan"
+                    class="
+                    h-56
+                    md:h-72
+                    w-full
+                    rounded-3xl
+                    object-cover
+                    shadow-lg
+                    "
+                />
+
+                <img
+                    src={HeroImage.src}
+                    alt="Tim Audit Struktur"
+                    class="
+                    h-56
+                    md:h-72
+                    w-full
+                    rounded-3xl
+                    object-cover
+                    shadow-lg
+                    "
+                />
+
+                <img
+                    src={HeroImage.src}
+                    alt="Pemeriksaan Konstruksi"
+                    class="
+                    h-44
+                    md:h-56
+                    w-full
+                    rounded-3xl
+                    object-cover
+                    shadow-lg
+                    "
+                />
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    </section>
+
+    <!-- HASIL -->
+    <section class="bg-slate-50 py-20 md:py-24">
+        <div
+            class="mx-auto max-w-4xl px-6"
+        >
+
+            <div
+            class="grid gap-16"
+            >
+
+                <!-- CONTENT -->
+                <div>
+
+                    <span
+                    class="
+                        font-semibold
+                        text-base
+                        md:text-lg
+                        uppercase
+                        tracking-[0.25em]
+                        text-orange-500
+                    "
+                    >
+                    Hasil Audit Struktur
+                    </span>
+
+                    <h2
+                    class="
+                        mt-4
+                        text-2xl
+                        font-bold
+                        text-amber-950
+                        md:text-3xl
+                        lg:text-4xl
+                    "
+                    >
+                    Apa yang Akan Anda Dapatkan?
+                    </h2>
+
+                    <p
+                    class="
+                        mt-6
+                        text-sm
+                        lg:text-lg
+                        leading-relaxed
+                        text-slate-600
+                        md:text-base
+                    "
+                    >
+                    Setiap audit yang kami lakukan menghasilkan
+                    rekomendasi teknis yang dapat langsung digunakan
+                    sebagai dasar pengambilan keputusan untuk
+                    perbaikan, penguatan, maupun pengembangan bangunan.
+                    </p>
+
+                    <div
+                    class="mt-10 space-y-6"
+                    >
+
+                    {
+                        benefits.map((item) => (
+
+                        <div
+                            class="flex gap-4"
+                        >
+
+                            <div
+                            class="
+                                mt-1
+                                flex h-10 w-10 shrink-0
+                                items-center justify-center
+                                rounded-full
+                                bg-orange-100
+                            "
+                            >
+
+                            ✓
+
+                            </div>
+
+                            <div>
+
+                            <h3
+                                class="
+                                text-base
+                                md:text-lg
+                                lg:text-xl
+                                font-semibold
+                                text-amber-950
+                                "
+                            >
+                                {item.title}
+                            </h3>
+
+                            <p
+                                class="
+                                mt-2
+                                text-sm
+                                md:text-base
+                                lg:text-lg
+                                text-slate-600
+                                "
+                            >
+                                {item.description}
+                            </p>
+
+                            </div>
+
+                        </div>
+
+                        ))
+                    }
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PERTANYAAN -->
+    <style>
+        .faq-item summary::-webkit-details-marker {
+        display: none;
+        }
+
+        .faq-item[open] .faq-icon {
+            transform: rotate(45deg);
+        }
+        .faq-item div {
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item[open] div {
+            grid-template-rows: 1fr;
+        }
+        .faq-item summary:hover h3 {
+            color: #92400e;
+        }
+    </style>
+
+    <!-- FAQ -->
+    <section
+    id="faq"
+    aria-labelledby="faq-heading"
+    class="bg-white py-10 lg:py-24"
+    >
+    <div class="mx-auto max-w-6xl px-6">
+
+        <!-- Heading -->
+        <header class="mb-16 text-center">
+
+        <h2
+            id="faq-heading"
+            class="
+            text-xl
+            font-bold
+            tracking-tight
+            text-amber-950
+            md:text-2xl
+            lg:text-4xl
+            "
+        >
+            Pertanyaan Umum Seputar Audit Struktur
+        </h2>
+
+        <p
+            class="
+            mx-auto
+            mt-6
+            max-w-4xl
+            text-sm
+            md:text-md
+            lg:text-xl
+            leading-relaxed
+            text-slate-600
+            "
+        >
+            Pertanyaan yang sering diajukan oleh klien kami.
+        </p>
+
+        </header>
+
+        <!-- FAQ List -->
+        <div class="space-y-0">
+
+        {
+            faqs.map((faq) => (
+            <details
+                class="
+                faq-item
+                border-t
+                border-slate-300
+                py-2
+                "
+            >
+                <summary
+                class="
+                    flex
+                    cursor-pointer
+                    list-none
+                    items-center
+                    justify-between
+                    gap-6
+                    py-6
+                    text-left
+                "
+                >
+
+                <h3
+                    class="
+                    text-md
+                    font-semibold
+                    text-amber-950
+                    md:text-xl
+                    lg:text-2xl
+                    "
+                >
+                    {faq.question}
+                </h3>
+
+                <span
+                    class="
+                    faq-icon
+                    flex
+                    h-10
+                    w-10
+                    items-center
+                    justify-center
+                    text-4xl
+                    font-light
+                    text-black
+                    transition-transform
+                    "
+                >
+                    +
+                </span>
+
+                </summary>
+
+                <div
+                class="
+                    max-w-5xl
+                    pb-8
+                    pr-12
+                "
+                >
+                <p
+                    class="
+                    text-sm
+                    md:text-md
+                    lg:text-xl
+                    leading-relaxed
+                    text-slate-700
+                    "
+                >
+                    {faq.answer}
+                </p>
+                </div>
+
+            </details>
+            ))
+        }
+
+        <div class="border-t border-slate-300"></div>
+
+        </div>
+
+    </div>
+    </section>
+
+    <!-- CTA -->
+    <section
+    class="
+        bg-white
+        py-14
+        md:py-24
+        text-center
+        text-amber-950
+    "
+    >
+
+    <div
+        class="
+        mx-auto
+        max-w-4xl
+        px-6
+        "
+    >
+
+        <h2
+        class="
+            text-2xl
+            font-bold
+            md:text-3xl
+            lg:text-5xl
+        "
+        >
+        Masih Punya Pertanyaan?
+        </h2>
+
+        <p
+        class="
+            mt-6
+            text-md
+            md:text-lg
+            lg:text-xl
+            text-slate-700
+        "
+        >
+        Hubungi kami untuk konsultasi kebutuhan Anda, <b>Gratis!</b>
+        </p>
+
+        <a
+            href="https://wa.me/6281376928398"
+            target="_blank"
+            class="inline-flex mt-10 items-center gap-2 rounded-full bg-green-600 px-6 py-2 md:px-7 md:py-3 text-xs md:text-lg font-bold tracking-wide text-white transition hover:bg-green-700"
+        >
+            <!-- WhatsApp icon SVG -->
+            <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
+            </svg>
+            Konsultasi
+        </a>
+
+    </div>
+
+    </section>
+
+	<Footer />
+</Layout>

@@ -1,0 +1,232 @@
+---
+const workflow = [
+  {
+    step: "01",
+    title: "Survei Awal",
+    description:
+      "Peninjauan lokasi dan pengumpulan dokumen teknis untuk menentukan ruang lingkup pengujian.",
+  },
+  {
+    step: "02",
+    title: "Pengujian Lapangan",
+    description:
+      "Pengujian material menggunakan metode NDT dan DT untuk memperoleh data teknis yang akurat.",
+  },
+  {
+    step: "03",
+    title: "Analisis Data",
+    description:
+      "Data hasil pengujian dianalisis menggunakan perangkat lunak struktur modern.",
+  },
+  {
+    step: "04",
+    title: "Penyerahan Laporan",
+    description:
+      "Penyusunan laporan teknis lengkap beserta rekomendasi perbaikan dan penguatan struktur.",
+  },
+];
+---
+
+<section
+  class="bg-slate-50 py-18"
+>
+
+  <div class="mx-auto max-w-7xl px-6">
+
+    <header class="text-center">
+
+      <span
+        class="font-semibold uppercase tracking-[0.2em] text-sm md:text-md lg:text-lg text-orange-500"
+      >
+        Alur Kerja Kami
+      </span>
+
+      <h2
+        class="mt-4 text-2xl font-bold text-amber-950 md:text-4xl"
+      >
+        4 Tahap Audit Struktur
+      </h2>
+
+      <p
+        class="mx-auto mt-6 text-sm md:text-lg max-w-3xl text-slate-600"
+      >
+        Solusi teknis menyeluruh untuk memastikan
+        kepatuhan standar SNI dan keamanan jangka panjang bangunan Anda.
+      </p>
+
+    </header>
+
+    <div class="mt-12 md:mt-16">
+
+      <!-- Desktop Timeline -->
+      <div class="hidden lg:block">
+
+        <div class="relative">
+
+          <!-- Garis utama -->
+          <div
+            class="
+              absolute
+              left-0
+              right-0
+              top-10
+              h-1
+              bg-amber-950
+            "
+          ></div>
+
+          <div class="grid grid-cols-4 gap-10">
+
+            {
+              workflow.map((item) => (
+
+                <article
+                  class="
+                    relative
+                    text-center
+                  "
+                >
+
+                  <div
+                    class="
+                      relative
+                      z-10
+                      mx-auto
+                      flex
+                      h-20
+                      w-20
+                      items-center
+                      justify-center
+                      rounded-full
+                      border-4
+                      border-orange-300
+                      bg-orange-500
+                    text-white
+                      text-2xl
+                      font-bold
+                                      
+                    "
+                  >
+                    {item.step}
+                  </div>
+
+                  <h3
+                    class="
+                      mt-8
+                      text-2xl
+                      font-bold
+                      text-amber-950
+                    "
+                  >
+                    {item.title}
+                  </h3>
+
+                  <p
+                    class="
+                      mt-4
+                      text-sm
+                      md:text-md
+                      lg:text-lg
+                      text-slate-600
+                      leading-relaxed
+                    "
+                  >
+                    {item.description}
+                  </p>
+
+                </article>
+
+              ))
+            }
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Mobile & Tablet -->
+      <div
+        class="
+          lg:hidden
+          space-y-10
+        "
+      >
+
+        {
+          workflow.map((item) => (
+
+            <article
+              class="
+                relative
+                pl-16
+              "
+            >
+
+              <!-- Vertical Line -->
+              <div
+                class="
+                  absolute
+                  left-5
+                  top-0
+                  h-full
+                  w-0.5
+                  bg-amber-950
+                "
+              ></div>
+
+              <!-- Circle -->
+              <div
+                class="
+                  absolute
+                  left-0
+                  top-0
+                  flex
+                  h-10
+                  w-10
+                  items-center
+                  justify-center
+                  rounded-full
+                  bg-amber-950
+                  font-bold
+                  text-white
+                "
+              >
+                {item.step}
+              </div>
+
+              <h3
+                class="
+                  text-lg
+                  font-bold
+                  text-amber-950
+                "
+              >
+                {item.title}
+              </h3>
+
+              <p
+                class="
+                  mt-3
+                  text-sm
+                  md:text-md
+                  lg:text-lg
+                  text-slate-600
+                  leading-relaxed
+                "
+              >
+                {item.description}
+              </p>
+
+            </article>
+
+          ))
+        }
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>

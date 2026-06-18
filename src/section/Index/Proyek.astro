@@ -1,33 +1,34 @@
 ---
 import Project1 from "../../images/hero.jpeg";
 import Project2 from "../../images/hero.jpeg";
+import BackgroundImage from "../../images/hero.jpeg";
 
 const projects = [
   {
-    title: "Audit Struktur Gedung",
+    title: "Retaining Wall Jakarta",
     description:
-      "Kami membantu klien melakukan audit dan evaluasi struktur untuk memastikan keamanan, efisiensi, dan kepatuhan terhadap standar konstruksi yang berlaku.",
+      "Terdapat retakan pada struktur Retaining Wall. PT JTI melakukan pengujian UPV Crack untuk mengetahui kedalaman retak pada struktur beton tersebut.",
     image: Project1,
     href: "/proyek/audit-struktur",
   },
   {
-    title: "Investigasi Geoteknik",
+    title: "Bangunan MTS",
     description:
-      "Melakukan pengujian dan analisis kondisi tanah untuk mendukung proses perencanaan dan pembangunan infrastruktur yang lebih akurat.",
+      "Bangunan sudah berumur, dan ingin menambah lantai. PT JTI melakukan Pengujian UPV (Ultrasonic Pulse Velocity) menggunakan metode Non-Destructive Testing (NDT) yang digunakan untuk mengevaluasi mutu dan integritas beton",
     image: Project2,
     href: "/proyek/investigasi-geoteknik",
   },
   {
-    title: "Investigasi Geoteknik",
+    title: "Dermaga Kendal, Jawa Tengah",
     description:
-      "Melakukan pengujian dan analisis kondisi tanah untuk mendukung proses perencanaan dan pembangunan infrastruktur yang lebih akurat.",
+      "PT JTI di tunjuk untuk mengecek struktur dermaga untuk memastikan kelayakan pada dermaga. Item pengujian yang kami lakukan adalah pengujian HAMERR TEST dan Analisis Struktur Dermaga",
     image: Project2,
     href: "/proyek/investigasi-geoteknik",
   },
   {
-    title: "Investigasi Geoteknik",
+    title: "JPO Polda Jakarta",
     description:
-      "Melakukan pengujian dan analisis kondisi tanah untuk mendukung proses perencanaan dan pembangunan infrastruktur yang lebih akurat.",
+      "terjadi Pengecekan struktur bangunan berkala setaip 5 tahun sekali. Item pengujian yang digunakan adalah UPV Tes, Hammer Tes, Covermeter Tes dan Levelling verticality ",
     image: Project2,
     href: "/proyek/investigasi-geoteknik",
   },
@@ -36,7 +37,7 @@ const projects = [
 
 <section
   id="projects"
-  class="bg-slate-50 py-24 lg:py-32"
+  class="bg-slate-50 py-14 lg:py-24"
 >
   <div class="mx-auto max-w-7xl px-6 lg:px-12">
 
@@ -46,10 +47,11 @@ const projects = [
       <span
         class="
         text-sm
+        md:text-lg
+        text-orange-500
         font-semibold
         uppercase
         tracking-[0.3em]
-        text-orange-500
       "
       >
         PORTOFOLIO
@@ -58,13 +60,13 @@ const projects = [
       <h2
         class="
         mt-4
-        text-3xl
+        text-2xl md:text-4xl
         font-bold
-        text-slate-900
-        md:text-5xl
+        text-amber-950
+        lg:text-5xl
       "
       >
-        Proyek Unggulan Kami
+        Proyek Terbaru Kami
       </h2>
 
       <p
@@ -72,7 +74,9 @@ const projects = [
         mx-auto
         mt-6
         max-w-3xl
-        text-lg
+        text-sm
+        md:text-md
+        lg:text-lg
         text-slate-600
       "
       >
@@ -147,7 +151,9 @@ const projects = [
 
                 <h3
                   class="
-                  text-3xl
+                  text-xl
+                  md:text-2xl
+                  lg:text-3xl
                   font-bold
                   text-slate-900
                   "
@@ -157,6 +163,9 @@ const projects = [
 
                 <p
                   class="
+                  text-sm
+                  md:text-md
+                  lg:text-lg
                   mt-6
                   leading-relaxed
                   text-slate-600
@@ -168,6 +177,9 @@ const projects = [
                 <a
                   href={project.href}
                   class="
+                  text-sm
+                  md:text-md
+                  lg:text-lg
                   mt-8
                   inline-flex
                   items-center
@@ -219,14 +231,18 @@ const projects = [
           inline-flex
           items-center
           gap-3
-          rounded-full
-          bg-amber-950
-          px-8
-          py-4
+          rounded-2xl
+          bg-orange-500
+          text-sm
+          md:text-lg
+          px-4
+          py-2
+          md:px-6
+          md:py-3
           font-semibold
           text-white
           transition
-          hover:bg-amber-900
+          hover:bg-orange-600
         "
       >
         Lihat Semua Proyek
@@ -251,3 +267,182 @@ const projects = [
     </div>
   </div>
 </section>
+
+<section
+  id="statistics"
+  class="relative overflow-hidden"
+>
+
+  <!-- Background -->
+  <div
+    class="absolute inset-0 bg-cover bg-center bg-fixed"
+    style={`background-image:url(${BackgroundImage.src})`}
+  >
+    <div class="absolute inset-0 bg-black/65"></div>
+  </div>
+
+  <!-- Content -->
+  <div
+    class="relative z-10 mx-auto max-w-7xl px-6 py-24 lg:px-12 lg:py-36"
+  >
+
+    <header class="sr-only">
+      <h2>Statistik Perusahaan</h2>
+    </header>
+
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 gap-10 text-center text-white lg:grid-cols-4"
+    >
+
+      <!-- ITEM -->
+      <article>
+
+        <div
+          class="counter text-4xl md:text-5xl lg:text-6xl font-light"
+          data-target="100"
+        >
+          0
+        </div>
+
+        <p
+          class="mt-4 text-xl md:text-2xl lg:text-3xl text-white/90"
+        >
+          Proyek
+        </p>
+
+      </article>
+
+      <!-- ITEM -->
+      <article>
+
+        <div
+          class="counter text-4xl md:text-5xl lg:text-6xl font-light"
+          data-target="23"
+        >
+          0
+        </div>
+
+        <p
+          class="mt-4 text-xl md:text-2xl lg:text-3xl text-white/90"
+        >
+          Kota
+        </p>
+
+      </article>
+
+      <!-- ITEM -->
+      <article>
+
+        <div
+          class="counter text-4xl md:text-5xl lg:text-6xl font-light"
+          data-target="50"
+        >
+          0
+        </div>
+
+        <p
+          class="mt-4 text-xl md:text-2xl lg:text-3xl text-white/90"
+        >
+          Klien
+        </p>
+
+      </article>
+
+      <!-- ITEM -->
+      <article>
+
+        <div
+          class="counter text-4xl md:text-5xl lg:text-6xl font-light"
+          data-target="8"
+        >
+          0
+        </div>
+
+        <p
+          class="mt-4 text-xl md:text-2xl lg:text-3xl text-white/90"
+        >
+          Tahun Pengalaman
+        </p>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  const counters = document.querySelectorAll(".counter");
+
+  let started = false;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+
+      entries.forEach((entry) => {
+
+        if (entry.isIntersecting && !started) {
+
+          started = true;
+
+          counters.forEach((counter) => {
+
+            const target = Number(
+              counter.getAttribute("data-target")
+            );
+
+            let current = 0;
+
+            const increment =
+              target / 80;
+
+            const updateCounter = () => {
+
+              current += increment;
+
+              if (current < target) {
+
+                counter.textContent =
+                  Math.floor(current) + "+";
+
+                requestAnimationFrame(
+                  updateCounter
+                );
+
+              } else {
+
+                counter.textContent =
+                  target + "+";
+
+              }
+
+            };
+
+            updateCounter();
+
+          });
+
+        }
+
+      });
+
+    },
+    {
+      threshold: 0.4,
+    }
+  );
+
+  const section =
+    document.getElementById(
+      "statistics"
+    );
+
+  if (section) {
+    observer.observe(section);
+  }
+
+});
+</script>

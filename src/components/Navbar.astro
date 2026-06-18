@@ -2,20 +2,44 @@
 import Logo from "../images/logo.png";
 
 const mobileMenus = [
-    { label: "BERANDA", href: "#" },
-    { label: "TENTANG KAMI", href: "#" },
-    { label: "LAYANAN", href: "#" },
-    { label: "PROYEK", href: "#" },
-    { label: "KLIEN", href: "#" },
-    { label: "KONTAK", href: "#" },
-    { label: "ARTIKEL", href: "#" },
+    { label: "BERANDA", href: "/" },
+    { label: "TENTANG KAMI", href: "/tentang-kami" },
+    { label: "LAYANAN", href: "/layanan" },
+    { label: "PROYEK", href: "/proyek" },
+    { label: "KLIEN", href: "/klien" },
+    { label: "KONTAK", href: "/kontak" },
+    { label: "ARTIKEL", href: "/artikel" },
 ];
 
 const layanan = [
-    "Konstruksi Bangunan",
-    "Infrastruktur Jalan",
-    "Manajemen Proyek",
-    "Konsultan Teknik",
+    {
+        title: "Audit & Hitung Struktur Bangunan",
+        href: "/layanan/audit-struktur",
+    },
+    {
+        title: "Assessment Gedung",
+        href: "/layanan/assessment",
+    },
+    {
+        title: "Perizinan Bangunan Gedung",
+        href: "/layanan/perizinan-pbg",
+    },
+    {
+        title: "Perencanaan MEP",
+        href: "/layanan/perencanaan-mep",
+    },
+    {
+        title: "Manajemen Konstruksi & Pengawasan",
+        href: "/layanan/manajemen-konstruksi-pengawasan",
+    },
+    {
+        title: "Sertifikat Laik Fungsi",
+        href: "/layanan/slf",
+    },
+    {
+        title: "Penyelidikan Tanah & Geoteknik",
+        href: "/layanan/penyelidikan-tanah-geoteknik",
+    },
 ];
 ---
 
@@ -33,12 +57,12 @@ const layanan = [
         <!-- DESKTOP LEFT -->
         <nav class="hidden lg:flex items-center gap-14">
 
-            <a href="#"
+            <a href="/"
                 class="nav-link nav-hover text-sm font-semibold tracking-wide">
                 BERANDA
             </a>
 
-            <a href="#"
+            <a href="/tentang-kami"
                 class="nav-link nav-hover text-sm font-semibold tracking-wide">
                 TENTANG KAMI
             </a>
@@ -92,10 +116,10 @@ const layanan = [
                     {
                         layanan.map((item) => (
                             <a
-                                href="#"
-                                class="block rounded-xl px-4 py-3 text-slate-700 transition hover:bg-slate-100"
+                            href={item.href}
+                            class="block rounded-xl px-4 py-3 text-slate-700 hover:bg-slate-100"
                             >
-                                {item}
+                            {item.title}
                             </a>
                         ))
                     }
@@ -121,22 +145,22 @@ const layanan = [
         <!-- DESKTOP RIGHT -->
         <nav class="hidden lg:flex items-center gap-14">
 
-            <a href="#"
+            <a href="/proyek"
                 class="nav-link nav-hover text-sm font-semibold tracking-wide">
                 PROYEK
             </a>
 
-            <a href="#"
+            <a href="/klien"
                 class="nav-link nav-hover text-sm font-semibold tracking-wide">
                 KLIEN
             </a>
 
-            <a href="#"
+            <a href="/kontak"
                 class="nav-link nav-hover text-sm font-semibold tracking-wide">
                 KONTAK
             </a>
 
-            <a href="#"
+            <a href="/artikel"
                 class="nav-link nav-hover text-sm font-semibold tracking-wide">
                 ARTIKEL
             </a>

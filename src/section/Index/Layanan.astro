@@ -1,46 +1,47 @@
 ---
+import { Icon } from "astro-icon/components";
 const services = [
+  {
+    title: "Jasa Audit & Hitung Struktur Bangunan",
+    description:
+      "Jasa hitung struktur bangunan dengan pemodelan digital & Non-Destructive Test (NDT) untuk laporan teknis valid.",
+     icon: "heroicons:calculator",
+  },
   {
     title: "Audit Struktur & Assessment Gedung",
     description:
       "Pengujian NDT (Non-Destructive Test), Hardness Test, dan Ultrasonic Pulse Velocity (UPV) untuk evaluasi kekuatan beton dan baja.",
-    icon: "/icons/audit.png",
+     icon: "heroicons:clipboard-document-check",
   },
   {
     title: "Perizinan Bangunan Gedung (PBG)",
     description:
       "Transformasi dari IMB ke PBG dengan proses yang transparan dan tepat waktu.",
-    icon: "/icons/design.png",
+    icon: "heroicons:building-office-2",
   },
   {
     title: "Perencanaan Mekanikal, Elektrikal, & Plumbing (MEP)",
     description:
       "Desain teknik mendetail mencakup sipil, ME (Mekanikal Elektrikal), dan plumbing atau MEP.",
-    icon: "/icons/drawing.png",
+    icon: "heroicons:cog-6-tooth",
   },
   {
     title: "Manajemen Konstruksi & Pengawasan",
     description:
       "Memastikan proyek berjalan sesuai spesifikasi teknik dan standar keselamatan.",
-    icon: "/icons/traffic.png",
+     icon: "heroicons:wrench-screwdriver",
   },
   {
     title: "Sertifikat Laik Fungsi (SLF)",
     description:
       "Jasa pengurusan SLF mulai dari kajian teknis hingga terbit sertifikat untuk pemenuhan regulasi pemerintah.",
-    icon: "/icons/soil.png",
+    icon: "heroicons:document-check",
   },
   {
     title: "Penyelidikan Tanah & Geoteknik",
     description:
       "Sondir dan Boring untuk memastikan daya dukung pondasi bangunan.",
-    icon: "/icons/rab.png",
-  },
-   {
-    title: "Jasa Audit & Hitung Struktur Bangunan",
-    description:
-      "Jasa hitung struktur bangunan dengan pemodelan digital & Non-Destructive Test (NDT) untuk laporan teknis valid.",
-    icon: "/icons/rab.png",
+    icon: "heroicons:map",
   },
 ];
 
@@ -49,45 +50,45 @@ const reasons = [
         title: "Tenaga Ahli Bersertifikat",
         description:
         "Tim engineer berpengalaman dengan lisensi resmi.",
-        icon: "/icons/rab.png",
+        icon: "heroicons:academic-cap",
     },
     {
-        title: "Peralatan Modern",
+        title: "Peralatan Modern & Terbaru",
         description:
         "Menggunakan alat ukur kalibrasi terbaru untuk akurasi data.",
-        icon: "/icons/rab.png",
+        icon: "heroicons:wrench",
     },
     {
         title: "Laporan Komprehensif",
         description:
         "Hasil audit detail yang diakui oleh instansi teknis terkait.",
-        icon: "/icons/rab.png",
+        icon: "heroicons:document-text",
     },
     {
         title: "Layanan Seluruh Indonesia",
         description:
         "Berbasis di Alam Sutera, siap melayani proyek di berbagai wilayah.",
-        icon: "/icons/rab.png",
+        icon: "heroicons:globe-asia-australia",
     },
 ];
 ---
 
 <section
   id="services"
-  class="bg-slate-50 py-20 lg:py-28"
+  class="bg-white py-14 lg:py-24"
 >
   <div class="mx-auto max-w-7xl px-6">
 
     <header class="mx-auto max-w-4xl text-center">
 
       <h2
-        class="text-2xl md:text-4xl font-bold text-amber-950 lg:text-6xl"
+        class="text-2xl md:text-3xl lg:text-5xl font-bold text-amber-950"
       >
         Layanan Kami
       </h2>
 
       <p
-        class="mx-auto mt-6 max-w-3xl text-lg text-slate-600"
+        class="mx-auto mt-6 max-w-3xl text-sm md:text-lg leading-relaxed text-slate-600"
       >
         Sebagai konsultan teknik sipil, kami menyediakan berbagai layanan
         profesional untuk memastikan proyek berjalan optimal.
@@ -109,32 +110,34 @@ const reasons = [
             <div
               class="
               flex
-              h-28
-              w-28
+              h-20
+              w-20
+              md:h-24
+              md:w-24
               shrink-0
               items-center
               justify-center
               rounded-2xl
-              bg-amber-950
+            bg-orange-100
+            text-orange-600
             "
             >
-              <img
-                src={service.icon}
-                alt={service.title}
-                class="h-14 w-14 object-contain"
+               <Icon
+                name={service.icon}
+                class="h-10 w-10 md:h-14 md:w-14"
               />
             </div>
 
             <div>
 
               <h3
-                class="text-2xl font-bold text-amber-950"
+                class="text-lg md:text-2xl font-bold text-amber-950"
               >
                 {service.title}
               </h3>
 
               <p
-                class="mt-3 leading-relaxed text-slate-600"
+                class="mt-3 leading-relaxed text-xs md:text-md lg:text-lg text-slate-600"
               >
                 {service.description}
               </p>
@@ -152,10 +155,10 @@ const reasons = [
 </section>
 
 <section
-  class="bg-slate-50 pb-24"
+  class="bg-white pb-24"
 >
   <div
-    class="mx-auto max-w-7xl px-6"
+    class="mx-auto w-[85%] md:max-w-7xl px-6"
   >
 
     <header
@@ -163,7 +166,7 @@ const reasons = [
     >
 
       <h2
-        class="text-2xl md:text-4xl font-bold uppercase text-amber-950"
+        class="text-2xl md:text-3xl lg:text-4xl font-bold text-amber-950"
       >
         Mengapa Memilih Kami?
       </h2>
@@ -198,25 +201,25 @@ const reasons = [
               w-16
               items-center
               justify-center
-              rounded-full
-              border-4
-              border-amber-950
               text-amber-950
             "
             >
-              ★
+               <Icon
+                name={reason.icon}
+                class="h-14 w-14 text-black"
+              />
             </div>
 
              <div>
 
               <h3
-                class="text-2xl mt-6 font-bold text-amber-950"
+                class="text-lg md:text-xl lg:text-2xl mt-6 font-bold text-amber-950"
               >
                 {reason.title}
               </h3>
 
               <p
-                class="mt-3 leading-relaxed text-slate-600"
+                class="mt-3 leading-relaxed text-slate-600 text-sm md:text-md lg:text-lg"
               >
                 {reason.description}
               </p>

@@ -1,0 +1,178 @@
+---
+import BackgroundImage from "../../images/hero.jpeg";
+---
+
+<section
+  id="statistics"
+  class="relative overflow-hidden bg-slate-50"
+>
+
+  <!-- Background -->
+  <!-- <div
+    class="absolute inset-0 bg-cover bg-center bg-fixed"
+    style={`background-image:url(${BackgroundImage.src})`}
+  >
+    <div class="absolute inset-0 bg-black/65"></div>
+  </div> -->
+
+  <!-- Content -->
+  <div
+    class="relative z-10 mx-auto max-w-7xl px-6 pb-18 lg:px-12 lg:pb-24"
+  >
+
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 gap-10 text-center text-orange-500 lg:grid-cols-4"
+    >
+
+      <!-- ITEM -->
+      <article>
+
+        <div
+          class="counter text-3xl md:text-4xl lg:text-5xl font-bold"
+          data-target="100"
+        >
+          0
+        </div>
+
+        <p
+          class="mt-4 text-lg md:text-xl lg:text-2xl text-orange-500"
+        >
+          Proyek
+        </p>
+
+      </article>
+
+      <!-- ITEM -->
+      <article>
+
+        <div
+          class="counter text-3xl md:text-4xl lg:text-5xl font-bold"
+          data-target="23"
+        >
+          0
+        </div>
+
+        <p
+          class="mt-4 text-lg md:text-xl lg:text-2xl text-orange-500"
+        >
+          Kota
+        </p>
+
+      </article>
+
+      <!-- ITEM -->
+      <article>
+
+        <div
+          class="counter text-3xl md:text-4xl lg:text-5xl font-bold"
+          data-target="50"
+        >
+          0
+        </div>
+
+        <p
+          class="mt-4 text-lg md:text-xl lg:text-2xl text-orange-500"
+        >
+          Klien
+        </p>
+
+      </article>
+
+      <!-- ITEM -->
+      <article>
+
+        <div
+          class="counter text-3xl md:text-4xl lg:text-5xl font-bold"
+          data-target="8"
+        >
+          0
+        </div>
+
+        <p
+          class="mt-4 text-lg md:text-xl lg:text-2xl text-orange-500"
+        >
+          Tahun Pengalaman
+        </p>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  const counters = document.querySelectorAll(".counter");
+
+  let started = false;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+
+      entries.forEach((entry) => {
+
+        if (entry.isIntersecting && !started) {
+
+          started = true;
+
+          counters.forEach((counter) => {
+
+            const target = Number(
+              counter.getAttribute("data-target")
+            );
+
+            let current = 0;
+
+            const increment =
+              target / 80;
+
+            const updateCounter = () => {
+
+              current += increment;
+
+              if (current < target) {
+
+                counter.textContent =
+                  Math.floor(current) + "+";
+
+                requestAnimationFrame(
+                  updateCounter
+                );
+
+              } else {
+
+                counter.textContent =
+                  target + "+";
+
+              }
+
+            };
+
+            updateCounter();
+
+          });
+
+        }
+
+      });
+
+    },
+    {
+      threshold: 0.4,
+    }
+  );
+
+  const section =
+    document.getElementById(
+      "statistics"
+    );
+
+  if (section) {
+    observer.observe(section);
+  }
+
+});
+</script>

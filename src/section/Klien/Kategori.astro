@@ -1,0 +1,168 @@
+---
+import HeroImage from "../../images/hero.jpeg";
+
+const sectors = [
+  {
+    title: "Instansi Pemerintah",
+    description:
+      "Mendukung audit struktur, kajian teknis, serta pengurusan dokumen bangunan untuk berbagai instansi pemerintah pusat maupun daerah.",
+    image: HeroImage,
+  },
+  {
+    title: "BUMN",
+    description:
+      "Berpengalaman menangani kebutuhan audit bangunan, inspeksi struktur, dan konsultansi teknik pada berbagai proyek BUMN.",
+    image: HeroImage,
+  },
+  {
+    title: "Perusahaan Manufaktur",
+    description:
+      "Evaluasi keamanan struktur pabrik, gudang, fasilitas produksi, serta perencanaan pengembangan bangunan industri.",
+    image: HeroImage,
+  },
+  {
+    title: "Developer Properti",
+    description:
+      "Pendampingan teknis mulai dari studi kelayakan, audit struktur, hingga pengawasan konstruksi proyek properti.",
+    image: HeroImage,
+  },
+  {
+    title: "Rumah Sakit",
+    description:
+      "Audit dan pemeriksaan struktur bangunan fasilitas kesehatan untuk memastikan keamanan operasional jangka panjang.",
+    image: HeroImage,
+  },
+  {
+    title: "Universitas & Sekolah",
+    description:
+      "Pemeriksaan gedung, laboratorium, dan fasilitas pendidikan sesuai standar teknis dan keselamatan bangunan.",
+    image: HeroImage,
+  },
+  {
+    title: "Gedung Perkantoran",
+    description:
+      "Analisis kondisi struktur bangunan perkantoran guna menjaga keamanan, kenyamanan, dan kepatuhan regulasi.",
+    image: HeroImage,
+  },
+  {
+    title: "Industri & Pabrik",
+    description:
+      "Layanan audit struktur, inspeksi fasilitas industri, serta rekomendasi perkuatan bangunan apabila diperlukan.",
+    image: HeroImage,
+  },
+];
+---
+
+<section class="py-20 lg:py-28 bg-slate-50">
+
+    <div class="mx-auto w-[90%] px-6">
+
+        <header class="mx-auto max-w-3xl text-center">
+
+            <span
+              class="
+              font-semibold
+              uppercase
+              tracking-[0.3em]
+              text-orange-500
+              text-sm md:text-md lg:text-lg
+            ">
+                Sektor Layanan
+            </span>
+
+            <h2
+                class="
+          mt-4
+          text-2xl
+          font-bold
+          text-amber-950
+          md:text-4xl
+        ">
+                Sektor yang Kami Layani
+            </h2>
+
+            <p class="
+          mt-6
+          text-slate-600
+          text-sm md:text-lg max-w-3xl
+        ">
+                Pengalaman kami mencakup berbagai sektor industri,
+                instansi pemerintah, dan perusahaan swasta di seluruh Indonesia.
+            </p>
+
+        </header>
+
+        <div class="
+        mt-14
+        grid
+        gap-8
+        md:grid-cols-2
+        xl:grid-cols-4
+      ">
+
+            {
+            sectors.map((sector) => (
+
+            <article
+                class="
+              group
+              overflow-hidden
+              rounded-3xl
+              bg-white
+              shadow-lg
+              transition
+              duration-300
+              hover:-translate-y-2
+              hover:shadow-2xl
+            ">
+
+                <div class="overflow-hidden">
+
+                    <img src={sector.image.src} alt={sector.title} loading="lazy"
+                        class="
+                  h-56
+                  w-full
+                  object-cover
+                  transition
+                  duration-500
+                  group-hover:scale-110
+                " />
+
+                </div>
+
+                <div class="p-8">
+
+                    <h3
+                        class="
+                  text-lg
+                  md:text-xl
+                  lg:text-2xl
+                  font-bold
+                  text-amber-950
+                ">
+                        {sector.title}
+                    </h3>
+
+                    <p
+                        class="
+                  mt-4
+                  text-sm
+                  md:text-base
+                  leading-relaxed
+                  text-slate-600
+                ">
+                        {sector.description}
+                    </p>
+
+                </div>
+
+            </article>
+
+            ))
+            }
+
+        </div>
+
+    </div>
+
+</section>

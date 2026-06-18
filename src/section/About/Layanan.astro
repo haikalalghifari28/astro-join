@@ -1,0 +1,265 @@
+---
+import HeroImage from "../../images/hero.jpeg";
+
+const services = [
+   {
+    title: "Jasa Audit & Hitung Struktur Bangunan",
+    description:
+      "Jasa hitung struktur bangunan dengan pemodelan digital dan NDT untuk laporan teknis yang valid.",
+  },
+  {
+    title: "Audit Struktur & Assessment Gedung",
+    description:
+      "Pengujian NDT (Non-Destructive Test), Hardness Test, dan Ultrasonic Pulse Velocity (UPV) untuk evaluasi kekuatan beton dan baja.",
+  },
+  {
+    title: "Perizinan Bangunan Gedung (PBG)",
+    description:
+      "Transformasi dari IMB ke PBG dengan proses yang transparan dan tepat waktu.",
+  },
+  {
+    title: "Perencanaan Mekanikal, Elektrikal, & Plumbing (MEP)",
+    description:
+      "Desain teknik mendetail mencakup sipil, ME (Mekanikal Elektrikal), dan plumbing atau MEP.",
+  },
+  {
+    title: "Manajemen Konstruksi & Pengawasan",
+    description:
+      "Memastikan proyek berjalan sesuai spesifikasi teknik dan standar keselamatan.",
+  },
+  {
+    title: "Sertifikat Laik Fungsi (SLF)",
+    description:
+      "Jasa pengurusan SLF mulai dari kajian teknis hingga terbit sertifikat untuk pemenuhan regulasi pemerintah.",
+  },
+  {
+    title: "Penyelidikan Tanah & Geoteknik",
+    description:
+      "Sondir dan Boring untuk memastikan daya dukung pondasi bangunan.",
+  },
+];
+---
+
+<section
+  id="layanan"
+  class="bg-slate-50 py-20 md:py-28"
+>
+
+  <div class="mx-auto max-w-7xl px-6">
+
+    <!-- Heading SEO -->
+    <header class="mx-auto max-w-4xl text-center">
+
+      <span
+        class="font-semibold uppercase tracking-[0.25em] text-sm md:text-md lg:text-lg text-orange-500"
+      >
+        Layanan Profesional
+      </span>
+
+      <h2
+        class="mt-4 text-3xl font-bold text-amber-950 md:text-5xl"
+      >
+        Layanan Kami
+      </h2>
+
+      <p
+        class="mt-6 text-sm leading-relaxed text-slate-600 md:text-lg"
+      >
+        PT Join Teknologi Internasional menyediakan layanan audit struktur,
+        perizinan bangunan, perencanaan teknik, geoteknik, hingga manajemen
+        konstruksi untuk mendukung keberhasilan proyek Anda.
+      </p>
+
+    </header>
+
+    <!-- Slider -->
+    <div class="relative mt-14">
+
+      <div
+        id="services-slider"
+        class="
+          flex
+          gap-6
+          overflow-x-auto
+          scroll-smooth
+          snap-x
+          snap-mandatory
+          pb-4
+          scrollbar-hide
+        "
+      >
+
+        {
+          services.map((service) => (
+
+            <article
+              class="
+                min-w-[85%]
+                md:min-w-[48%]
+                lg:min-w-[31.5%]
+                snap-start
+                overflow-hidden
+                rounded-3xl
+                bg-white
+                shadow-lg
+                transition
+                duration-300
+                hover:-translate-y-2
+                hover:shadow-2xl
+              "
+            >
+
+              <!-- Image -->
+
+              <a href="/layanan">
+
+                <img
+                  src={HeroImage.src}
+                  alt={service.title}
+                  loading="lazy"
+                  class="
+                    h-64
+                    w-full
+                    object-cover
+                  "
+                />
+
+              </a>
+
+              <!-- Content -->
+
+              <div class="p-8">
+
+                <h3
+                  class="text-lg md:text-xl lg:text-2xl font-bold text-amber-950"
+                >
+                  {service.title}
+                </h3>
+
+                <p
+                  class="mt-4 line-clamp-4 text-sm md:text-base text-slate-600"
+                >
+                  {service.description}
+                </p>
+
+                <a
+                  href="/layanan"
+                  class="
+                    mt-6
+                    text-sm
+                    md:text-md
+                    lg:text-lg
+                    inline-flex
+                    items-center
+                    gap-2
+                    font-semibold
+                    text-orange-500
+                    transition
+                    hover:gap-3
+                  "
+                >
+                  Pelajari Selengkapnya
+
+                  <span>→</span>
+
+                </a>
+
+              </div>
+
+            </article>
+
+          ))
+        }
+
+      </div>
+
+      <!-- Navigation -->
+
+      <div
+        class="
+          mt-10
+          flex
+          justify-end
+          gap-4
+        "
+      >
+
+        <button
+          id="prev-service"
+          aria-label="Previous Service"
+          class="
+            flex
+            h-14
+            w-14
+            items-center
+            justify-center
+            rounded-full
+            border
+            border-slate-300
+            bg-white
+            text-slate-700
+            transition
+            hover:border-orange-500
+            hover:text-orange-500
+          "
+        >
+          ←
+        </button>
+
+        <button
+          id="next-service"
+          aria-label="Next Service"
+          class="
+            flex
+            h-14
+            w-14
+            items-center
+            justify-center
+            rounded-full
+            border
+            border-slate-300
+            bg-white
+            text-slate-700
+            transition
+            hover:border-orange-500
+            hover:text-orange-500
+          "
+        >
+          →
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<script>
+
+  const slider = document.getElementById('services-slider');
+  const nextBtn = document.getElementById('next-service');
+  const prevBtn = document.getElementById('prev-service');
+
+  if (slider && nextBtn && prevBtn) {
+
+    const scrollAmount = 420;
+
+    nextBtn.addEventListener('click', () => {
+      slider.scrollBy({
+        left: scrollAmount,
+        behavior: 'smooth',
+      });
+    });
+
+    prevBtn.addEventListener('click', () => {
+      slider.scrollBy({
+        left: -scrollAmount,
+        behavior: 'smooth',
+      });
+    });
+
+  }
+
+</script>
