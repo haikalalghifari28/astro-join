@@ -84,6 +84,89 @@ const tests = [
   },
 ];
 
+const workflow = [
+  {
+    icon: "heroicons:shield-check",
+    title: "Akurasi dan Kredibilitas Tinggi",
+    description:
+      "Dilengkapi peralatan pengujian canggih (NDT) dan metode analisis terkini, kami memberikan hasil audit yang akurat sebagai dasar kuat untuk pengambilan keputusan renovasi.",
+  },
+  {
+    icon: "heroicons:shield-check",
+    title: "Tim Insinyur Tersertifikasi",
+    description:
+      "Didukung oleh tim insinyur dan teknisi bersertifikat internasional di bidang NDT.",
+  },
+  {
+    icon: "heroicons:shield-check",
+    title: "Peralatan Terbaru",
+    description:
+      "Menggunakan peralatan pengujian paling mutakhir yang terkalibrasi secara berkala.",
+  },
+   {
+    icon: "heroicons:shield-check",
+    title: "Laporan & Dukungan",
+    description:
+      "Menyajikan laporan digital interaktif dan dukungan konsultasi teknis berkelanjutan.",
+  },
+  {
+    icon: "heroicons:shield-check",
+    title: "Solusi Komprehensif (End-to-End)",
+    description:
+      "Kami tidak hanya mencari masalah, tetapi menyediakan konsultasi lanjutan dan strategi implementasi untuk perbaikan (retrofitting) yang dibutuhkan.",
+  },
+];
+
+const technologies = [
+  {
+    title: "Ultrasonic Pulse Velocity (UPV)",
+    description:
+      "Teknologi Ultrasonic Pulse Velocity (UPV) bekerja dengan memancarkan gelombang ultrasonik melalui elemen beton. Sensor canggih akan mengukur kecepatan rambat gelombang tersebut dari satu titik ke titik lainnya. Metode ini sangat efektif untuk mendeteksi retak internal, keropos (void), dan area dengan penurunan kualitas material yang tidak terlihat di permukaan. Prosesnya berlangsung cepat, sangat akurat, dan sepenuhnya non-invasif, memberikan gambaran utuh tentang kesehatan beton tanpa meninggalkan jejak.",
+    benefits: [
+      "Deteksi void",
+      "Pengujian non-destruktif",
+      "Hasil cepat dan akurat",
+    ],
+    image: HeroImage,
+  },
+
+  {
+    title: "Ground Penetrating Radar (GPR)",
+    description:
+      "teknologi pemindaian canggih yang mampu memvisualisasikan apa yang ada di balik permukaan beton, dinding, dan lantai. Alat ini memancarkan gelombang radar frekuensi tinggi dan menganalisis pantulannya untuk menciptakan peta citra bawah permukaan secara real-time. Dengan GPR, kami dapat secara akurat memetakan lokasi dan kedalaman tulangan baja, mengidentifikasi keberadaan pipa utilitas, mendeteksi rongga udara atau delaminasi, serta menemukan anomali lain yang tersembunyi.",
+    benefits: [
+      "Mengetahui posisi tulangan",
+      "Tanpa pembongkaran",
+      "Visualisasi bawah permukaan",
+    ],
+    image: HeroImage,
+  },
+
+  {
+    title: "Building Information Modeling (BIM)",
+    description:
+      "Digitalisasi struktur bangunan dalam model 3D untuk membantu analisis, simulasi, dan pengambilan keputusan berbasis data. Melalui model BIM ini, pengelola gedung dapat memvisualisasikan lokasi anomali, memahami dampak potensialnya, dan merencanakan jadwal maintenance prediktif secara lebih efisien.",
+    benefits: [
+      "Visualisasi 3D",
+      "Analisis terintegrasi",
+      "Dokumentasi digital",
+    ],
+    image: HeroImage,
+  },
+
+  {
+    title: "Thermal Imaging & Infrared Thermography",
+    description:
+      "Pendeteksian perbedaan temperatur untuk mengidentifikasi area yang berpotensi mengalami kerusakan, kebocoran, atau anomali struktural. Perbedaan suhu pada permukaan dapat menunjukkan adanya kelembaban tersembunyi, kebocoran air, delaminasi pada lapisan eksterior, atau kegagalan sistem insulasi. nspeksi thermal imaging berlangsung cepat, non-kontak, dan memberikan data visual yang jelas untuk analisis lebih lanjut.",
+    benefits: [
+      "Inspeksi cepat",
+      "Deteksi kebocoran",
+      "Tanpa kontak langsung",
+    ],
+    image: HeroImage,
+  },
+];
+
 const faqs = [
   {
     question: "Apa bedanya inspeksi biasa dengan audit + hitung struktur?",
@@ -106,7 +189,20 @@ const faqs = [
     answer:
       "Anda akan menerima Laporan Evaluasi Teknis, Rekomendasi Metode Perbaikan, serta RAB/BoQ detail yang siap digunakan sebagai panduan lelang kontraktor pelaksana perbaikan.",
   },
+  {
+    question:
+      "Berapa lama waktu yang dibutuhkan untuk audit struktur?",
+    answer:
+      "Dengan teknologi terkini, survei lapangan untuk gedung 10-15 lantai umumnya dapat diselesaikan dalam 3-5 hari kerja. Laporan komprehensif berbasis digital akan tersedia dalam 7-10 hari kerja setelah survei selesai, jauh lebih cepat dibandingkan metode konvensional yang memakan waktu berminggu-minggu.",
+  },
+  {
+    question:
+      "Apakah pengujian akan mengganggu operasional gedung?",
+    answer:
+      "Sama sekali tidak. Seluruh metode pengujian kami bersifat non-invasif, tidak bising, dan bersih. Kami dapat berkoordinasi untuk melakukan pekerjaan di luar jam operasional atau pada waktu yang paling tidak mengganggu untuk memastikan kelancaran aktivitas di dalam gedung Anda.",
+  },
 ];
+
 ---
 
 <Layout>
@@ -140,20 +236,6 @@ const faqs = [
         >Pastikan keamanan gedung dan hindari pembengkakan biaya perbaikan dengan evaluasi dan perhitungan daya dukung struktur yang akurat dan independen.
 
         </p>
-
-        <div class="mt-10">
-            <a
-            href="https://wa.me/6281376928398"
-            target="_blank"
-            class="inline-flex items-center gap-2 rounded-full bg-green-600 px-6 py-2 md:px-7 md:py-3 text-xs md:text-lg font-bold tracking-wide text-white transition hover:bg-green-700"
-            >
-            <!-- WhatsApp icon SVG -->
-            <svg class="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
-            </svg>
-            Konsultasi
-            </a>
-        </div>
 
         </div>
     </div>
@@ -635,6 +717,340 @@ const faqs = [
 
     </section>
 
+    <!-- KEUNGGULAN -->
+    <section class="bg-slate-50 py-18">
+
+        <div class="mx-auto max-w-5xl px-6">
+
+            <header class="text-center">
+
+            <span
+                class="font-semibold uppercase tracking-[0.2em] text-sm md:text-md lg:text-lg text-orange-500"
+            >
+                Keunggulan
+            </span>
+
+            <h2
+                class="mt-4 text-2xl font-bold text-amber-950 md:text-4xl"
+            >
+                Keunggulan Layanan Audit Struktur Kami
+            </h2>
+
+            <p
+                class="mx-auto mt-6 text-sm md:text-lg max-w-3xl text-slate-600"
+            >
+                Kami menyediakan layanan audit struktur yang memiliki keunggulan seperti:
+            </p>
+
+            </header>
+
+            <div class="mt-12 md:mt-16">
+
+            <!-- Workflow -->
+            <div
+                class="
+                space-y-10
+                "
+            >
+
+                {
+                workflow.map((item) => (
+
+                    <article
+                    class="
+                        relative
+                        pl-16
+                    "
+                    >
+
+                    {/* Icon */}
+                    <div
+                        class="
+                        absolute
+                        left-0
+                        top-0
+                        flex
+                        h-10
+                        w-10
+                        md:h-12
+                        md:w-12
+                        items-center
+                        justify-center
+                        rounded-full
+                         border-green-700
+                            bg-green-600
+                        font-bold
+                        text-white
+                        "
+                    >
+                        <Icon
+                            name={item.icon}
+                            class="
+                            h-6
+                            w-6
+                            md:h-8
+                            md:w-8
+                            text-white
+                            "
+                        />
+                    </div>
+
+                    <h3
+                        class="
+                        text-lg
+                        md:text-xl
+                        lg:text-2xl
+                        font-bold
+                        text-amber-950
+                        "
+                    >
+                        {item.title}
+                    </h3>
+
+                    <p
+                        class="
+                        mt-3
+                        text-sm
+                        md:text-md
+                        lg:text-lg
+                        text-slate-600
+                        leading-relaxed
+                        "
+                    >
+                        {item.description}
+                    </p>
+
+                    </article>
+
+                ))
+                }
+
+            </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- TEKNOLOGI -->
+    <section class="bg-white py-18 md:py-24">
+
+        <div
+            class="mx-auto max-w-7xl px-6"
+        >
+
+            <header
+            class="mx-auto max-w-4xl text-center"
+            >
+
+            <span
+                class="
+                text-sm
+                md:text-md
+                lg:text-lg
+                font-semibold
+                uppercase
+                tracking-[0.3em]
+                text-orange-500
+                "
+            >
+                Teknologi Audit Struktur
+            </span>
+
+            <h2
+                class="
+                mt-4
+                text-2xl
+                font-bold
+                text-amber-950
+                md:text-4xl
+                "
+            >
+                Teknologi Modern yang Kami Gunakan
+            </h2>
+
+            <p
+                class="
+                mt-6
+                text-sm
+                md:text-base
+                leading-relaxed
+                text-slate-600
+                lg:text-lg
+                "
+            >
+                Kami menggabungkan teknologi inspeksi lapangan,
+                pengujian non-destruktif, dan analisis digital
+                untuk menghasilkan data dan rekomendasi teknis yang akurat.
+            </p>
+
+            </header>
+
+            <div
+            class="mt-20 space-y-24"
+            >
+
+            {
+                technologies.map((item, index) => (
+
+                <article
+                    class={`
+                    grid
+                    gap-10
+                    lg:grid-cols-2
+                    lg:items-center
+                    ${
+                        index % 2 !== 0
+                        ? "lg:[&>*:first-child]:order-2"
+                        : ""
+                    }
+                    `}
+                >
+
+                    <!-- IMAGE -->
+
+                    <div
+                    class="relative"
+                    >
+
+                    <img
+                        src={item.image.src}
+                        alt={item.title}
+                        class="
+                        h-75
+                        md:h-110
+                        w-full
+                        rounded-4xl
+                        object-cover
+                        shadow-xl
+                        "
+                    />
+
+                    <div
+                        class="
+                        absolute
+                        bottom-6
+                        left-6
+                        rounded-2xl
+                        bg-white/95
+                        px-4
+                        py-2
+                        md:px-5
+                        md:py-3
+                        backdrop-blur
+                        shadow-lg
+                        "
+                    >
+
+                        <span
+                        class="
+                            text-sm
+                            font-semibold
+                            text-orange-500
+                        "
+                        >
+                        Advanced Technology
+                        </span>
+
+                    </div>
+
+                    </div>
+
+                    <!-- CONTENT -->
+
+                    <div>
+
+                    <h3
+                        class="
+                        text-xl
+                        font-bold
+                        text-amber-950
+                        md:text-2xl
+                        lg:text-3xl
+                        "
+                    >
+                        {item.title}
+                    </h3>
+
+                    <p
+                        class="
+                        mt-4
+                        text-base
+                        leading-relaxed
+                        text-slate-600
+                        md:text-lg
+                        "
+                    >
+                        {item.description}
+                    </p>
+
+                    <div
+                        class="
+                        mt-6
+                        grid
+                        gap-4
+                        "
+                    >
+
+                        {
+                        item.benefits.map((benefit) => (
+
+                            <div
+                            class="
+                                flex
+                                items-center
+                                gap-3
+                            "
+                            >
+
+                            <div
+                                class="
+                                flex
+                                h-8
+                                w-8
+                                items-center
+                                justify-center
+                                rounded-full
+                                bg-orange-100
+                                text-orange-500
+                                font-bold
+                                "
+                            >
+                                ✓
+                            </div>
+
+                            <span
+                                class="
+                                text-sm
+                                md:text-base
+                                text-slate-700
+                                font-medium
+                                "
+                            >
+                                {benefit}
+                            </span>
+
+                            </div>
+
+                        ))
+                        }
+
+                    </div>
+
+                    </div>
+
+                </article>
+
+                ))
+            }
+
+            </div>
+
+        </div>
+
+    </section>
+
     <!-- HASIL -->
     <section class="bg-slate-50 py-20 md:py-24">
         <div
@@ -757,7 +1173,7 @@ const faqs = [
         </div>
     </section>
 
-    <!-- PERTANYAAN -->
+    <!-- FAQ STYLE -->
     <style>
         .faq-item summary::-webkit-details-marker {
         display: none;
@@ -854,7 +1270,6 @@ const faqs = [
                     font-semibold
                     text-amber-950
                     md:text-xl
-                    lg:text-2xl
                     "
                 >
                     {faq.question}
@@ -889,8 +1304,7 @@ const faqs = [
                 <p
                     class="
                     text-sm
-                    md:text-md
-                    lg:text-xl
+                    md:text-lg
                     leading-relaxed
                     text-slate-700
                     "
