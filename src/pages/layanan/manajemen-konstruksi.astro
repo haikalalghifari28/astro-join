@@ -2,6 +2,7 @@
 import HeroImage from "../../images/hero.jpeg";
 import Layout from '../../layouts/Layout.astro';
 import '../../styles/global.css';
+import { Icon } from "astro-icon/components";
 import Navbar from '../../components/Navbar.astro';
 import Footer from '../../components/Footer.astro';
 
@@ -51,6 +52,59 @@ const faqs = [
       "Ya, keselamatan kerja adalah prioritas utama dalam setiap pengawasan yang kami lakukan di lapangan.",
   },
 ];
+const reasons = [
+  {
+    icon: "heroicons:shield-check",
+    title: "Pengendalian Biaya",
+    description:
+      "Memastikan penggunaan anggaran yang efisien dan mencegah pengeluaran tak terduga yang merugikan.",
+  },
+  {
+    icon: "heroicons:shield-check",
+    title: "Ketepatan Waktu",
+    description:
+      "Monitoring progres harian secara ketat agar setiap tahapan pembangunan selesai sesuai timeline yang disepakati.",
+  },
+  {
+    icon: "heroicons:shield-check",
+    title: "Jaminan Quality",
+    description:
+      "Pengawasan material dan metode kerja di lapangan untuk memastikan bangunan memenuhi standar teknis dan keamanan.",
+  },
+  {
+    icon: "heroicons:shield-check",
+    title: "Mitigasi Resiko",
+    description:
+      "Identifikasi dini terhadap potensi masalah di lapangan serta penyediaan solusi teknis yang efektif.",
+  },
+];
+
+const benefits = [
+  {
+    title: "Pra-Kontruksi",
+    number: "1",
+    description:
+      "Review dokumen teknis, tender kontraktor, dan persiapan strategi pelaksanaan proyek.",
+  },
+  {
+    title: "Masa Kontruksi",
+    number: "2",
+    description:
+      "Pelaksanaan pengawasan teknis, koordinasi antar vendor, dan kendali mutu secara intensif..",
+  },
+  {
+    title: "Monitoring & Reporting",
+    number: "3",
+    description:
+      "Penyusunan laporan progres mingguan dan bulanan yang transparan untuk pemilik proyek.",
+  },
+  {
+    title: "Serah Terima",
+    number: "4",
+    description:
+      "Pemeriksaan akhir (checklist), penyelesaian kekurangan (punch list), hingga penyerahan kunci.",
+  },
+];
 ---
 
 <Layout>
@@ -90,7 +144,7 @@ const faqs = [
 
     </section>
 
-    <!-- APA ITU PBG -->
+    <!-- APA ITU -->
     <section class="bg-white py-20 lg:py-28">
         <div
             class="mx-auto max-w-7xl px-6"
@@ -277,6 +331,234 @@ const faqs = [
         </div>
     </section>
 
+    <!-- MENGAPA SANGAT PENTING -->
+    <section class="bg-slate-50 py-20">
+        <div class="mx-auto max-w-7xl px-6">
+
+            <header
+            class="max-w-2xl"
+            >
+
+            <span
+                class="
+                text-sm
+                md:text-base
+                lg:text-lg
+                font-semibold
+                uppercase
+                tracking-[0.25em]
+                text-orange-500
+                "
+            >
+                Manajemen Konstruksi
+            </span>
+
+            <h2
+                class="
+                mt-4
+                text-xl md:text-2xl lg:text-4xl
+                font-bold
+                text-amber-950
+                "
+            >
+                Mengapa Konsultan Manajemen Kontruksi Sangat Penting?
+            </h2>
+
+            </header>
+
+            <div
+            class="
+                mt-14
+                grid
+                gap-6
+                md:grid-cols-2
+                xl:grid-cols-4
+            "
+            >
+
+            {
+                reasons.map((item) => (
+
+                <article
+                    class="
+                    group
+                    rounded-3xl
+                    border
+                    border-slate-200
+                    bg-white
+                    p-8
+                    transition-all
+                    duration-300
+                    hover:-translate-y-2
+                    hover:shadow-xl
+                    "
+                >
+
+                    <div
+                    class="
+                        flex
+                        h-12
+                        w-12
+                        md:h-16
+                        md:w-16
+                        items-center
+                        justify-center
+                        rounded-2xl
+                        bg-orange-100
+                    "
+                    >
+
+                    <Icon
+                        name={item.icon}
+                        class="
+                        h-8
+                        w-8
+                        text-orange-600
+                        "
+                    />
+
+                    </div>
+
+                    <h3
+                    class="
+                        mt-6
+                        text-xl
+                        md:text-2xl
+                        font-bold
+                        text-amber-950
+                    "
+                    >
+                    {item.title}
+                    </h3>
+
+                    <p
+                    class="
+                        mt-4
+                        text-sm
+                        md:text-base
+                        leading-relaxed
+                        text-slate-600
+                    "
+                    >
+                    {item.description}
+                    </p>
+
+                </article>
+
+                ))
+            }
+
+            </div>
+
+        </div>
+    </section>
+
+     <!-- TAHAPAN -->
+    <section class="bg-white py-20 md:py-20">
+        <div
+            class="mx-auto max-w-4xl px-6"
+        >
+
+            <div
+            class="grid gap-16"
+            >
+
+                <!-- CONTENT -->
+                <div>
+
+                    <span
+                    class="
+                        font-semibold
+                        text-base
+                        md:text-lg
+                        uppercase
+                        tracking-[0.25em]
+                        text-orange-500
+                    "
+                    >
+                    Manajemen kontruksi
+                    </span>
+
+                    <h2
+                    class="
+                        mt-4
+                        text-2xl
+                        font-bold
+                        text-amber-950
+                        md:text-3xl
+                        lg:text-4xl
+                    "
+                    >
+                    Tahapan Manajemen Kontruksi
+                    </h2>
+
+                    <div
+                    class="mt-10 space-y-6"
+                    >
+
+                    {
+                        benefits.map((item) => (
+
+                        <div
+                            class="flex gap-4"
+                        >
+
+                            <div
+                            class="
+                                mt-1
+                                flex h-10 w-10 shrink-0
+                                items-center justify-center
+                                rounded-full
+                                text-white
+                                bg-orange-500
+                            "
+                            >
+
+                            {item.number}
+
+                            </div>
+
+                            <div>
+
+                            <h3
+                                class="
+                                text-base
+                                md:text-lg
+                                lg:text-xl
+                                font-semibold
+                                text-amber-950
+                                "
+                            >
+                                {item.title}
+                            </h3>
+
+                            <p
+                                class="
+                                mt-2
+                                text-sm
+                                md:text-base
+                                lg:text-lg
+                                text-slate-600
+                                "
+                            >
+                                {item.description}
+                            </p>
+
+                            </div>
+
+                        </div>
+
+                        ))
+                    }
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
 
     <!-- FAQ STYLE -->
     <style>
@@ -324,7 +606,7 @@ const faqs = [
             "
           >
             Pertanyaan Umum Seputar
-            Perencanaan MEP
+            Manajemen Konstruksi
           </h2>
 
           <p
@@ -339,7 +621,7 @@ const faqs = [
               text-slate-600
             "
           >
-            Pertanyaan yang umum ditanyakan oleh klien terkait perencanaan MEP
+            Pertanyaan yang umum ditanyakan oleh klien terkait Manajemen Konstruksi
           </p>
 
         </header>
