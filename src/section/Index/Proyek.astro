@@ -1,7 +1,9 @@
 ---
-import Project1 from "../../images/hero.jpeg";
-import Project2 from "../../images/hero.jpeg";
-import BackgroundImage from "../../images/hero.jpeg";
+import Project1 from "../../images/proyek/retaining-wall/1.webp";
+import Project2 from "../../images/proyek/mts/1.webp";
+import Project3 from "../../images/proyek/dermaga-kendal/1.webp";
+import Project4 from "../../images/proyek/jpo-polda/1.webp";
+import BackgroundImage from "../../images/proyek/miting/2.webp";
 
 const projects = [
   {
@@ -9,28 +11,28 @@ const projects = [
     description:
       "Terdapat retakan pada struktur Retaining Wall. PT JTI melakukan pengujian UPV Crack untuk mengetahui kedalaman retak pada struktur beton tersebut.",
     image: Project1,
-    href: "/proyek/audit-struktur",
+    href: "/proyek",
   },
   {
     title: "Bangunan MTS",
     description:
       "Bangunan sudah berumur, dan ingin menambah lantai. PT JTI melakukan Pengujian UPV (Ultrasonic Pulse Velocity) menggunakan metode Non-Destructive Testing (NDT) yang digunakan untuk mengevaluasi mutu dan integritas beton",
     image: Project2,
-    href: "/proyek/investigasi-geoteknik",
+    href: "/proyek",
   },
   {
     title: "Dermaga Kendal, Jawa Tengah",
     description:
       "PT JTI di tunjuk untuk mengecek struktur dermaga untuk memastikan kelayakan pada dermaga. Item pengujian yang kami lakukan adalah pengujian HAMERR TEST dan Analisis Struktur Dermaga",
-    image: Project2,
-    href: "/proyek/investigasi-geoteknik",
+    image: Project3,
+    href: "/proyek",
   },
   {
     title: "JPO Polda Jakarta",
     description:
       "terjadi Pengecekan struktur bangunan berkala setaip 5 tahun sekali. Item pengujian yang digunakan adalah UPV Tes, Hammer Tes, Covermeter Tes dan Levelling verticality ",
-    image: Project2,
-    href: "/proyek/investigasi-geoteknik",
+    image: Project4,
+    href: "/proyek",
   },
 ];
 ---
@@ -101,6 +103,8 @@ const projects = [
             gap-10
             lg:grid-cols-12
             "
+            data-aos="fade-up"
+            data-duration="1000"
           >
 
             {/* IMAGE */}
@@ -223,7 +227,7 @@ const projects = [
 
     </div>
 
-    <div class="mt-24 text-center">
+    <div class="mt-24 text-center" data-aos="fade-up" data-duration="1000">
 
       <a
         href="/proyek"

@@ -2,7 +2,16 @@
 import Layout from '../../layouts/Layout.astro';
 import '../../styles/global.css';
 import { Icon } from 'astro-icon/components'
-import HeroImage from "../../images/hero.jpeg";
+import HeroImage from "../../images/proyek/bi-serang/4.webp";
+import AboutImage from "../../images/proyek/bi-serang/6.webp";
+import HasilEtabs1 from "../../images/proyek/hasil-etabs/1.webp";
+import HasilEtabs2 from "../../images/proyek/hasil-etabs/2.webp";
+import HasilEtabs3 from "../../images/proyek/hasil-etabs/3.webp";
+import HasilEtabs4 from "../../images/proyek/hasil-etabs/4.webp";
+import Upv from "../../images/upv.jpeg";
+import Gpr from "../../images/gpr.jpg";
+import Thermal from "../../images/thermal.webp";
+import Etabs from "../../images/etabs.webp";
 import { Image } from "astro:assets";
 import Navbar from '../../components/Navbar.astro';
 import Footer from '../../components/Footer.astro';
@@ -127,7 +136,7 @@ const technologies = [
       "Pengujian non-destruktif",
       "Hasil cepat dan akurat",
     ],
-    image: HeroImage,
+    image: Upv,
   },
 
   {
@@ -139,7 +148,7 @@ const technologies = [
       "Tanpa pembongkaran",
       "Visualisasi bawah permukaan",
     ],
-    image: HeroImage,
+    image: Gpr,
   },
 
   {
@@ -151,7 +160,7 @@ const technologies = [
       "Analisis terintegrasi",
       "Dokumentasi digital",
     ],
-    image: HeroImage,
+    image: Etabs,
   },
 
   {
@@ -163,7 +172,7 @@ const technologies = [
       "Deteksi kebocoran",
       "Tanpa kontak langsung",
     ],
-    image: HeroImage,
+    image: Thermal,
   },
 ];
 
@@ -341,7 +350,7 @@ const faqs = [
                 ></div>
 
                 <Image
-                src={HeroImage}
+                src={AboutImage}
                 alt="Audit Struktur Bangunan"
                 width={1000}
                 loading="eager"
@@ -656,7 +665,7 @@ const faqs = [
                 >
 
                 <img
-                    src={HeroImage.src}
+                    src={HasilEtabs1.src}
                     alt="Audit Struktur Gedung"
                     class="
                     h-44
@@ -669,7 +678,7 @@ const faqs = [
                 />
 
                 <img
-                    src={HeroImage.src}
+                    src={HasilEtabs2.src}
                     alt="Pengujian Struktur Bangunan"
                     class="
                     h-56
@@ -682,7 +691,7 @@ const faqs = [
                 />
 
                 <img
-                    src={HeroImage.src}
+                    src={HasilEtabs3.src}
                     alt="Tim Audit Struktur"
                     class="
                     h-56
@@ -695,7 +704,7 @@ const faqs = [
                 />
 
                 <img
-                    src={HeroImage.src}
+                    src={HasilEtabs4.src}
                     alt="Pemeriksaan Konstruksi"
                     class="
                     h-44

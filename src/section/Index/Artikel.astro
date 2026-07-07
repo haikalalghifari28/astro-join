@@ -1,117 +1,32 @@
 ---
+import { getCollection } from 'astro:content';
 
-// ─── Data Dummy Artikel ────────────────────────────
-// interface Article {
-//   slug:        string;
-//   title:       string;
-//   excerpt:     string;
-//   category:    string;
-//   categorySlug: string;
-//   coverImage:  string;
-//   coverAlt:    string;
-//   publishDate: string;
-//   readTime:    number;
-//   featured:    boolean;
-// }
+const articles = await getCollection('articles');
 
-const articles = [
-  {
-    slug:         'proses-pengajuan-pbg-gedung-baru-secara-mandiri',
-    title:        'Proses Pengajuan PBG Gedung Baru Secara Mandiri',
-    excerpt:      'Pengajuan PBG mandiri dapat dilakukan oleh pemilik proyek yang ingin mengurus legalitas gedung baru tanpa menggunakan jasa konsultan. Simak panduan lengkapnya di sini.',
-    category:     'PBG',
-    categorySlug: 'pbg',
-    coverImage:   'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80',
-    coverAlt:     'Proses pengajuan Persetujuan Bangunan Gedung baru secara mandiri',
-    publishDate:  '2025-05-10',
-    featured:     true,
-  },
-  {
-    slug:         'bagaimana-proses-pengurusan-slf-dengan-konsultan',
-    title:        'Bagaimana Proses Pengurusan SLF dengan Konsultan di Depok?',
-    excerpt:      'Konsultan SLF Depok membantu pemilik bangunan mengurus Sertifikat Laik Fungsi secara efisien dan sesuai regulasi yang berlaku.',
-    category:     'Sertifikat Laik Fungsi',
-    categorySlug: 'sertifikat-laik-fungsi',
-    coverImage:   'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&q=80',
-    coverAlt:     'Tim konsultan berdiskusi mengenai proses pengurusan SLF bangunan',
-    publishDate:  '2025-04-28',
-    featured:     false,
-  },
-  {
-    slug:         'apa-itu-audit-bangunan-dan-mengapa-penting',
-    title:        'Apa itu Audit Bangunan dan Mengapa Penting bagi Pemilik Properti?',
-    excerpt:      'Panduan komprehensif mengenai evaluasi teknis dan audit bangunan untuk memastikan keamanan struktur properti Anda.',
-    category:     'Audit Bangunan',
-    categorySlug: 'audit-bangunan',
-    coverImage:   'https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=600&q=80',
-    coverAlt:     'Insinyur melakukan audit dan inspeksi struktur bangunan gedung',
-    publishDate:  '2025-04-15',
-    featured:     false,
-  },
-  {
-    slug:         '5-temuan-lapangan-yang-sering-menunda-slf',
-    title:        '5 Temuan Lapangan yang Sering Menunda SLF',
-    excerpt:      'Executive Summary: Temuan lapangan sering menunda penerbitan Sertifikat Laik Fungsi. Kenali 5 masalah utama dan cara mengatasinya.',
-    category:     'Sertifikat Laik Fungsi',
-    categorySlug: 'sertifikat-laik-fungsi',
-    coverImage:   'https://images.unsplash.com/photo-1587293852726-70cdb56c2866?w=600&q=80',
-    coverAlt:     'Insinyur memeriksa dokumen teknis bangunan di lapangan',
-    publishDate:  '2025-04-02',
-    featured:     false,
-  },
-  {
-    slug:         'jasa-detail-engineering-design-solusi-tepat',
-    title:        'Jasa Design Engineering Profesional: Solusi Tepat untuk Proyek Anda',
-    excerpt:      'PT. Join Teknologi Internasional menyediakan jasa design engineering profesional untuk memastikan proyek berjalan sesuai standar teknis tertinggi.',
-    category:     'Detail Engineering Design',
-    categorySlug: 'detail-engineering-design',
-    coverImage:   'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=600&q=80',
-    coverAlt:     'Tim engineering mengerjakan desain teknis bangunan konstruksi',
-    publishDate:  '2025-03-20',
-    featured:     false,
-  },
-  {
-    slug:         'konsultan-legalitas-bangunan-solusi-lengkap',
-    title:        'Konsultan Legalitas Bangunan: Solusi Lengkap Perizinan dan Teknis',
-    excerpt:      'Konsultan legalitas bangunan berperan krusial dalam memastikan setiap struktur properti memenuhi persyaratan hukum dan teknis yang berlaku.',
-    category:     'Perizinan Bangunan',
-    categorySlug: 'perizinan-bangunan',
-    coverImage:   'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=80',
-    coverAlt:     'Konsultan legalitas bangunan meninjau dokumen perizinan konstruksi',
-    publishDate:  '2025-03-10',
-    featured:     false,
-  },
-  {
-    slug:         'konsultan-legalitas-bangunan-solusi-lengkap',
-    title:        'Konsultan Legalitas Bangunan: Solusi Lengkap Perizinan dan Teknis',
-    excerpt:      'Konsultan legalitas bangunan berperan krusial dalam memastikan setiap struktur properti memenuhi persyaratan hukum dan teknis yang berlaku.',
-    category:     'Perizinan Bangunan',
-    categorySlug: 'perizinan-bangunan',
-    coverImage:   'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=80',
-    coverAlt:     'Konsultan legalitas bangunan meninjau dokumen perizinan konstruksi',
-    publishDate:  '2025-03-10',
-    featured:     false,
-  },
-];
+// Urutkan artikel terbaru
+articles.sort((a, b) => {
+  const dateA = a.data.publishDate instanceof Date ? a.data.publishDate : new Date(a.data.publishDate);
+  const dateB = b.data.publishDate instanceof Date ? b.data.publishDate : new Date(b.data.publishDate);
+  return dateB.getTime() - dateA.getTime();
+});
 
-const featuredArticle = articles.find(a => a.featured)!;
-const gridArticles    = articles.filter(a => !a.featured);
-
-// Format tanggal Indonesia
-function formatDate(dateStr: string): string {
-  return new Date(dateStr).toLocaleDateString('id-ID', {
-    day: 'numeric', month: 'long', year: 'numeric',
+function formatDate(date: Date | string) {
+  const d = date instanceof Date ? date : new Date(date);
+  return d.toLocaleDateString('id-ID', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
   });
 }
 ---
 
 <section
-  aria-labelledby="artikel-heading"
-  class="pb-10 lg:pb-14 bg-white"
-  itemscope
-  itemtype="https://schema.org/Blog"
->
-  <div class="w-full md:max-w-[85%] mx-auto px-4 sm:px-6 lg:px-8">
+    aria-labelledby="artikel-heading"
+    class="py-10 bg-white"
+    itemscope
+    itemtype="https://schema.org/Blog"
+  >
+    <div class="w-full md:max-w-[85%] mx-auto px-4 sm:px-6 lg:px-8">
 
     <!-- ─── Section Header ──────────────────────────── -->
     <div class="mb-12">
@@ -127,192 +42,86 @@ function formatDate(dateStr: string): string {
         sertifikasi, dan desain teknis dalam memastikan kesuksesan proyek Anda.
       </p>
     </div>
-
-    <!-- ─── Top Row: Featured Besar + 2 Kartu Kanan ── -->
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-5 mb-5">
-
-      <!-- Featured Article — besar, mengisi 2/3 kolom -->
-      <article
-        class="lg:col-span-2 relative rounded-2xl overflow-hidden group cursor-pointer
-               shadow-sm hover:shadow-xl transition-shadow duration-300 min-h-100"
-        itemscope
-        itemtype="https://schema.org/BlogPosting"
-      >
-        <a
-          href={`/artikel/${featuredArticle.slug}`}
-          class="block w-full h-full"
-          aria-label={featuredArticle.title}
-        >
-          <!-- Background Image -->
-          <div class="absolute inset-0">
-            <img
-              src={featuredArticle.coverImage}
-              alt={featuredArticle.coverAlt}
-              width="800"
-              height="500"
-              loading="eager"
-              fetchpriority="high"
-              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-              itemprop="image"
-            />
-            <!-- Gradient overlay -->
-            <div class="absolute inset-0 bg-linear-to-t from-black/80 via-black/30 to-transparent"></div>
-          </div>   
-
-          <!-- Konten teks di bawah -->
-          <div class="absolute bottom-0 left-0 right-0 p-6 z-10">
-            <p class="text-white/70 text-xs uppercase tracking-widest mb-2 font-medium">
-              Proses Pengajuan
-            </p>
-            <h3
-              class="text-white text-xl md:text-2xl lg:text-3xl font-bold leading-tight mb-3
-                     group-hover:text-blue-200 transition-colors"
-              itemprop="headline"
+      
+      {articles.length === 0 ? (
+        <div class="text-center py-10">
+          <p class="text-gray-500">Belum ada artikel.</p>
+        </div>
+      ) : (
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 mb-10">
+          {articles.map(article => (
+            <article
+              class="group bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100
+                     hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer flex flex-col"
+              itemscope
+              itemtype="https://schema.org/BlogPosting"
             >
-              {featuredArticle.title}
-            </h3>
-            <p class="text-white/80 text-xs md:text-sm lg:text-md leading-relaxed line-clamp-2 mb-4" itemprop="description">
-              {featuredArticle.excerpt}
-            </p>
-          </div>
-        </a>
-
-        <!-- Hidden SEO metadata -->
-        <meta itemprop="datePublished" content={featuredArticle.publishDate} />
-        <meta itemprop="author" content="PT. Join Teknologi Internasional" />
-      </article>
-
-      <!-- 2 Kartu Kecil — kolom kanan -->
-      <div class="flex flex-col gap-5">
-        {gridArticles.slice(0, 2).map(article => (
-          <article
-            class="relative rounded-2xl overflow-hidden group cursor-pointer flex-1
-                   shadow-sm hover:shadow-xl transition-shadow duration-300 min-h-46.25"
-            itemscope
-            itemtype="https://schema.org/BlogPosting"
-          >
-            <a
-              href={`/artikel/${article.slug}`}
-              class="block w-full h-full"
-              aria-label={article.title}
-            >
-              {/* Background Image */}
-              <div class="absolute inset-0">
-                <img
-                  src={article.coverImage}
-                  alt={article.coverAlt}
-                  width="400"
-                  height="220"
-                  loading="lazy"
-                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  itemprop="image"
-                />
-                <div class="absolute inset-0 bg-linear-to-t from-black/75 via-black/25 to-transparent"></div>
-              </div>
-
-              {/* Text */}
-              <div class="absolute bottom-0 left-0 right-0 p-4 z-10">
-                <h3
-                  class="text-white text-sm md:text-md lg:text-lg font-bold leading-snug mb-3
-                         group-hover:text-blue-200 transition-colors line-clamp-2"
-                  itemprop="headline"
-                >
-                  {article.title}
-                </h3>
-                <div class="flex items-center justify-between">
-                  <span class="inline-flex items-center gap-1.5 bg-white/20 backdrop-blur-sm
-                               text-white text-[10px] font-semibold px-2.5 py-1 rounded-full
-                               border border-white/30">
-                    {article.category}
-                  </span>
+              <a
+                href={`/artikel/${article.id}`}  
+                class="flex flex-col h-full"
+                aria-label={article.data.title}
+              >
+                <div class="relative overflow-hidden h-44 shrink-0">
+                  <img
+                    src={article.data.coverImage}
+                    alt={article.data.coverAlt}
+                    width="400"
+                    height="220"
+                    loading="lazy"
+                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    itemprop="image"
+                  />
+                  <div class="absolute inset-0 bg-linear-to-t from-black/60 via-black/20 to-transparent"></div>
+                  <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between">
+                    <span class="text-[9px] text-white/80 uppercase tracking-widest font-medium truncate mr-2">
+                      {article.data.category}
+                    </span>
+                  </div>
                 </div>
-              </div>
-            </a>
-            <meta itemprop="datePublished" content={article.publishDate} />
-            <meta itemprop="author" content="PT. Join Teknologi Internasional" />
-          </article>
-        ))}
+
+                <div class="p-5 flex flex-col flex-1">
+                  <h3
+                    class="text-gray-900 text-sm md:text-md lg:text-lg font-bold leading-snug mb-2 line-clamp-2
+                           group-hover:text-[#1a73e8] transition-colors"
+                    itemprop="headline"
+                  >
+                    {article.data.title}
+                  </h3>
+                  <p class="text-gray-500 text-xs md:text-sm lg:text-md leading-relaxed line-clamp-3 flex-1" itemprop="description">
+                    {article.data.description}
+                  </p>
+                  <div class="flex items-center gap-2 mt-3 pt-3 border-t border-gray-100">
+                    <time
+                      datetime={article.data.publishDate instanceof Date ? article.data.publishDate.toISOString() : new Date(article.data.publishDate).toISOString()}
+                      class="text-[10px] text-gray-400"
+                      itemprop="datePublished"
+                    >
+                      {formatDate(article.data.publishDate)}
+                    </time>
+                  </div>
+                </div>
+              </a>
+              <meta itemprop="author" content="PT. Join Teknologi Internasional" />
+            </article>
+          ))}
+        </div>
+      )}
+
+      <div>
+        <a
+          href="/artikel"
+          class="inline-flex items-center gap-2 px-2 py-2 md:px-4 md:py-3 bg-orange-500 text-white
+                font-bold text-xs md:text-sm tracking-wider rounded-lg
+                hover:bg-orange-600 active:scale-95 transition-all duration-200"
+          aria-label="Baca lebih banyak artikel dari PT. Join Teknologi Internasional"
+        >
+          Baca Lebih Banyak Artikel
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+        </a>
       </div>
     </div>
+  </section>
 
-    <!-- ─── Bottom Row: 4 Kartu Grid ────────────────── -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-10">
-      {gridArticles.slice(2).map(article => (
-        <article
-          class="group bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100
-                 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer flex flex-col"
-          itemscope
-          itemtype="https://schema.org/BlogPosting"
-        >
-          <a
-            href={`/artikel/${article.slug}`}
-            class="flex flex-col h-full"
-            aria-label={article.title}
-          >
-            <!-- Image card -->
-            <div class="relative overflow-hidden h-44 shrink-0">
-              <img
-                src={article.coverImage}
-                alt={article.coverAlt}
-                width="400"
-                height="220"
-                loading="lazy"
-                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                itemprop="image"
-              />
-              <div class="absolute inset-0 bg-linear-to-t from-black/60 via-black/20 to-transparent"></div>
 
-              <!-- Eyebrow di atas gambar -->
-              <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between">
-                <span class="text-[9px] text-white/80 uppercase tracking-widest font-medium truncate mr-2">
-                  {article.category}
-                </span>
-              </div>
-            </div>
-
-            {/* Text */}
-            <div class="p-5 flex flex-col flex-1">
-              <h3
-                class="text-gray-900 text-sm md:text-md lg:text-lg font-bold leading-snug mb-2 line-clamp-2
-                       group-hover:text-[#1a73e8] transition-colors"
-                itemprop="headline"
-              >
-                {article.title}
-              </h3>
-              <p class="text-gray-500 text-xs md:text-sm lg:text-md leading-relaxed line-clamp-3 flex-1" itemprop="description">
-                {article.excerpt}
-              </p>
-              <div class="flex items-center gap-2 mt-3 pt-3 border-t border-gray-100">
-                <time
-                  datetime={article.publishDate}
-                  class="text-[10px] text-gray-400"
-                  itemprop="datePublished"
-                >
-                  {formatDate(article.publishDate)}
-                </time>
-              </div>
-            </div>
-          </a>
-          <meta itemprop="author" content="PT. Join Teknologi Internasional" />
-        </article>
-      ))}
-    </div>
-
-    <!-- Button -->
-    <div>
-      <a
-        href="/artikel"
-        class="inline-flex items-center gap-2 px-2 py-2 md:px-4 md:py-3 bg-orange-500 text-white
-               font-bold text-xs md:text-sm tracking-wider rounded-lg
-               hover:bg-orange-600 active:scale-95 transition-all duration-200"
-        aria-label="Baca lebih banyak artikel dari PT. Join Teknologi Internasional"
-      >
-        Baca Lebih Banyak Artikel
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-        </svg>
-      </a>
-    </div>
-
-  </div>
-</section>

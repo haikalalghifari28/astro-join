@@ -1,54 +1,62 @@
 ---
 import HeroImage from "../../images/hero.jpeg";
+import Dprd from "../../images/dprd.jpeg";
+import Bumn from "../../images/bumn.webp";
+import Manufaktur from "../../images/manufaktur.webp";
+import Properti from "../../images/properti.jpg";
+import Rs from "../../images/rs.jpeg";
+import Univ from "../../images/univ.webp";
+import Perkantoran from "../../images/perkantoran.jpg";
+import Pabrik from "../../images/pabrik.jpg";
 
 const sectors = [
   {
     title: "Instansi Pemerintah",
     description:
       "Mendukung audit struktur, kajian teknis, serta pengurusan dokumen bangunan untuk berbagai instansi pemerintah pusat maupun daerah.",
-    image: HeroImage,
+    image: Dprd,
   },
   {
     title: "BUMN",
     description:
       "Berpengalaman menangani kebutuhan audit bangunan, inspeksi struktur, dan konsultansi teknik pada berbagai proyek BUMN.",
-    image: HeroImage,
+    image: Bumn,
   },
   {
     title: "Perusahaan Manufaktur",
     description:
       "Evaluasi keamanan struktur pabrik, gudang, fasilitas produksi, serta perencanaan pengembangan bangunan industri.",
-    image: HeroImage,
+    image: Manufaktur,
   },
   {
     title: "Developer Properti",
     description:
       "Pendampingan teknis mulai dari studi kelayakan, audit struktur, hingga pengawasan konstruksi proyek properti.",
-    image: HeroImage,
+    image: Properti,
   },
   {
     title: "Rumah Sakit",
     description:
       "Audit dan pemeriksaan struktur bangunan fasilitas kesehatan untuk memastikan keamanan operasional jangka panjang.",
-    image: HeroImage,
+    image: Rs,
   },
   {
     title: "Universitas & Sekolah",
     description:
       "Pemeriksaan gedung, laboratorium, dan fasilitas pendidikan sesuai standar teknis dan keselamatan bangunan.",
-    image: HeroImage,
+    image: Univ,
   },
   {
     title: "Gedung Perkantoran",
     description:
       "Analisis kondisi struktur bangunan perkantoran guna menjaga keamanan, kenyamanan, dan kepatuhan regulasi.",
-    image: HeroImage,
+    image: Perkantoran,
   },
   {
     title: "Industri & Pabrik",
     description:
       "Layanan audit struktur, inspeksi fasilitas industri, serta rekomendasi perkuatan bangunan apabila diperlukan.",
-    image: HeroImage,
+    image: Pabrik,
   },
 ];
 ---
@@ -114,7 +122,9 @@ const sectors = [
               duration-300
               hover:-translate-y-2
               hover:shadow-2xl
-            ">
+            "
+            data-aos="fade-up"
+            data-aos-duration="1000">
 
                 <div class="overflow-hidden">
 

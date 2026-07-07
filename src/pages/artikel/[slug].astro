@@ -1,0 +1,166 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+import '../../styles/global.css';
+import '../../styles/mdx.css'; 
+
+export async function getStaticPaths() {
+  const allArticles = await getCollection('articles');
+  return allArticles.map((article) => ({
+    params: { slug: article.id },
+    props: { article },
+  }));
+}
+
+const { article } = Astro.props;
+const { Content } = await render(article);
+
+function formatDate(date: Date | string) {
+  const d = date instanceof Date ? date : new Date(date);
+  return d.toLocaleDateString("id-ID", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+}
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": article.data.title,
+  "description": article.data.description,
+  "image": article.data.coverImage,
+  "datePublished": article.data.publishDate instanceof Date 
+    ? article.data.publishDate.toISOString() 
+    : new Date(article.data.publishDate).toISOString(),
+  "author": {
+    "@type": "Person",
+    "name": article.data.author,
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "PT. JOIN TEKNOLOGI",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://yourdomain.com/logo.png"
+    }
+  }
+};
+
+const allArticles = await getCollection('articles');
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+<Layout title={article.data.title} description={article.data.description}>
+  <Navbar />
+
+  <!-- Hero Section -->
+  <section class="bg-linear-to-br from-amber-950 via-stone-900 to-black py-24">
+    <div
+    class="
+      absolute
+      inset-0
+      bg-[radial-gradient(circle_at_top_right,rgba(251,191,36,.15),transparent_40%)]
+    "
+  ></div>
+    <div class="mx-auto max-w-4xl px-6">
+      <nav aria-label="Breadcrumb" class="mb-4">
+        <ol class="flex flex-wrap items-center gap-2 text-sm text-slate-200">
+          <li>
+            <a href="/" class="hover:text-orange-400 transition-colors">Beranda</a>
+          </li>
+          <li class="text-white">/</li>
+          <li>
+            <a href="/artikel" class="hover:text-orange-400 transition-colors">Artikel</a>
+          </li>
+          <li class="text-white">/</li>
+          <li class="text-white font-medium truncate max-w-50">
+            {article.data.title}
+          </li>
+        </ol>
+      </nav>
+
+      <span class="inline-flex rounded-full bg-orange-500/20 px-4 py-2 text-sm font-medium text-orange-300">
+        {article.data.category}
+      </span>
+
+      <h1 class="mt-6 text-2xl font-bold leading-tight text-white md:text-4xl">
+        {article.data.title}
+      </h1>
+
+      <div class="mt-8 flex flex-wrap items-center gap-6 text-sm text-slate-200">
+        <span>📅 Dipublikasikan: {formatDate(article.data.publishDate)}</span>
+        <span>📂 Kategori: {article.data.category}</span>
+        {article.data.readingTime && (
+          <span>⏱️ {article.data.readingTime} menit membaca</span>
+        )}
+        <span>✍️ {article.data.author}</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cover Image -->
+  <section class="-mt-12">
+    <div class="mx-auto max-w-4xl px-6">
+      <img
+        src={article.data.coverImage}
+        alt={article.data.coverAlt}
+        class="h-80 md:h-125 w-full rounded-3xl object-cover shadow-2xl"
+        loading="eager"
+        decoding="async"
+        fetchpriority="high"
+      />
+    </div>
+  </section>
+
+  <!-- ✅ Artikel Content dengan CSS Manual -->
+  <section class="py-20 bg-white">
+    <div class="mx-auto max-w-4xl px-6">
+      <article class="mdx-content max-w-none">
+        <Content />
+      </article>
+    </div>
+  </section>
+
+  <!-- Related Posts -->
+  <section class="py-10 lg:py-20 bg-white">
+    <div class="w-full md:max-w-[85%] mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-xl md:text-2xl font-bold text-gray-900 mb-8">
+        Artikel Lainnya
+      </h2>
+      
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+        {allArticles
+          .filter(a => a.id !== article.id)
+          .slice(0, 3)
+          .map(related => (
+            <a 
+              href={`/artikel/${related.id}`}
+              class="group block bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+            >
+              <img 
+                src={related.data.coverImage}
+                alt={related.data.coverAlt}
+                class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+              />
+              <div class="p-5">
+                <h3 class="text-lg font-bold text-gray-900 group-hover:text-[#1a73e8] transition-colors line-clamp-2">
+                  {related.data.title}
+                </h3>
+                <time class="text-xs text-gray-400 mt-2 block">
+                  {formatDate(related.data.publishDate)}
+                </time>
+              </div>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

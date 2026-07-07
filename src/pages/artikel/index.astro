@@ -1,0 +1,107 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import '../../styles/global.css';
+import Navbar from '../../components/Navbar.astro';
+import Hero from '../../section/Artikel/Hero.astro';
+import Footer from '../../components/Footer.astro';
+import { getCollection } from 'astro:content';
+
+const articles = await getCollection('articles');
+
+// Urutkan artikel terbaru
+articles.sort((a, b) => {
+  const dateA = a.data.publishDate instanceof Date ? a.data.publishDate : new Date(a.data.publishDate);
+  const dateB = b.data.publishDate instanceof Date ? b.data.publishDate : new Date(b.data.publishDate);
+  return dateB.getTime() - dateA.getTime();
+});
+
+function formatDate(date: Date | string) {
+  const d = date instanceof Date ? date : new Date(date);
+  return d.toLocaleDateString('id-ID', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  });
+}
+---
+
+<Layout>
+  <Navbar />
+  <Hero />
+  
+  <section
+    aria-labelledby="artikel-heading"
+    class="py-10 lg:py-24 bg-white"
+    itemscope
+    itemtype="https://schema.org/Blog"
+  >
+    <div class="w-full md:max-w-[85%] mx-auto px-4 sm:px-6 lg:px-8">
+      
+      {articles.length === 0 ? (
+        <div class="text-center py-10">
+          <p class="text-gray-500">Belum ada artikel.</p>
+        </div>
+      ) : (
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 mb-10">
+          {articles.map(article => (
+            <article
+              class="group bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100
+                     hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer flex flex-col"
+              itemscope
+              itemtype="https://schema.org/BlogPosting"
+            >
+              <a
+                href={`/artikel/${article.id}`}  
+                class="flex flex-col h-full"
+                aria-label={article.data.title}
+              >
+                <div class="relative overflow-hidden h-44 shrink-0">
+                  <img
+                    src={article.data.coverImage}
+                    alt={article.data.coverAlt}
+                    width="400"
+                    height="220"
+                    loading="lazy"
+                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    itemprop="image"
+                  />
+                  <div class="absolute inset-0 bg-linear-to-t from-black/60 via-black/20 to-transparent"></div>
+                  <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between">
+                    <span class="text-[9px] text-white/80 uppercase tracking-widest font-medium truncate mr-2">
+                      {article.data.category}
+                    </span>
+                  </div>
+                </div>
+
+                <div class="p-5 flex flex-col flex-1">
+                  <h3
+                    class="text-gray-900 text-sm md:text-md lg:text-lg font-bold leading-snug mb-2 line-clamp-2
+                           group-hover:text-[#1a73e8] transition-colors"
+                    itemprop="headline"
+                  >
+                    {article.data.title}
+                  </h3>
+                  <p class="text-gray-500 text-xs md:text-sm lg:text-md leading-relaxed line-clamp-3 flex-1" itemprop="description">
+                    {article.data.description}
+                  </p>
+                  <div class="flex items-center gap-2 mt-3 pt-3 border-t border-gray-100">
+                    <time
+                      datetime={article.data.publishDate instanceof Date ? article.data.publishDate.toISOString() : new Date(article.data.publishDate).toISOString()}
+                      class="text-[10px] text-gray-400"
+                      itemprop="datePublished"
+                    >
+                      {formatDate(article.data.publishDate)}
+                    </time>
+                  </div>
+                </div>
+              </a>
+              <meta itemprop="author" content="PT. Join Teknologi Internasional" />
+            </article>
+          ))}
+        </div>
+      )}
+    </div>
+  </section>
+  
+  <Footer />
+</Layout>
