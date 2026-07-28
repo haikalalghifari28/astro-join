@@ -24,16 +24,18 @@ export const ui = {
 
     // Footer
     "footer.companyDesc":
-      "PT Join Teknologi Internasional merupakan perusahaan konsultan teknik sipil yang menyediakan layanan audit struktur, desain struktur, investigasi geoteknik, ANDALALIN, dan estimasi biaya konstruksi.",
+      "PT Join Teknologi Internasional merupakan firma multidisiplin independen yang menyediakan layanan audit struktur, konsultansi teknik, dan manajemen proyek konstruksi untuk berbagai sektor industri di Indonesia.",
     "footer.navHeading": "Navigasi",
     "footer.servicesHeading": "Layanan",
     "footer.contactHeading": "Hubungi Kami",
     "footer.service.audit": "Audit Struktur",
-    "footer.service.desain": "Desain Struktur",
-    "footer.service.geoteknik": "Investigasi Geoteknik",
-    "footer.service.andalalin": "ANDALALIN",
-    "footer.service.rab": "Estimasi Anggaran",
-    "footer.address": "Jl. Nama Jalan No. 123, Jakarta, Indonesia",
+    "footer.service.pbg": "Perizinan Bangunan Gedung",
+    "footer.service.geoteknik": "Penyelidikan Tanah & Geoteknik",
+    "footer.service.mep": "Perencanaan MEP",
+    "footer.service.slf": "Sertifikat Laik Fungsi",
+    "footer.service.mkp": "Manajemen Konstruksi & Pengawasan",
+    "footer.address":
+      "Rukan Summa Village, Jl. Raya Curug Parigi, Sukabakti, Kec. Curug, Kabupaten Tangerang, Banten 15810",
     "footer.rights": "All rights reserved.",
   },
   en: {
@@ -54,16 +56,18 @@ export const ui = {
 
     // Footer
     "footer.companyDesc":
-      "PT Join Teknologi Internasional is a civil engineering consulting firm providing structural audit services, structural design, geotechnical investigation, ANDALALIN (traffic impact analysis), and construction cost estimation.",
+      "PT Join Teknologi Internasional is a multi-disciplinary independent firm that provides structural audit, technical consulting, and project management services for various industries in Indonesia.",
     "footer.navHeading": "Navigation",
     "footer.servicesHeading": "Services",
     "footer.contactHeading": "Contact Us",
     "footer.service.audit": "Structural Audit",
-    "footer.service.desain": "Structural Design",
+    "footer.service.pbg": "Building Permits",
     "footer.service.geoteknik": "Geotechnical Investigation",
-    "footer.service.andalalin": "ANDALALIN",
-    "footer.service.rab": "Budget Estimation",
-    "footer.address": "Jl. Nama Jalan No. 123, Jakarta, Indonesia",
+    "footer.service.mep": "MEP Planning",
+    "footer.service.slf": "Certificate of Functional Suitability",
+    "footer.service.mkp": "Construction Management & Supervision",
+    "footer.address":
+      "Rukan Summa Village, Jl. Raya Curug Parigi, Sukabakti, Kec. Curug, Kabupaten Tangerang, Banten 15810",
     "footer.rights": "All rights reserved.",
   },
 } as const;
