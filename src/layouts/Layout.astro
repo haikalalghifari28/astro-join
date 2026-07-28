@@ -1,16 +1,50 @@
 ---
 import "aos/dist/aos.css";
+import { getLangFromUrl, getRouteKeyFromPath, getHreflangAlternates } from '../i18n/utils';
 
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "PT Join Teknologi Internasional | Konsultan Audit Struktur",
+  description = "Konsultan audit struktur, desain struktur, investigasi geoteknik, dan manajemen konstruksi terpercaya di Indonesia.",
+} = Astro.props;
+
+const lang = getLangFromUrl(Astro.url);
+const rawPath = Astro.url.pathname.replace(/^\/en/, '') || '/';
+const routeKey = getRouteKeyFromPath(rawPath);
+const alternates = getHreflangAlternates(Astro.url, routeKey);
+const canonicalUrl = new URL(Astro.url.pathname, Astro.url.origin).toString();
 ---
+
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+
+		<title>{title}</title>
+		<meta name="description" content={description} />
+
+		<!-- Canonical -->
+		<link rel="canonical" href={canonicalUrl} />
+
+		<!-- Hreflang: memberi tahu Google versi bahasa lain dari halaman ini -->
+		{alternates.map((alt) => (
+			<link rel="alternate" hreflang={alt.hreflang} href={alt.href} />
+		))}
+
+		<!-- Open Graph -->
+		<meta property="og:locale" content={lang === 'id' ? 'id_ID' : 'en_US'} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={canonicalUrl} />
 	</head>
 	<body>
 		<slot />
@@ -35,4 +69,3 @@ import "aos/dist/aos.css";
 		height: 100%;
 	}
 </style>
-

@@ -1,48 +1,29 @@
-<section
-  class="relative overflow-hidden bg-[#382d26] py-28 lg:py-36"
->
+---
+interface Props {
+  eyebrow: string;
+  title: string;
+  subtitle: string;
+}
 
-  <div class="absolute inset-0 "></div>
+const { eyebrow, title, subtitle } = Astro.props;
+---
+
+<section class="relative overflow-hidden bg-[#382d26] py-28 lg:py-36">
+
+  <div class="absolute inset-0"></div>
 
   <div class="relative z-10 mx-auto max-w-7xl px-6 text-center">
 
-    <span
-      class="font-semibold uppercase tracking-[0.3em] text-sm md:text-md lg:text-lg text-orange-500"
-    >
-      Tentang Perusahaan
+    <span class="font-semibold uppercase tracking-[0.3em] text-sm md:text-md lg:text-lg text-orange-500">
+      {eyebrow}
     </span>
 
-    <h1
-      class="
-        mt-6
-        text-2xl
-        font-bold
-        text-white
-        md:text-4xl
-        lg:text-5xl
-      "
-    >
-      Konsultan Audit Struktur & <br>
-      Manajemen Konstruksi Profesional
+    <h1 class="mt-6 text-2xl font-bold text-white md:text-4xl lg:text-5xl">
+      <Fragment set:html={title} />
     </h1>
 
-    <p
-      class="
-        mx-auto
-        mt-8
-        w-[80%]
-        md:max-w-2xl
-        text-sm
-        leading-relaxed
-        md:text-md
-        lg:text-lg
-        text-white/80
-      "
-    >
-      PT Join Teknologi Internasional merupakan firma multidisiplin
-      independen yang menyediakan layanan audit struktur,
-      konsultansi teknik, dan manajemen proyek konstruksi
-      untuk berbagai sektor industri di Indonesia.
+    <p class="mx-auto mt-8 w-[80%] md:max-w-2xl text-sm leading-relaxed md:text-md lg:text-lg text-white/80">
+      {subtitle}
     </p>
 
   </div>

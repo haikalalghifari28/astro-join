@@ -1,0 +1,72 @@
+---
+import Logo from "../../images/logo.png";
+import Layout from '../../layouts/Layout.astro';
+import '../../styles/global.css';
+import { Icon } from 'astro-icon/components'
+import Navbar from '../../components/Navbar.astro';
+import Hero from '../../section/Klien/Hero.astro';
+import Statistik from '../../section/Klien/Statistik.astro';
+import Kategori from '../../section/Klien/Kategori.astro';
+import Alasan from '../../section/Klien/Alasan.astro';
+import ListKlien from '../../section/Klien/List-Klien.astro';
+import Cta from '../../section/Klien/Cta.astro';
+import Footer from '../../components/Footer.astro';
+import { getLangFromUrl, usePageTranslations } from '../../i18n/utils';
+import { klien } from '../../i18n/pages/klien';
+import { home } from '../../i18n/pages/home';
+
+const lang = getLangFromUrl(Astro.url);
+const t = usePageTranslations(klien, lang);
+const tHome = usePageTranslations(home, lang);
+
+const clientsTop = [
+  Logo,
+  Logo,
+  Logo,
+  Logo,
+  Logo,
+  Logo,
+  Logo,
+];
+
+const clientsBottom = [
+  Logo,
+  Logo,
+  Logo,
+  Logo,
+  Logo,
+  Logo,
+  Logo,
+];
+---
+
+<Layout title={t.meta.title} description={t.meta.description}>
+	<Navbar />
+	<Hero
+        eyebrow={t.hero.eyebrow}
+        title={t.hero.title}
+        subtitle={t.hero.subtitle}
+    />
+	<ListKlien
+		eyebrow={t.klienSection.eyebrow}
+		heading={t.klienSection.heading}
+		logoAlt={t.klienSection.logoAlt}
+	/>
+	<Kategori
+        eyebrow={t.sektor.eyebrow}
+        heading={t.sektor.heading}
+        subtitle={t.sektor.subtitle}
+        items={t.sektor.items}
+    />
+	<Statistik items={tHome.stats.items} />
+    <Alasan
+        heading={tHome.layananSection.whyUsHeading}
+        reasons={tHome.layananSection.reasons}
+    />
+	<Cta
+		heading={tHome.ctaSection.heading}
+		description={tHome.ctaSection.description}
+		buttonLabel={tHome.ctaSection.buttonLabel}
+	/>
+	<Footer />
+</Layout>

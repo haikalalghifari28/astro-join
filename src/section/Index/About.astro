@@ -1,5 +1,23 @@
 ---
 import AboutImage from "../../images/hero.jpeg";
+
+interface Props {
+  heading: string;
+  headingSubtitle: string;
+  cardTitle: string;
+  cardDescription: string;
+  readMore: string;
+  readMoreHref: string;
+}
+
+const {
+  heading,
+  headingSubtitle,
+  cardTitle,
+  cardDescription,
+  readMore,
+  readMoreHref,
+} = Astro.props;
 ---
 
 <section
@@ -8,9 +26,7 @@ import AboutImage from "../../images/hero.jpeg";
 >
 
   <!-- Background Top Shape -->
-  <div
-    class="absolute left-0 top-0 h-80 w-full bg-[#382d26]"
-  >
+  <div class="absolute left-0 top-0 h-80 w-full bg-[#382d26]">
     <svg
       class="absolute bottom-0 left-0 w-full"
       viewBox="0 0 1440 120"
@@ -21,28 +37,18 @@ import AboutImage from "../../images/hero.jpeg";
         d="M0,40 C480,140 960,140 1440,40 L1440,120 L0,120 Z"
       />
     </svg>
-
   </div>
 
   <div class="relative z-10 mx-auto max-w-7xl px-6 lg:px-12">
     <!-- Heading -->
-    <article
-      class="mx-auto max-w-4xl text-center"
-    >
+    <article class="mx-auto max-w-4xl text-center">
 
-      <h2
-        class="text-2xl font-bold leading-tight text-white md:text-[42px]"
-      >
-        Audit Struktur Bangunan Teliti, 
-        <br>
-        Keamanan Terpercaya
+      <h2 class="text-2xl font-bold leading-tight text-white md:text-[42px]">
+        <Fragment set:html={heading} />
       </h2>
 
-      <p
-        class="mt-6 text-md md:text-xl leading-relaxed text-slate-200"
-      >
-        Solusi teknis menyeluruh untuk memastikan kepatuhan standar SNI 
-        <br>dan keamanan jangka panjang bangunan Anda.
+      <p class="mt-6 text-md md:text-xl leading-relaxed text-slate-200">
+        <Fragment set:html={headingSubtitle} />
       </p>
 
     </article>
@@ -51,49 +57,23 @@ import AboutImage from "../../images/hero.jpeg";
     <div class="relative mt-20 md:mt-30 grid items-center gap-12 lg:grid-cols-12">
       <!-- CARD -->
       <article
-        class="
-        relative
-        z-20
-        bg-white
-        p-8
-        shadow-xl
-        lg:col-span-5
-        lg:-mr-24
-        lg:p-12
-      "
-      data-aos="fade-right"
+        class="relative z-20 bg-white p-8 shadow-xl lg:col-span-5 lg:-mr-24 lg:p-12"
+        data-aos="fade-right"
       >
 
-        <h3
-          class="text-xl md:text-3xl font-bold text-amber-950"
-        >
-          Tentang Kami
+        <h3 class="text-xl md:text-3xl font-bold text-amber-950">
+          {cardTitle}
         </h3>
 
-        <p
-          class="mt-6 text-sm md:text-lg leading-relaxed text-slate-600"
-        >
-          PT. Join Teknologi Internasional adalah firma multidisiplin independen yang berdedikasi untuk memberikan layanan manajemen lengkap di bidang konstruksi dan infrastruktur. Sebagai konsultan audit struktur yang berpengalaman, kami memahami bahwa keamanan aset properti Anda adalah prioritas utama.
+        <p class="mt-6 text-sm md:text-lg leading-relaxed text-slate-600">
+          {cardDescription}
         </p>
 
-        <a
-          href="/markets"
-          class="
-          text-sm
-          md:text-lg
-          mt-8
-          inline-flex
-          items-center
-          gap-3
-          font-bold
-          uppercase
-          tracking-wide
-          text-orange-500
-          transition
-          hover:text-orange-600
-        "
+        <a 
+          href={readMoreHref}
+          class="text-sm md:text-lg mt-8 inline-flex items-center gap-3 font-bold uppercase tracking-wide text-orange-500 transition hover:text-orange-600"
         >
-          Selengkapnya
+          {readMore}
 
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -109,27 +89,17 @@ import AboutImage from "../../images/hero.jpeg";
               d="M9 5l7 7-7 7"
             />
           </svg>
-
         </a>
 
       </article>
 
       <!-- IMAGE -->
-      <div
-        class="lg:col-span-7" data-aos="fade-left"
-      >
-
+      <div class="lg:col-span-7" data-aos="fade-left">
         <img
           src={AboutImage.src}
           alt="Professional engineering team discussing project plans"
-          class="
-          h-full
-          w-full
-          object-cover
-          shadow-2xl
-        "
+          class="h-full w-full object-cover shadow-2xl"
         />
-
       </div>
 
     </div>

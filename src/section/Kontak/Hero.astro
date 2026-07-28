@@ -1,50 +1,36 @@
 ---
 import backgroundHero from '../../images/heroKontak.jpg'
+
+interface Props {
+  eyebrow: string;
+  title: string;
+  subtitle: string;
+}
+
+const { eyebrow, title, subtitle } = Astro.props;
 ---
 
-<section
-  class="relative overflow-hidden py-28 lg:py-36"
->
-<!-- Background Image -->
+<section class="relative overflow-hidden py-28 lg:py-36">
   <img
     src={backgroundHero.src}
     alt=""
     class="absolute inset-0 h-full w-full object-cover"
   />
   <div class="absolute inset-0 bg-black/70"></div>
-  <div
-    class="relative mx-auto max-w-7xl px-6 text-center text-white"
-  >
+  <div class="relative mx-auto max-w-7xl px-6 text-center text-white">
 
-    <span
-      class="font-semibold uppercase tracking-[0.3em] text-sm md:text-md lg:text-lg text-orange-500"
-    >
-      Hubungi Kami
+    <span class="font-semibold uppercase tracking-[0.3em] text-sm md:text-md lg:text-lg text-orange-500">
+      {eyebrow}
     </span>
 
-    <h1
-      class="mt-6 text-2xl font-bold md:text-4xl lg:text-5xl"
-    >
-      Konsultasikan Kebutuhan Proyek Anda
+    <h1 class="mt-6 text-2xl font-bold md:text-4xl lg:text-5xl">
+      {title}
     </h1>
 
-    <p
-      class="
-        mx-auto
-        mt-8
-        w-[80%]
-        md:max-w-2xl
-        text-sm
-        leading-relaxed
-        md:text-md
-        lg:text-lg
-        text-white/80"
-    >
-      Konsultasikan kebutuhan audit struktur, pengurusan SLF, atau manajemen proyek konstruksi Anda bersama tim ahli bersertifikat kami sekarang.
+    <p class="mx-auto mt-8 w-[80%] md:max-w-2xl text-sm leading-relaxed md:text-md lg:text-lg text-white/80">
+      {subtitle}
     </p>
 
   </div>
 
 </section>
-
-

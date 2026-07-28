@@ -1,60 +1,41 @@
-<section
-  id="about-company"
-  class="relative overflow-hidden bg-white py-28 lg:py-36"
->
+---
+interface Props {
+  eyebrow: string;
+  title: string;
+  subtitle: string;
+}
+
+const { eyebrow, title, subtitle } = Astro.props;
+---
+
+<section id="about-company" class="relative overflow-hidden bg-white py-28 lg:py-36">
 
   <!-- Background Top Shape -->
-  <div
-    class="absolute left-0 top-0  h-100 md:h-120 w-full bg-[#382d26]"
-  >
+  <div class="absolute left-0 top-0 h-100 md:h-120 w-full bg-[#382d26]">
     <svg
       class="absolute bottom-0 left-0 w-full"
       viewBox="0 0 1440 120"
       preserveAspectRatio="none"
     >
-      <path
-        fill="#fff"
-        d="M0,40 C480,140 960,140 1440,40 L1440,120 L0,120 Z"
-      />
+      <path fill="#fff" d="M0,40 C480,140 960,140 1440,40 L1440,120 L0,120 Z" />
     </svg>
-
   </div>
 
   <div class="relative z-10 mx-auto max-w-7xl px-6 lg:px-12">
     <!-- Heading -->
-    <article
-      class="mx-auto max-w-4xl text-center"
-    >
+    <article class="mx-auto max-w-4xl text-center">
 
-     <span
-      class="font-semibold uppercase tracking-[0.3em] text-sm md:text-md lg:text-lg text-orange-500"
-    >
-      Portfolio Kami
-    </span>
+      <span class="font-semibold uppercase tracking-[0.3em] text-sm md:text-md lg:text-lg text-orange-500">
+        {eyebrow}
+      </span>
 
-    <h1
-      class="mt-6 text-xl font-bold md:text-4xl lg:text-5xl text-white"
-    >
-      Proyek Kami di Berbagai <br>
-      Wilayah Indonesia
-    </h1>
+      <h1 class="mt-6 text-xl font-bold md:text-4xl lg:text-5xl text-white">
+        <Fragment set:html={title} />
+      </h1>
 
-    <p
-      class="
-        mx-auto
-        mt-8
-        w-[80%]
-        md:max-w-2xl
-        text-sm
-        leading-relaxed
-        md:text-md
-        lg:text-lg
-        text-white/80"
-    >
-      Berbagai proyek audit struktur, perencanaan,
-      pengawasan konstruksi, dan pengujian bangunan
-      yang telah kami selesaikan di berbagai wilayah Indonesia.
-    </p>
+      <p class="mx-auto mt-8 w-[80%] md:max-w-2xl text-sm leading-relaxed md:text-md lg:text-lg text-white/80">
+        {subtitle}
+      </p>
 
     </article>
 

@@ -1,9 +1,31 @@
 ---
 import { getCollection } from 'astro:content';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import { getLangFromUrl, getLocalizedPath } from '../../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+
+interface Props {
+  heading: string;
+  subtitle: string;
+  emptyMessage: string;
+  readMoreLabel: string;
+  readMoreAriaLabel: string;
+  dateLocale: string;
+  lang: string;
+}
+
+const {
+  heading,
+  subtitle,
+  emptyMessage,
+  readMoreLabel,
+  readMoreAriaLabel,
+  dateLocale,
+} = Astro.props;
 
 const articles = await getCollection('articles');
 
-// Urutkan artikel terbaru
 articles.sort((a, b) => {
   const dateA = a.data.publishDate instanceof Date ? a.data.publishDate : new Date(a.data.publishDate);
   const dateB = b.data.publishDate instanceof Date ? b.data.publishDate : new Date(b.data.publishDate);
@@ -12,7 +34,7 @@ articles.sort((a, b) => {
 
 function formatDate(date: Date | string) {
   const d = date instanceof Date ? date : new Date(date);
-  return d.toLocaleDateString('id-ID', {
+  return d.toLocaleDateString(dateLocale, {
     day: 'numeric',
     month: 'long',
     year: 'numeric',
@@ -28,24 +50,23 @@ function formatDate(date: Date | string) {
   >
     <div class="w-full md:max-w-[85%] mx-auto px-4 sm:px-6 lg:px-8">
 
-    <!-- ─── Section Header ──────────────────────────── -->
+    <!-- Header -->
     <div class="mb-12">
       <h2
         id="artikel-heading"
         class="text-xl md:text-2xl lg:text-4xl font-bold text-amber-950 mb-3 leading-tight"
         itemprop="name"
       >
-        Informasi Dan Berita Terbaru
+        {heading}
       </h2>
       <p class="text-gray-700 text-sm md:text-md lg:text-lg max-w-xl leading-relaxed">
-        Jelajahi artikel dan panduan terbaru dari kami untuk memahami pentingnya audit,
-        sertifikasi, dan desain teknis dalam memastikan kesuksesan proyek Anda.
+        {subtitle}
       </p>
     </div>
-      
+
       {articles.length === 0 ? (
         <div class="text-center py-10">
-          <p class="text-gray-500">Belum ada artikel.</p>
+          <p class="text-gray-500">{emptyMessage}</p>
         </div>
       ) : (
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 mb-10">
@@ -56,8 +77,8 @@ function formatDate(date: Date | string) {
               itemscope
               itemtype="https://schema.org/BlogPosting"
             >
-              <a
-                href={`/artikel/${article.id}`}  
+              <a 
+                href={getRelativeLocaleUrl(lang, `/artikel/${article.id}`)}
                 class="flex flex-col h-full"
                 aria-label={article.data.title}
               >
@@ -108,14 +129,14 @@ function formatDate(date: Date | string) {
       )}
 
       <div>
-        <a
-          href="/artikel"
+        <a 
+          href={getRelativeLocaleUrl(lang, getLocalizedPath(lang, 'articles'))}
           class="inline-flex items-center gap-2 px-2 py-2 md:px-4 md:py-3 bg-orange-500 text-white
                 font-bold text-xs md:text-sm tracking-wider rounded-lg
                 hover:bg-orange-600 active:scale-95 transition-all duration-200"
-          aria-label="Baca lebih banyak artikel dari PT. Join Teknologi Internasional"
+          aria-label={readMoreAriaLabel}
         >
-          Baca Lebih Banyak Artikel
+          {readMoreLabel}
           <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
             <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
           </svg>
@@ -123,5 +144,3 @@ function formatDate(date: Date | string) {
       </div>
     </div>
   </section>
-
-

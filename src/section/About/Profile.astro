@@ -1,62 +1,35 @@
-<section
-  class="bg-white py-20"
->
-  <div
-    class="
-      mx-auto
-      grid
-      max-w-7xl
-      gap-8
-      px-6
-      lg:grid-cols-2
-      lg:items-center
-    "
-  >
+---
+interface Props {
+  eyebrow: string;
+  heading: string;
+  paragraph1: string;
+  paragraph2: string;
+}
 
-    <div data-aos="fade-right"
-    data-aos-duration="1000">
+const { eyebrow, heading, paragraph1, paragraph2 } = Astro.props;
+---
 
-      <span
-        class="font-semibold uppercase tracking-[0.2em] text-sm md:text-md lg:text-lg text-orange-500"
-      >
-        Profil Perusahaan
+<section class="bg-white py-20">
+  <div class="mx-auto grid max-w-7xl gap-8 px-6 lg:grid-cols-2 lg:items-center">
+
+    <div data-aos="fade-right" data-aos-duration="1000">
+      <span class="font-semibold uppercase tracking-[0.2em] text-sm md:text-md lg:text-lg text-orange-500">
+        {eyebrow}
       </span>
 
-      <h2
-        class="
-          mt-4
-          text-xl
-          font-bold
-          text-amber-950
-          md:text-2xl
-          xl:text-4xl
-        "
-      >
-        Membangun Kepercayaan <br>
-        Melalui Solusi Teknik
+      <h2 class="mt-4 text-xl font-bold text-amber-950 md:text-2xl xl:text-4xl">
+        <Fragment set:html={heading} />
       </h2>
-
     </div>
 
-    <div data-aos="fade-left"
-    data-aos-duration="1000">
-
-      <p
-        class="leading-relaxed text-sm md:text-lg text-slate-600"
-      >
-        PT. Join Teknologi Internasional adalah firma multidisiplin
-        independen yang berdedikasi untuk memberikan layanan
-        manajemen lengkap di bidang konstruksi dan infrastruktur.
+    <div data-aos="fade-left" data-aos-duration="1000">
+      <p class="leading-relaxed text-sm md:text-lg text-slate-600">
+        {paragraph1}
       </p>
 
-      <p
-        class="mt-6 leading-relaxed text-sm md:text-lg text-slate-600"
-      >
-        Sebagai konsultan audit struktur yang berpengalaman,
-        kami memahami bahwa keamanan aset properti merupakan
-        prioritas utama setiap pemilik bangunan.
+      <p class="mt-6 leading-relaxed text-sm md:text-lg text-slate-600">
+        {paragraph2}
       </p>
-
     </div>
 
   </div>

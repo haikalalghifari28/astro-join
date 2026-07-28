@@ -9,15 +9,52 @@ import Visi from '../section/About/Visi-misi.astro'
 import Alur from '../section/About/Alur-kerja.astro'
 import Layanan from '../section/About/Layanan.astro'
 import Footer from '../components/Footer.astro';
+
+import { getLangFromUrl, usePageTranslations } from '../i18n/utils';
+import { about } from '../i18n/pages/about';
+import { home } from '../i18n/pages/home';
+
+const lang = getLangFromUrl(Astro.url);
+const t = usePageTranslations(about, lang);
+const tHome = usePageTranslations(home, lang);
 ---
 
-<Layout>
+<Layout title={t.meta.title} description={t.meta.description}>
 	<Navbar />
-	<Hero />
-  <Profile />
-  <Keahlian />
-  <Visi />
-  <Alur />
-  <Layanan />
+	<Hero
+        eyebrow={t.hero.eyebrow}
+        title={t.hero.title}
+        subtitle={t.hero.subtitle}
+    />
+  <Profile
+      eyebrow={t.profile.eyebrow}
+      heading={t.profile.heading}
+      paragraph1={t.profile.paragraph1}
+      paragraph2={t.profile.paragraph2}
+  />
+  <Keahlian
+      heading={t.keahlian.heading}
+      subtitle={t.keahlian.subtitle}
+      items={t.keahlian.items}
+  />
+  <Visi
+        visiLabel={t.visi.visiLabel}
+        visiTitle={t.visi.visiTitle}
+        visiDescription={t.visi.visiDescription}
+        misiLabel={t.visi.misiLabel}
+        misiTitle={t.visi.misiTitle}
+        misiDescription={t.visi.misiDescription}
+    />
+    <Alur
+        eyebrow={t.alur.eyebrow}
+        heading={t.alur.heading}
+        subtitle={t.alur.subtitle}
+        steps={t.alur.steps}
+    />
+  <Layanan
+        heading={tHome.layananSection.heading}
+        subtitle={tHome.layananSection.subtitle}
+        services={tHome.layananSection.services}
+    />
 	<Footer />
 </Layout>

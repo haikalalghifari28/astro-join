@@ -1,29 +1,20 @@
 ---
 import Logo from "../../images/logo.png";
 
-const clientsTop = [
-  Logo,
-  Logo,
-  Logo,
-  Logo,
-  Logo,
-  Logo,
-  Logo,
-];
+interface Props {
+  eyebrow: string;
+  heading: string;
+  logoAlt: string;
+}
 
-const clientsBottom = [
-  Logo,
-  Logo,
-  Logo,
-  Logo,
-  Logo,
-  Logo,
-  Logo,
-];
+const { eyebrow, heading, logoAlt } = Astro.props;
+
+const clientsTop = [Logo, Logo, Logo, Logo, Logo, Logo, Logo];
+const clientsBottom = [Logo, Logo, Logo, Logo, Logo, Logo, Logo];
 ---
 
 <!-- STYLE -->
- <style>
+<style>
   .client-marquee {
     overflow: hidden;
     position: relative;
@@ -40,7 +31,6 @@ const clientsBottom = [
     flex-shrink: 0;
     width: 220px;
     height: 120px;
-
     display: flex;
     align-items: center;
     justify-content: center;
@@ -49,9 +39,7 @@ const clientsBottom = [
   .client-item img {
     max-width: 180px;
     max-height: 90px;
-
     object-fit: contain;
-
     opacity: 0.8;
     transition: all 0.3s ease;
   }
@@ -74,23 +62,13 @@ const clientsBottom = [
   }
 
   @keyframes marquee-left {
-    from {
-      transform: translateX(0);
-    }
-
-    to {
-      transform: translateX(-50%);
-    }
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
   }
 
   @keyframes marquee-right {
-    from {
-      transform: translateX(-50%);
-    }
-
-    to {
-      transform: translateX(0);
-    }
+    from { transform: translateX(-50%); }
+    to { transform: translateX(0); }
   }
 
   @media (max-width: 768px) {
@@ -110,78 +88,43 @@ const clientsBottom = [
   }
 </style>
 
-<section
-  id="clients"
-  class="overflow-hidden bg-slate-100 py-14 lg:py-24"
->
+<section id="clients" class="overflow-hidden bg-slate-100 py-14 lg:py-24">
   <div class="mx-auto max-w-7xl px-6">
 
     <header class="text-center">
-
-      <span
-        class="
-        font-semibold
-        uppercase
-        tracking-[0.3em]
-        text-sm
-        md:text-lg
-        text-orange-500
-      "
-      >
-        KLIEN KAMI
+      <span class="font-semibold uppercase tracking-[0.3em] text-sm md:text-lg text-orange-500">
+        {eyebrow}
       </span>
 
-      <h2
-        class="
-        mt-5
-        text-2xl md:text-3xl lg:text-4xl
-        font-bold
-        text-amber-950
-      "
-      >
-        Dipercayai Oleh Instansi & Perusahaan Terkemuka
+      <h2 class="mt-5 text-2xl md:text-3xl lg:text-4xl font-bold text-amber-950">
+        {heading}
       </h2>
-
     </header>
 
     <!-- ROW 1 -->
     <div class="client-marquee mt-20">
-
       <div class="client-track client-track-left">
-
         {
           [...clientsTop, ...clientsTop].map((logo) => (
             <div class="client-item">
-              <img
-                src={logo.src}
-                alt="Client Logo"
-              />
+              <img src={logo.src} alt={logoAlt} />
             </div>
           ))
         }
-
       </div>
-
     </div>
 
     <!-- ROW 2 -->
     <div class="client-marquee mt-10">
-
       <div class="client-track client-track-right">
-
         {
           [...clientsBottom, ...clientsBottom].map((logo) => (
             <div class="client-item">
-              <img
-                src={logo.src}
-                alt="Client Logo"
-              />
+              <img src={logo.src} alt={logoAlt} />
             </div>
           ))
         }
-
       </div>
-
     </div>
 
   </div>

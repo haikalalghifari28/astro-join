@@ -6,11 +6,20 @@ import Navbar from '../components/Navbar.astro';
 import Hero from '../section/Proyek/Hero.astro';
 import ProyekSection from '../section/Proyek/Proyek.astro';
 import Footer from '../components/Footer.astro';
+import { getLangFromUrl, usePageTranslations } from '../i18n/utils';
+import { proyek } from '../i18n/pages/proyek';
+
+const lang = getLangFromUrl(Astro.url);
+const t = usePageTranslations(proyek, lang);
 ---
 
-<Layout>
+<Layout title={t.meta.title} description={t.meta.description}>
 	<Navbar />
-	<Hero />
-	<ProyekSection />
+	<Hero
+        eyebrow={t.hero.eyebrow}
+        title={t.hero.title}
+        subtitle={t.hero.subtitle}
+    />
+	<ProyekSection button={t.proyekSection.button} />
 	<Footer />
 </Layout>

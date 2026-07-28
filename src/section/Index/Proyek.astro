@@ -4,37 +4,52 @@ import Project2 from "../../images/proyek/mts/1.webp";
 import Project3 from "../../images/proyek/dermaga-kendal/1.webp";
 import Project4 from "../../images/proyek/jpo-polda/1.webp";
 import BackgroundImage from "../../images/proyek/miting/2.webp";
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import { getLangFromUrl, getLocalizedPath } from '../../i18n/utils';
 
-const projects = [
-  {
-    title: "Retaining Wall Jakarta",
-    description:
-      "Terdapat retakan pada struktur Retaining Wall. PT JTI melakukan pengujian UPV Crack untuk mengetahui kedalaman retak pada struktur beton tersebut.",
-    image: Project1,
-    href: "/proyek",
-  },
-  {
-    title: "Bangunan MTS",
-    description:
-      "Bangunan sudah berumur, dan ingin menambah lantai. PT JTI melakukan Pengujian UPV (Ultrasonic Pulse Velocity) menggunakan metode Non-Destructive Testing (NDT) yang digunakan untuk mengevaluasi mutu dan integritas beton",
-    image: Project2,
-    href: "/proyek",
-  },
-  {
-    title: "Dermaga Kendal, Jawa Tengah",
-    description:
-      "PT JTI di tunjuk untuk mengecek struktur dermaga untuk memastikan kelayakan pada dermaga. Item pengujian yang kami lakukan adalah pengujian HAMERR TEST dan Analisis Struktur Dermaga",
-    image: Project3,
-    href: "/proyek",
-  },
-  {
-    title: "JPO Polda Jakarta",
-    description:
-      "terjadi Pengecekan struktur bangunan berkala setaip 5 tahun sekali. Item pengujian yang digunakan adalah UPV Tes, Hammer Tes, Covermeter Tes dan Levelling verticality ",
-    image: Project4,
-    href: "/proyek",
-  },
-];
+const lang = getLangFromUrl(Astro.url);
+
+interface ProjectItem {
+  title: string;
+  description: string;
+}
+
+interface StatItem {
+  target: number;
+  label: string;
+}
+
+interface Props {
+  eyebrow: string;
+  heading: string;
+  subtitle: string;
+  projects: readonly ProjectItem[];
+  detailLabel: string;
+  viewAllLabel: string;
+  statsHeading: string;
+  statsItems: readonly StatItem[];
+  lang: string;
+}
+
+const {
+  eyebrow,
+  heading,
+  subtitle,
+  projects,
+  detailLabel,
+  viewAllLabel,
+  statsHeading,
+  statsItems,
+} = Astro.props;
+
+// Image tidak berubah antar bahasa — tetap statis, digabung berdasarkan index
+const projectImages = [Project1, Project2, Project3, Project4];
+
+const projectsWithMedia = projects.map((item, index) => ({
+  ...item,
+  image: projectImages[index],
+  href: getRelativeLocaleUrl(lang, '/proyek'),
+}));
 ---
 
 <section
@@ -45,55 +60,24 @@ const projects = [
 
     <!-- Heading -->
     <header class="mx-auto max-w-4xl text-center">
-
-      <span
-        class="
-        text-sm
-        md:text-lg
-        text-orange-500
-        font-semibold
-        uppercase
-        tracking-[0.3em]
-      "
-      >
-        PORTOFOLIO
+      <span class="text-sm md:text-lg text-orange-500 font-semibold uppercase tracking-[0.3em]">
+        {eyebrow}
       </span>
 
-      <h2
-        class="
-        mt-4
-        text-2xl md:text-4xl
-        font-bold
-        text-amber-950
-        lg:text-5xl
-      "
-      >
-        Proyek Kami
+      <h2 class="mt-4 text-2xl md:text-4xl font-bold text-amber-950 lg:text-5xl">
+        {heading}
       </h2>
 
-      <p
-        class="
-        mx-auto
-        mt-6
-        max-w-3xl
-        text-sm
-        md:text-md
-        lg:text-lg
-        text-slate-600
-      "
-      >
-        Pengalaman kami mencakup berbagai proyek konstruksi,
-        investigasi teknis, dan konsultasi yang telah membantu
-        banyak perusahaan dan instansi di Indonesia.
+      <p class="mx-auto mt-6 max-w-3xl text-sm md:text-md lg:text-lg text-slate-600">
+        {subtitle}
       </p>
-
     </header>
 
     <!-- PROJECTS -->
     <div class="mt-24 space-y-28">
 
       {
-        projects.map((project, index) => (
+        projectsWithMedia.map((project, index) => (
 
           <article
             class="
@@ -120,84 +104,34 @@ const projects = [
               <img
                 src={project.image.src}
                 alt={project.title}
-                class="
-                  h-[350px]
-                  w-full
-                  object-cover
-                  shadow-xl
-                  lg:h-[520px]
-                "
+                class="h-[350px] w-full object-cover shadow-xl lg:h-[520px]"
               />
             </div>
 
             {/* CARD */}
 
             <div
-              class={`
-                order-2
-                relative
-                z-10
-
-                ${index % 2 === 0
+              class={`order-2 relative z-10 ${
+                index % 2 === 0
                   ? "lg:col-span-5 lg:order-1 lg:-mr-20"
-                  : "lg:col-span-5 lg:order-2 lg:-ml-20"}
-              `}
+                  : "lg:col-span-5 lg:order-2 lg:-ml-20"
+              }`}
             >
+              <div class="bg-white p-8 shadow-2xl lg:p-12">
 
-              <div
-                class="
-                bg-white
-                p-8
-                shadow-2xl
-                lg:p-12
-                "
-              >
-
-                <h3
-                  class="
-                  text-xl
-                  md:text-2xl
-                  lg:text-3xl
-                  font-bold
-                  text-slate-900
-                  "
-                >
+                <h3 class="text-xl md:text-2xl lg:text-3xl font-bold text-slate-900">
                   {project.title}
                 </h3>
 
-                <p
-                  class="
-                  text-sm
-                  md:text-md
-                  lg:text-lg
-                  mt-6
-                  leading-relaxed
-                  text-slate-600
-                  "
-                >
+                <p class="text-sm md:text-md lg:text-lg mt-6 leading-relaxed text-slate-600">
                   {project.description}
                 </p>
 
-                <a
-                  href={project.href}
-                  class="
-                  text-sm
-                  md:text-md
-                  lg:text-lg
-                  mt-8
-                  inline-flex
-                  items-center
-                  gap-3
-                  font-bold
-                  uppercase
-                  tracking-wide
-                  text-orange-500
-                  transition
-                  hover:text-orange-600
-                  "
+                <a 
+                  href={getRelativeLocaleUrl(lang, getLocalizedPath(lang, 'projects'))}
+                  class="text-sm md:text-md lg:text-lg mt-8 inline-flex items-center gap-3 font-bold uppercase tracking-wide text-orange-500 transition hover:text-orange-600"
                 >
-
-                  Lihat Detail
+                  {detailLabel}
 
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -213,14 +147,11 @@ const projects = [
                       d="M9 5l7 7-7 7"
                     />
                   </svg>
-
                 </a>
-
               </div>
-
             </div>
-
           </article>
+          
 
         ))
       }
@@ -228,28 +159,11 @@ const projects = [
     </div>
 
     <div class="mt-24 text-center" data-aos="fade-up" data-duration="1000">
-
-      <a
-        href="/proyek"
-        class="
-          inline-flex
-          items-center
-          gap-3
-          rounded-2xl
-          bg-orange-500
-          text-sm
-          md:text-lg
-          px-4
-          py-2
-          md:px-6
-          md:py-3
-          font-semibold
-          text-white
-          transition
-          hover:bg-orange-600
-        "
+      <a 
+        href={getRelativeLocaleUrl(lang, getLocalizedPath(lang, 'projects'))}
+        class="inline-flex items-center gap-3 rounded-2xl bg-orange-500 text-sm md:text-lg px-4 py-2 md:px-6 md:py-3 font-semibold text-white transition hover:bg-orange-600"
       >
-        Lihat Semua Proyek
+        {viewAllLabel}
 
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -265,17 +179,12 @@ const projects = [
             d="M9 5l7 7-7 7"
           />
         </svg>
-
       </a>
-
     </div>
   </div>
 </section>
 
-<section
-  id="statistics"
-  class="relative overflow-hidden"
->
+<section id="statistics" class="relative overflow-hidden">
 
   <!-- Background -->
   <div
@@ -286,90 +195,29 @@ const projects = [
   </div>
 
   <!-- Content -->
-  <div
-    class="relative z-10 mx-auto max-w-7xl px-6 py-24 lg:px-12 lg:py-36"
-  >
+  <div class="relative z-10 mx-auto max-w-7xl px-6 py-24 lg:px-12 lg:py-36">
 
     <header class="sr-only">
-      <h2>Statistik Perusahaan</h2>
+      <h2>{statsHeading}</h2>
     </header>
 
-    <div
-      class="grid grid-cols-1 md:grid-cols-2 gap-10 text-center text-white lg:grid-cols-4"
-    >
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 text-center text-white lg:grid-cols-4">
+      {
+        statsItems.map((stat) => (
+          <article>
+            <div
+              class="counter text-4xl md:text-5xl lg:text-6xl font-light"
+              data-target={stat.target}
+            >
+              0
+            </div>
 
-      <!-- ITEM -->
-      <article>
-
-        <div
-          class="counter text-4xl md:text-5xl lg:text-6xl font-light"
-          data-target="100"
-        >
-          0
-        </div>
-
-        <p
-          class="mt-4 text-xl md:text-2xl lg:text-3xl text-white/90"
-        >
-          Proyek
-        </p>
-
-      </article>
-
-      <!-- ITEM -->
-      <article>
-
-        <div
-          class="counter text-4xl md:text-5xl lg:text-6xl font-light"
-          data-target="23"
-        >
-          0
-        </div>
-
-        <p
-          class="mt-4 text-xl md:text-2xl lg:text-3xl text-white/90"
-        >
-          Kota
-        </p>
-
-      </article>
-
-      <!-- ITEM -->
-      <article>
-
-        <div
-          class="counter text-4xl md:text-5xl lg:text-6xl font-light"
-          data-target="50"
-        >
-          0
-        </div>
-
-        <p
-          class="mt-4 text-xl md:text-2xl lg:text-3xl text-white/90"
-        >
-          Klien
-        </p>
-
-      </article>
-
-      <!-- ITEM -->
-      <article>
-
-        <div
-          class="counter text-4xl md:text-5xl lg:text-6xl font-light"
-          data-target="8"
-        >
-          0
-        </div>
-
-        <p
-          class="mt-4 text-xl md:text-2xl lg:text-3xl text-white/90"
-        >
-          Tahun Pengalaman
-        </p>
-
-      </article>
-
+            <p class="mt-4 text-xl md:text-2xl lg:text-3xl text-white/90">
+              {stat.label}
+            </p>
+          </article>
+        ))
+      }
     </div>
 
   </div>

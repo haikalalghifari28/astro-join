@@ -10,4 +10,11 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
   integrations: [icon(), mdx()],
+  i18n: {
+    defaultLocale: "id",
+    locales: ["id", "en"],
+    routing: {
+      prefixDefaultLocale: false, // "/" = id, "/en/" = english
+    },
+  },
 });

@@ -1,0 +1,44 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import '../../styles/global.css';
+import Navbar from '../../components/Navbar.astro';
+import Hero from '../../section/Kontak/Hero.astro'
+import Form from '../../section/Kontak/Form.astro'
+import Footer from '../../components/Footer.astro';
+import { getLangFromUrl, usePageTranslations } from '../../i18n/utils';
+import { kontak } from '../../i18n/pages/kontak';
+
+const lang = getLangFromUrl(Astro.url);
+const t = usePageTranslations(kontak, lang);
+---
+
+<Layout title={t.meta.title} description={t.meta.description}>
+	<Navbar />
+	<Hero
+        eyebrow={t.hero.eyebrow}
+        title={t.hero.title}
+        subtitle={t.hero.subtitle}
+    />
+    <Form
+        infoHeading={t.form.infoHeading}
+        infoSubtitle={t.form.infoSubtitle}
+        addressLabel={t.form.addressLabel}
+        addressValue={t.form.addressValue}
+        phoneLabel={t.form.phoneLabel}
+        phoneValue={t.form.phoneValue}
+        emailLabel={t.form.emailLabel}
+        emailValue={t.form.emailValue}
+        hoursLabel={t.form.hoursLabel}
+        hoursValue={t.form.hoursValue}
+        whatsappLabel={t.form.whatsappLabel}
+        formHeading={t.form.formHeading}
+        formSubtitle={t.form.formSubtitle}
+        placeholderName={t.form.placeholderName}
+        placeholderCompany={t.form.placeholderCompany}
+        placeholderEmail={t.form.placeholderEmail}
+        placeholderPhone={t.form.placeholderPhone}
+        placeholderMessage={t.form.placeholderMessage}
+        submitLabel={t.form.submitLabel}
+    />
+	<Footer />
+</Layout>

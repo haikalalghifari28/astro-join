@@ -123,6 +123,12 @@ import rumahTinggal5 from "../../images/proyek/rumah-tinggal-jakarta/5.webp";
 import rumahTinggal6 from "../../images/proyek/rumah-tinggal-jakarta/6.webp";
 import rumahTinggal7 from "../../images/proyek/rumah-tinggal-jakarta/7.webp";
 
+interface Props {
+  button: string;
+}
+
+const { button } = Astro.props;
+
 const projects = [
   { id: 1, title: "Retaining Wall Jakarta", description: "Terdapat retakan pada struktur Retaining Wall. PT JTI melakukan pengujian UPV Crack untuk mengetahui kedalaman retak pada struktur beton tersebut.", location: "Jakarta", year: 2026, category: "Audit Struktur", cover: RetainingWall1,
     gallery: [
@@ -311,7 +317,7 @@ const projects = [
           hover:bg-orange-600
         "
       >
-        Lihat Lebih Banyak
+        {button}
       </button>
 
     </div>

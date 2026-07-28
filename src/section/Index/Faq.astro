@@ -1,32 +1,21 @@
 ---
-const faqs = [
-  {
-    question: "Apa itu jasa konsultan audit struktur?",
-    answer:
-      "Jasa konsultan audit struktur adalah layanan pemeriksaan menyeluruh terhadap kesehatan dan keamanan bangunan untuk memastikan struktur masih layak huni dan aman digunakan.",
-  },
-  {
-    question: "Kapan sebuah bangunan membutuhkan audit struktur?",
-    answer:
-      "Bangunan membutuhkan audit jika terjadi retakan yang mencurigakan, perubahan fungsi bangunan (misal: rumah menjadi gudang), setelah terjadi gempa atau kebakaran, atau jika usia bangunan sudah lebih dari 20 tahun.",
-  },
-  {
-    question: "Berapa biaya jasa audit struktur?",
-    answer:
-      "Biaya bersifat sangat variatif tergantung luas bangunan, lokasi, dan tingkat kerumitan pengujian yang diperlukan. Hubungi kami untuk mendapatkan penawaran harga terbaik.",
-  },
-  {
-    question:
-      "Apakah laporan audit struktur dapat digunakan untuk pengurusan SLF?",
-    answer:
-      "Ya, laporan dari PT Join Teknologi Internasional disusun secara teknis dan profesional sehingga dapat menjadi basis data pendukung untuk pengurusan Sertifikat Laik Fungsi (SLF).",
-  },
-];
+interface FaqItem {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  heading: string;
+  subtitle: string;
+  items: readonly FaqItem[];
+}
+
+const { heading, subtitle, items } = Astro.props;
 ---
 
 <style>
   .faq-item summary::-webkit-details-marker {
-  display: none;
+    display: none;
   }
 
   .faq-item[open] .faq-icon {
@@ -55,111 +44,37 @@ const faqs = [
 
     <!-- Heading -->
     <header class="mb-16 text-center">
-
       <h2
         id="faq-heading"
-        class="
-          text-xl
-          font-bold
-          tracking-tight
-          text-amber-950
-          md:text-2xl
-          lg:text-4xl
-        "
+        class="text-xl font-bold tracking-tight text-amber-950 md:text-2xl lg:text-4xl"
       >
-        Pertanyaan Umum Seputar
-        Konsultan Audit Struktur
+        {heading}
       </h2>
 
-      <p
-        class="
-          mx-auto
-          mt-6
-          max-w-4xl
-          text-sm
-          md:text-md
-          lg:text-xl
-          leading-relaxed
-          text-slate-600
-        "
-      >
-        Temukan jawaban atas pertanyaan yang sering diajukan mengenai
-        prosedur, biaya, dan legalitas audit struktur bangunan.
+      <p class="mx-auto mt-6 max-w-4xl text-sm md:text-md lg:text-xl leading-relaxed text-slate-600">
+        {subtitle}
       </p>
-
     </header>
 
     <!-- FAQ List -->
     <div class="space-y-0">
-
       {
-        faqs.map((faq) => (
-          <details
-            class="
-              faq-item
-              border-t
-              border-slate-300
-              py-2
-            "
-          >
-            <summary
-              class="
-                flex
-                cursor-pointer
-                list-none
-                items-center
-                justify-between
-                gap-6
-                py-6
-                text-left
-              "
-            >
+        items.map((faq) => (
+          <details class="faq-item border-t border-slate-300 py-2">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-6 py-6 text-left">
 
-              <h3
-                class="
-                  text-md
-                  font-semibold
-                  text-amber-950
-                  md:text-xl
-                "
-              >
+              <h3 class="text-md font-semibold text-amber-950 md:text-xl">
                 {faq.question}
               </h3>
 
-              <span
-                class="
-                  faq-icon
-                  flex
-                  h-10
-                  w-10
-                  items-center
-                  justify-center
-                  text-4xl
-                  font-light
-                  text-black
-                  transition-transform
-                "
-              >
+              <span class="faq-icon flex h-10 w-10 items-center justify-center text-4xl font-light text-black transition-transform">
                 +
               </span>
 
             </summary>
 
-            <div
-              class="
-                max-w-5xl
-                pb-8
-                pr-12
-              "
-            >
-              <p
-                class="
-                  text-sm
-                  md:text-lg
-                  leading-relaxed
-                  text-slate-700
-                "
-              >
+            <div class="max-w-5xl pb-8 pr-12">
+              <p class="text-sm md:text-lg leading-relaxed text-slate-700">
                 {faq.answer}
               </p>
             </div>

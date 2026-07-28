@@ -1,401 +1,71 @@
 ---
-import HeroImage from "../../images/hero.jpeg";
-
 import { Icon } from "astro-icon/components";
-const services = [
-  {
-    title: "Jasa Audit & Hitung Struktur Bangunan",
-    description:
-      "Jasa hitung struktur bangunan dengan pemodelan digital & Non-Destructive Test (NDT) untuk laporan teknis valid.",
-     icon: "heroicons:calculator",
-  },
-  // {
-  //   title: "Audit Struktur & Assessment Gedung",
-  //   description:
-  //     "Pengujian NDT (Non-Destructive Test), Hardness Test, dan Ultrasonic Pulse Velocity (UPV) untuk evaluasi kekuatan beton dan baja.",
-  //    icon: "heroicons:clipboard-document-check",
-  // },
-  {
-    title: "Perizinan Bangunan Gedung (PBG)",
-    description:
-      "Transformasi dari IMB ke PBG dengan proses yang transparan dan tepat waktu.",
-    icon: "heroicons:building-office-2",
-  },
-  {
-    title: "Perencanaan Mekanikal, Elektrikal, & Plumbing (MEP)",
-    description:
-      "Desain teknik mendetail mencakup sipil, ME (Mekanikal Elektrikal), dan plumbing atau MEP.",
-    icon: "heroicons:cog-6-tooth",
-  },
-  {
-    title: "Manajemen Konstruksi & Pengawasan",
-    description:
-      "Memastikan proyek berjalan sesuai spesifikasi teknik dan standar keselamatan.",
-     icon: "heroicons:wrench-screwdriver",
-  },
-  {
-    title: "Sertifikat Laik Fungsi (SLF)",
-    description:
-      "Jasa pengurusan SLF mulai dari kajian teknis hingga terbit sertifikat untuk pemenuhan regulasi pemerintah.",
-    icon: "heroicons:document-check",
-  },
-  {
-    title: "Penyelidikan Tanah & Geoteknik",
-    description:
-      "Sondir dan Boring untuk memastikan daya dukung pondasi bangunan.",
-    icon: "heroicons:map",
-  },
+
+interface ServiceItem {
+  title: string;
+  description: string;
+}
+
+interface Props {
+  heading: string;
+  subtitle: string;
+  services: readonly ServiceItem[];
+}
+
+const { heading, subtitle, services } = Astro.props;
+
+const serviceIcons = [
+  "heroicons:calculator",
+  "heroicons:building-office-2",
+  "heroicons:cog-6-tooth",
+  "heroicons:wrench-screwdriver",
+  "heroicons:document-check",
+  "heroicons:map",
 ];
 
-// const services = [
-//    {
-//     title: "Jasa Audit & Hitung Struktur Bangunan",
-//     description:
-//       "Jasa hitung struktur bangunan dengan pemodelan digital dan NDT untuk laporan teknis yang valid.",
-//     link: "/layanan/audit-struktur",
-//   },
-//   // {
-//   //   title: "Audit Struktur & Assessment Gedung",
-//   //   description:
-//   //     "Pengujian NDT (Non-Destructive Test), Hardness Test, dan Ultrasonic Pulse Velocity (UPV) untuk evaluasi kekuatan beton dan baja.",
-//   // },
-//   {
-//     title: "Perizinan Bangunan Gedung (PBG)",
-//     description:
-//       "Transformasi dari IMB ke PBG dengan proses yang transparan dan tepat waktu.",
-//     link: "/layanan/perizinan-pbg",
-//   },
-//   {
-//     title: "Perencanaan Mekanikal, Elektrikal, & Plumbing (MEP)",
-//     description:
-//       "Desain teknik mendetail mencakup sipil, ME (Mekanikal Elektrikal), dan plumbing atau MEP.",
-//     link: "/layanan/perencanaan-mep",
-//   },
-//   {
-//     title: "Manajemen Konstruksi & Pengawasan",
-//     description:
-//       "Memastikan proyek berjalan sesuai spesifikasi teknik dan standar keselamatan.",
-//     link: "/layanan/manajemen-konstruksi",
-//   },
-//   {
-//     title: "Sertifikat Laik Fungsi (SLF)",
-//     description:
-//       "Jasa pengurusan SLF mulai dari kajian teknis hingga terbit sertifikat untuk pemenuhan regulasi pemerintah.",
-//     link: "/layanan/slf",
-//   },
-//   {
-//     title: "Penyelidikan Tanah & Geoteknik",
-//     description:
-//       "Sondir dan Boring untuk memastikan daya dukung pondasi bangunan.",
-//     link: "/layanan/penyelidikan-tanah-geoteknik",
-//   },
-// ];
+const servicesWithIcon = services.map((item, index) => ({
+  ...item,
+  icon: serviceIcons[index],
+}));
 ---
 
 <!-- LAYANAN -->
-<section
-  id="services"
-  class="bg-white py-14 lg:py-24"
->
+<section id="services" class="bg-white py-14 lg:py-24">
   <div class="mx-auto max-w-7xl px-6">
 
     <header class="mx-auto max-w-4xl text-center">
-
-      <h2
-        class="text-2xl md:text-3xl lg:text-5xl font-bold text-amber-950"
-      >
-        Layanan Kami
+      <h2 class="text-2xl md:text-3xl lg:text-5xl font-bold text-amber-950">
+        {heading}
       </h2>
 
-      <p
-        class="mx-auto mt-6 max-w-3xl text-sm md:text-lg leading-relaxed text-slate-600"
-      >
-        Sebagai konsultan teknik sipil, kami menyediakan berbagai layanan
-        profesional untuk memastikan proyek berjalan optimal.
+      <p class="mx-auto mt-6 max-w-3xl text-sm md:text-lg leading-relaxed text-slate-600">
+        {subtitle}
       </p>
-
     </header>
 
-    <div
-      class="mt-20 grid gap-12 md:grid-cols-2"
-    >
-
+    <div class="mt-20 grid gap-12 md:grid-cols-2">
       {
-        services.map((service) => (
+        servicesWithIcon.map((service) => (
+          <article class="flex gap-6">
 
-          <article
-            class="flex gap-6"
-          >
-
-            <div
-              class="
-              flex
-              h-20
-              w-20
-              md:h-24
-              md:w-24
-              shrink-0
-              items-center
-              justify-center
-              rounded-2xl
-            bg-orange-100
-            text-orange-600
-            "
-            >
-               <Icon
-                name={service.icon}
-                class="h-10 w-10 md:h-14 md:w-14"
-              />
+            <div class="flex h-20 w-20 md:h-24 md:w-24 shrink-0 items-center justify-center rounded-2xl bg-orange-100 text-orange-600">
+              <Icon name={service.icon} class="h-10 w-10 md:h-14 md:w-14" />
             </div>
 
             <div>
-
-              <h3
-                class="text-lg md:text-2xl font-bold text-amber-950"
-              >
+              <h3 class="text-lg md:text-2xl font-bold text-amber-950">
                 {service.title}
               </h3>
 
-              <p
-                class="mt-3 leading-relaxed text-xs md:text-md lg:text-lg text-slate-600"
-              >
+              <p class="mt-3 leading-relaxed text-xs md:text-md lg:text-lg text-slate-600">
                 {service.description}
               </p>
-
             </div>
 
           </article>
-
         ))
       }
-
     </div>
 
   </div>
 </section>
-
-
-
-
-<!-- LAYANAN SLIDER -->
-<!-- <section
-  id="layanan"
-  class="bg-slate-50 py-20 md:py-28"
->
-
-  <div class="mx-auto max-w-7xl px-6">
-
-    <header class="mx-auto max-w-4xl text-center">
-
-      <span
-        class="font-semibold uppercase tracking-[0.25em] text-sm md:text-md lg:text-lg text-orange-500"
-      >
-        Layanan Profesional
-      </span>
-
-      <h2
-        class="mt-4 text-3xl font-bold text-amber-950 md:text-5xl"
-      >
-        Layanan Kami
-      </h2>
-
-      <p
-        class="mt-6 text-sm leading-relaxed text-slate-600 md:text-lg"
-      >
-        PT Join Teknologi Internasional menyediakan layanan audit struktur,
-        perizinan bangunan, perencanaan teknik, geoteknik, hingga manajemen
-        konstruksi untuk mendukung keberhasilan proyek Anda.
-      </p>
-
-    </header>
-
-    
-    <div class="relative mt-14">
-
-      <div
-        id="services-slider"
-        class="
-          flex
-          gap-6
-          overflow-x-auto
-          scroll-smooth
-          snap-x
-          snap-mandatory
-          pb-4
-          scrollbar-hide
-        "
-      >
-
-        {
-          services.map((service) => (
-
-            <article
-              class="
-                min-w-[85%]
-                md:min-w-[48%]
-                lg:min-w-[31.5%]
-                snap-start
-                overflow-hidden
-                rounded-3xl
-                bg-white
-                shadow-lg
-                transition
-                duration-300
-                hover:-translate-y-2
-                hover:shadow-2xl
-              "
-            >
-
-
-              <a href="/layanan">
-
-                <img
-                  src={HeroImage.src}
-                  alt={service.title}
-                  loading="lazy"
-                  class="
-                    h-64
-                    w-full
-                    object-cover
-                  "
-                />
-
-              </a>
-
-            
-
-              <div class="p-8">
-
-                <h3
-                  class="text-lg md:text-xl lg:text-2xl font-bold text-amber-950"
-                >
-                  {service.title}
-                </h3>
-
-                <p
-                  class="mt-4 line-clamp-4 text-sm md:text-base text-slate-600"
-                >
-                  {service.description}
-                </p>
-
-                <a
-                  href="/layanan"
-                  class="
-                    mt-6
-                    text-sm
-                    md:text-md
-                    lg:text-lg
-                    inline-flex
-                    items-center
-                    gap-2
-                    font-semibold
-                    text-orange-500
-                    transition
-                    hover:gap-3
-                  "
-                >
-                  Pelajari Selengkapnya
-
-                  <span>→</span>
-
-                </a>
-
-              </div>
-
-            </article>
-
-          ))
-        }
-
-      </div>
-
-      
-
-      <div
-        class="
-          mt-10
-          flex
-          justify-end
-          gap-4
-        "
-      >
-
-        <button
-          id="prev-service"
-          aria-label="Previous Service"
-          class="
-            flex
-            h-14
-            w-14
-            items-center
-            justify-center
-            rounded-full
-            border
-            border-slate-300
-            bg-white
-            text-slate-700
-            transition
-            hover:border-orange-500
-            hover:text-orange-500
-          "
-        >
-          ←
-        </button>
-
-        <button
-          id="next-service"
-          aria-label="Next Service"
-          class="
-            flex
-            h-14
-            w-14
-            items-center
-            justify-center
-            rounded-full
-            border
-            border-slate-300
-            bg-white
-            text-slate-700
-            transition
-            hover:border-orange-500
-            hover:text-orange-500
-          "
-        >
-          →
-        </button>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section> -->
-
-<!-- <script>
-
-  const slider = document.getElementById('services-slider');
-  const nextBtn = document.getElementById('next-service');
-  const prevBtn = document.getElementById('prev-service');
-
-  if (slider && nextBtn && prevBtn) {
-
-    const scrollAmount = 420;
-
-    nextBtn.addEventListener('click', () => {
-      slider.scrollBy({
-        left: scrollAmount,
-        behavior: 'smooth',
-      });
-    });
-
-    prevBtn.addEventListener('click', () => {
-      slider.scrollBy({
-        left: -scrollAmount,
-        behavior: 'smooth',
-      });
-    });
-
-  }
-
-</script> -->

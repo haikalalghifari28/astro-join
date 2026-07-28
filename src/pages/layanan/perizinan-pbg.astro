@@ -4,685 +4,221 @@ import Layout from '../../layouts/Layout.astro';
 import '../../styles/global.css';
 import Navbar from '../../components/Navbar.astro';
 import Footer from '../../components/Footer.astro';
+import { getLangFromUrl, usePageTranslations } from '../../i18n/utils';
+import { perizinanPbg } from '../../i18n/pages/layanan/perizinan-pbg';
 
-const process = [
-  {
-    title: "Penyusunan Gambar Kerja",
-    description:
-      "Arsitektur, struktur, dan utilitas yang sesuai standar teknis serta persyaratan Persetujuan Bangunan Gedung.",
-  },
-  {
-    title: "Perhitungan Teknis Struktur",
-    description:
-      "Menyertakan analisis beban gempa, daya dukung tanah, dan perhitungan struktur sesuai standar SNI terbaru.",
-  },
-  {
-    title: "Input Data ke SIMBG",
-    description:
-      "Melakukan registrasi, pengunggahan dokumen, serta pemantauan berkala proses pengajuan pada sistem SIMBG.",
-  },
-  {
-    title: "Koordinasi Sidang TPA/TPT",
-    description:
-      "Mewakili klien dalam presentasi dan pembahasan teknis bersama tim ahli pemerintah hingga proses persetujuan selesai.",
-  },
-];
-
-const advantages = [
-  {
-    title: "Proses Lebih Cepat & Efisien",
-    description:
-      "Tim kami memahami alur regulasi dan persyaratan teknis sehingga dapat meminimalkan revisi dan mempercepat proses pengajuan.",
-  },
-  {
-    title: "Kepastian Legalitas Bangunan",
-    description:
-      "Memastikan bangunan memenuhi seluruh ketentuan hukum dan regulasi yang berlaku untuk menghindari risiko di masa depan.",
-  },
-  {
-    title: "Penghematan Biaya",
-    description:
-      "Perencanaan yang tepat membantu menghindari kesalahan administrasi maupun teknis yang dapat menimbulkan biaya tambahan.",
-  },
-];
-
-const faqs = [
-  {
-    question: "Apakah IMB lama masih berlaku atau harus ganti ke PBG?",
-    answer:
-      " IMB tetap berlaku selama tidak ada perubahan pada struktur atau fungsi bangunan.",
-  },
-  {
-    question: "Bagaimana jika saya ingin mengubah fungsi bangunan?",
-    answer:
-      "Anda wajib mengajukan Perubahan PBG sesuai dengan fungsi baru yang diinginkan.",
-  },
-  {
-    question: "Apakah PT. JTI melayani PBG untuk seluruh wilayah indonesia?",
-    answer:
-      "Kami melayani konsultasi dan pengurusan PBG secara nasional melalui sistem SIMBG online.",
-  },
-  {
-    question:
-      "Berapa biaya retribusi PBG?",
-    answer:
-      "Nilai retribusi dihitung secara otomatis oleh sistem SIMBG berdasarkan luas dan fungsi bangunan Anda.",
-  },
-];
+const lang = getLangFromUrl(Astro.url);
+const t = usePageTranslations(perizinanPbg, lang);
 ---
 
-<Layout>
+<Layout title={t.meta.title} description={t.meta.description}>
     <Navbar />
+
     <!-- HERO -->
     <section class="relative h-140 lg:h-170 overflow-hidden">
+        <img src={HeroImage.src} alt="" class="absolute inset-0 h-full w-full object-cover" />
+        <div class="absolute inset-0 bg-black/70"></div>
 
-    <!-- Background Image -->
-    <img
-        src={HeroImage.src}
-        alt=""
-        class="absolute inset-0 h-full w-full object-cover"
-    />
-    <div class="absolute inset-0 bg-black/70"></div>
-
-    <!-- Content -->
-    <div
-        class="relative z-10 flex h-full items-center justify-start"
-    >
-        <div class="mx-10 lg:mx-40 max-w-5xl px-6 text-left text-white">
-
-        <h1
-            class="text-[27px] font-bold leading-tight md:text-4xl lg:text-5xl"
-        >
-        Jasa Perizinan Bangun Gedung (PBG)
-        </h1>
-
-        <p
-            class="mt-8 max-w-3xl text-sm leading-relaxed text-white/90 md:text-xl"
-        >
-        Menyediakan layanan perizinan bangun gedung mulai dari penyusunan dokumen hingga pengajuan perizinan 
-
-        </p>
-
+        <div class="relative z-10 flex h-full items-center justify-start">
+            <div class="mx-10 lg:mx-40 max-w-5xl px-6 text-left text-white">
+                <h1 class="text-[27px] font-bold leading-tight md:text-4xl lg:text-5xl">
+                    {t.hero.title}
+                </h1>
+                <p class="mt-8 max-w-3xl text-sm leading-relaxed text-white/90 md:text-xl">
+                    {t.hero.subtitle}
+                </p>
+            </div>
         </div>
-    </div>
-
     </section>
 
-      <!-- APA ITU PBG -->
+    <!-- APA ITU PBG -->
     <section class="bg-white py-20 lg:py-28">
-        <div
-            class="mx-auto max-w-7xl px-6"
-        >
+        <div class="mx-auto max-w-7xl px-6">
+            <div class="grid gap-14 lg:grid-cols-2 lg:items-center">
 
-            <div
-            class="
-                grid
-                gap-14
-                lg:grid-cols-2
-                lg:items-center
-            "
-            >
+                <!-- LEFT -->
+                <div>
+                    <span class="text-sm md:text-base lg:text-lg font-semibold uppercase tracking-[0.25em] text-orange-500">
+                        {t.intro.eyebrow}
+                    </span>
 
-            <!-- LEFT -->
+                    <h1 class="mt-4 text-xl md:text-2xl lg:text-4xl font-bold leading-tight text-amber-950">
+                        {t.intro.heading}
+                    </h1>
 
-            <div>
+                    <p class="mt-8 text-sm leading-relaxed text-slate-600 md:text-md lg:text-lg">
+                        {t.intro.paragraph1}
+                    </p>
 
-                <span
-                class="
-                    text-sm md:text-base lg:text-lg
-                    font-semibold
-                    uppercase
-                    tracking-[0.25em]
-                    text-orange-500
-                "
-                >
-                Layanan PBG
-                </span>
+                    <p class="mt-6 text-base leading-relaxed text-slate-600 md:text-lg">
+                        {t.intro.paragraph2}
+                    </p>
+                </div>
 
-                <h1
-                class="
-                    mt-4
-                    text-xl
-                    md:text-2xl
-                    lg:text-4xl
-                    font-bold
-                    leading-tight
-                    text-amber-950
-                "
-                >
-                Perizinan Bangun Gedung (PBG)
-                </h1>
-
-                <p
-                class="
-                    mt-8
-                    text-sm
-                    leading-relaxed
-                    text-slate-600
-                    md:text-md
-                    lg:text-lg
-                "
-                >
-                Dalam proses pembangunan gedung di Indonesia, Persetujuan Bangunan Gedung (PBG) merupakan dokumen resmi yang wajib dimiliki sebelum memulai konstruksi. Dokumen ini menggantikan Izin Mendirikan Bangunan (IMB) sesuai dengan Undang-Undang Cipta Kerja
-                </p>
-
-                <p
-                class="
-                    mt-6
-                    text-base
-                    leading-relaxed
-                    text-slate-600
-                    md:text-lg
-                "
-                >
-                Kami membantu Anda menyusun dokumen teknis sesuai standar nasional agar izin pembangunan diterbitkan tanpa hambatan administratif melalui sistem SIMBG.
-                </p>
+                <!-- RIGHT -->
+                <div class="relative">
+                    <p class="text-sm leading-relaxed text-slate-600 md:text-md lg:text-lg">
+                        {t.intro.benefit}
+                    </p>
+                </div>
 
             </div>
-
-            <!-- RIGHT -->
-
-            <div class="relative">
-                <p
-                class="
-                    text-sm
-                    leading-relaxed
-                    text-slate-600
-                    md:text-md
-                    lg:text-lg
-                "
-                >
-                Manfaat yang anda dapatkan dari layanan perizinan bangun gedung adalah Keamanan hukum selama proses pembangunan berlangsung, Aset properti memiliki dokumen yang valid dan mudah digunakan dan Memastikan desain bangunan efisien dan aman sejak tahap rencana.
-                </p>
-                
-
-                
-            </div>
-
-            </div>
-
         </div>
     </section>
 
     <!-- LAYANAN -->
     <section class="bg-slate-50 py-20 md:py-24">
+        <div class="mx-auto max-w-7xl px-6">
 
-      <div
-        class="mx-auto max-w-7xl px-6"
-      >
+            <header class="mx-auto max-w-4xl text-center">
+                <span class="text-sm md:text-base lg:text-lg font-semibold uppercase tracking-[0.25em] text-orange-500">
+                    {t.layanan.eyebrow}
+                </span>
 
-      <header
-        class="mx-auto max-w-4xl text-center"
-      >
+                <h2 class="mt-4 text-2xl font-bold text-amber-950 md:text-3xl lg:text-4xl">
+                    {t.layanan.heading}
+                </h2>
 
-        <span
-          class="
-            text-sm
-            md:text-base
-            lg:text-lg
-            font-semibold
-            uppercase
-            tracking-[0.25em]
-            text-orange-500
-          "
-        >
-          Persetujuan Bangunan Gedung
-        </span>
+                <p class="mt-6 text-sm leading-relaxed text-slate-600 md:text-base lg:text-lg">
+                    {t.layanan.subtitle}
+                </p>
+            </header>
 
-        <h2
-          class="
-            mt-4
-            text-2xl
-            font-bold
-            text-amber-950
-            md:text-3xl
-            lg:text-4xl
-          "
-        >
-          Pendampingan PBG dari Awal Hingga Terbit
-        </h2>
+            <div class="mt-16 grid gap-12 lg:grid-cols-2">
 
-        <p
-          class="
-            mt-6
-            text-sm
-            leading-relaxed
-            text-slate-600
-            md:text-base
-            lg:text-lg
-          "
-        >
-          Kami membantu proses Persetujuan Bangunan Gedung
-          secara menyeluruh mulai dari penyusunan dokumen,
-          perhitungan teknis, hingga koordinasi dengan
-          instansi terkait.
-        </p>
+                <!-- KIRI -->
+                <article class="rounded-4xl bg-white p-8 shadow-sm lg:p-10">
+                    <h3 class="text-lg md:text-xl lg:text-2xl font-bold text-amber-950">
+                        {t.layanan.processHeading}
+                    </h3>
 
-      </header>
+                    <div class="mt-10 space-y-8">
+                        {
+                            t.layanan.process.map((item, index) => (
+                                <div class="relative pl-16">
 
-      <div
-        class="
-          mt-16
-          grid
-          gap-12
-          lg:grid-cols-2
-        "
-      >
+                                    {
+                                        index !== t.layanan.process.length - 1 && (
+                                            <div class="absolute left-[18px] top-12 h-full w-px bg-orange-200"></div>
+                                        )
+                                    }
 
-        <!-- KIRI -->
-        <article
-          class="
-            rounded-4xl
-            bg-white
-            p-8
-            shadow-sm
-            lg:p-10
-          "
-        >
+                                    <div class="absolute left-0 top-0 flex h-9 w-9 items-center justify-center rounded-full bg-orange-500 text-sm font-bold text-white">
+                                        {index + 1}
+                                    </div>
 
-          <h3
-            class="
-              text-lg
-              md:text-xl
-              lg:text-2xl
-              font-bold
-              text-amber-950
-            "
-          >
-            Proses & Metodologi Kami
-          </h3>
+                                    <h4 class="text-base md:text-lg lg:text-xl font-semibold text-amber-950">
+                                        {item.title}
+                                    </h4>
 
-          <div
-            class="
-              mt-10
-              space-y-8
-            "
-          >
+                                    <p class="mt-2 text-sm md:text-base leading-relaxed text-slate-600">
+                                        {item.description}
+                                    </p>
 
-            {
-              process.map((item, index) => (
+                                </div>
+                            ))
+                        }
+                    </div>
+                </article>
 
-                <div
-                  class="
-                    relative
-                    pl-16
-                  "
-                >
+                <!-- KANAN -->
+                <article class="rounded-4xl bg-orange-100 p-8 text-white lg:p-10">
+                    <h3 class="text-lg md:text-xl lg:text-2xl font-bold text-amber-950">
+                        {t.layanan.advantagesHeading}
+                    </h3>
 
-                  {
-                    index !== process.length - 1 && (
-                      <div
-                        class="
-                          absolute
-                          left-[18px]
-                          top-12
-                          h-full
-                          w-px
-                          bg-orange-200
-                        "
-                      ></div>
-                    )
-                  }
+                    <p class="mt-4 text-sm md:text-base leading-relaxed text-slate-600">
+                        {t.layanan.advantagesSubtitle}
+                    </p>
 
-                  <div
-                    class="
-                      absolute
-                      left-0
-                      top-0
-                      flex
-                      h-9
-                      w-9
-                      items-center
-                      justify-center
-                      rounded-full
-                      bg-orange-500
-                      text-sm
-                      font-bold
-                      text-white
-                    "
-                  >
-                    {index + 1}
-                  </div>
+                    <div class="mt-10 space-y-6">
+                        {
+                            t.layanan.advantages.map((item) => (
+                                <div class="rounded-2xl border border-black bg-orange-50 p-6 backdrop-blur">
+                                    <h4 class="text-base md:text-lg lg:text-xl font-semibold text-amber-950">
+                                        {item.title}
+                                    </h4>
+                                    <p class="mt-3 text-sm text-slate-600 md:text-base leading-relaxed">
+                                        {item.description}
+                                    </p>
+                                </div>
+                            ))
+                        }
+                    </div>
+                </article>
 
-                  <h4
-                    class="
-                      text-base
-                      md:text-lg
-                      lg:text-xl
-                      font-semibold
-                      text-amber-950
-                    "
-                  >
-                    {item.title}
-                  </h4>
+            </div>
 
-                  <p
-                    class="
-                      mt-2
-                      text-sm
-                      md:text-base
-                      leading-relaxed
-                      text-slate-600
-                    "
-                  >
-                    {item.description}
-                  </p>
-
-                </div>
-
-              ))
-            }
-
-          </div>
-
-        </article>
-
-        <!-- KANAN -->
-        <article
-          class="
-            rounded-4xl
-            bg-orange-100
-            p-8
-            text-white
-            lg:p-10
-          "
-        >
-
-          <h3
-            class="
-              text-lg
-              md:text-xl
-              lg:text-2xl
-              font-bold
-              text-amber-950
-            "
-          >
-            Keunggulan Layanan PBG Kami
-          </h3>
-
-          <p
-            class="
-              mt-4
-              text-sm
-              md:text-base
-              leading-relaxed
-              text-slate-600
-            "
-          >
-            Kami tidak hanya membantu proses perizinan,
-            tetapi juga memastikan seluruh dokumen teknis
-            tersusun dengan benar sehingga proses berjalan
-            lebih aman dan efisien.
-          </p>
-
-          <div
-            class="
-              mt-10
-              space-y-6
-            "
-          >
-
-            {
-              advantages.map((item) => (
-
-                <div
-                  class="
-                    rounded-2xl
-                    border
-                    border-black
-                    bg-orange-50
-                    p-6
-                    backdrop-blur
-                  "
-                >
-
-                  <h4
-                    class="
-                      text-base
-                      md:text-lg
-                      lg:text-xl
-                      font-semibold
-                      text-amber-950
-                    "
-                  >
-                    {item.title}
-                  </h4>
-
-                  <p
-                    class="
-                      mt-3
-                      text-sm
-                      text-slate-600
-                      md:text-base
-                      leading-relaxed
-                    "
-                  >
-                    {item.description}
-                  </p>
-
-                </div>
-
-              ))
-            }
-
-          </div>
-
-        </article>
-
-      </div>
-
-      </div>
-
+        </div>
     </section>
 
     <!-- FAQ STYLE -->
     <style>
-  .faq-item summary::-webkit-details-marker {
-  display: none;
-  }
-
-  .faq-item[open] .faq-icon {
-    transform: rotate(45deg);
-  }
-  .faq-item div {
-    display: grid;
-    grid-template-rows: 0fr;
-    transition: all 0.3s ease;
-  }
-
-  .faq-item[open] div {
-    grid-template-rows: 1fr;
-  }
-  .faq-item summary:hover h3 {
-    color: #92400e;
-  }
+        .faq-item summary::-webkit-details-marker { display: none; }
+        .faq-item[open] .faq-icon { transform: rotate(45deg); }
+        .faq-item div { display: grid; grid-template-rows: 0fr; transition: all 0.3s ease; }
+        .faq-item[open] div { grid-template-rows: 1fr; }
+        .faq-item summary:hover h3 { color: #92400e; }
     </style>
 
     <!-- FAQ -->
-    <section
-      id="faq"
-      aria-labelledby="faq-heading"
-      class="bg-white py-14 lg:py-24"
-    >
-      <div class="mx-auto max-w-6xl px-6">
+    <section id="faq" aria-labelledby="faq-heading" class="bg-white py-14 lg:py-24">
+        <div class="mx-auto max-w-6xl px-6">
 
-        <!-- Heading -->
-        <header class="mb-16 text-center">
+            <header class="mb-16 text-center">
+                <h2 id="faq-heading" class="text-xl font-bold tracking-tight text-amber-950 md:text-2xl lg:text-4xl">
+                    {t.faq.heading}
+                </h2>
+                <p class="mx-auto mt-6 max-w-4xl text-sm md:text-md lg:text-xl leading-relaxed text-slate-600">
+                    {t.faq.subtitle}
+                </p>
+            </header>
 
-          <h2
-            id="faq-heading"
-            class="
-              text-xl
-              font-bold
-              tracking-tight
-              text-amber-950
-              md:text-2xl
-              lg:text-4xl
-            "
-          >
-            Pertanyaan Umum Seputar
-            Perizinan PBG
-          </h2>
-
-          <p
-            class="
-              mx-auto
-              mt-6
-              max-w-4xl
-              text-sm
-              md:text-md
-              lg:text-xl
-              leading-relaxed
-              text-slate-600
-            "
-          >
-            Pertanyaan yang umum ditanyakan oleh klien terkait perizinan PBG
-          </p>
-
-        </header>
-
-        <!-- FAQ List -->
-        <div class="space-y-0">
-
-          {
-            faqs.map((faq) => (
-              <details
-                class="
-                  faq-item
-                  border-t
-                  border-slate-300
-                  py-2
-                "
-              >
-                <summary
-                  class="
-                    flex
-                    cursor-pointer
-                    list-none
-                    items-center
-                    justify-between
-                    gap-6
-                    py-6
-                    text-left
-                  "
-                >
-
-                  <h3
-                    class="
-                      text-md
-                      font-semibold
-                      text-amber-950
-                      md:text-xl
-                    "
-                  >
-                    {faq.question}
-                  </h3>
-
-                  <span
-                    class="
-                      faq-icon
-                      flex
-                      h-10
-                      w-10
-                      items-center
-                      justify-center
-                      text-4xl
-                      font-light
-                      text-black
-                      transition-transform
-                    "
-                  >
-                    +
-                  </span>
-
-                </summary>
-
-                <div
-                  class="
-                    max-w-5xl
-                    pb-8
-                    pr-12
-                  "
-                >
-                  <p
-                    class="
-                      text-sm
-                      md:text-lg
-                      leading-relaxed
-                      text-slate-700
-                    "
-                  >
-                    {faq.answer}
-                  </p>
-                </div>
-
-              </details>
-            ))
-          }
-
-          <div class="border-t border-slate-300"></div>
+            <div class="space-y-0">
+                {
+                    t.faq.items.map((faq) => (
+                        <details class="faq-item border-t border-slate-300 py-2">
+                            <summary class="flex cursor-pointer list-none items-center justify-between gap-6 py-6 text-left">
+                                <h3 class="text-md font-semibold text-amber-950 md:text-xl">{faq.question}</h3>
+                                <span class="faq-icon flex h-10 w-10 items-center justify-center text-4xl font-light text-black transition-transform">+</span>
+                            </summary>
+                            <div class="max-w-5xl pb-8 pr-12">
+                                <p class="text-sm md:text-lg leading-relaxed text-slate-700">{faq.answer}</p>
+                            </div>
+                        </details>
+                    ))
+                }
+                <div class="border-t border-slate-300"></div>
+            </div>
 
         </div>
-
-      </div>
     </section>
 
     <!-- CTA -->
-    <section
-    class="
-        bg-white
-        py-14
-        md:py-24
-        text-center
-        text-amber-950
-    "
-    >
+    <section class="bg-white py-14 md:py-24 text-center text-amber-950">
+        <div class="mx-auto max-w-4xl px-6">
 
-    <div
-        class="
-        mx-auto
-        max-w-4xl
-        px-6
-        "
-    >
+            <h2 class="text-2xl font-bold md:text-3xl lg:text-5xl">
+                {t.cta.heading}
+            </h2>
 
-        <h2
-        class="
-            text-2xl
-            font-bold
-            md:text-3xl
-            lg:text-5xl
-        "
-        >
-        Masih Punya Pertanyaan?
-        </h2>
+            <p class="mt-6 text-md md:text-lg lg:text-xl text-slate-700">
+                <Fragment set:html={t.cta.description} />
+            </p>
 
-        <p
-        class="
-            mt-6
-            text-md
-            md:text-lg
-            lg:text-xl
-            text-slate-700
-        "
-        >
-        Hubungi kami untuk konsultasi kebutuhan Anda, <b>Gratis!</b>
-        </p>
+            <a
+                href="https://wa.me/6281376928398"
+                target="_blank"
+                class="inline-flex mt-10 items-center gap-2 rounded-full bg-green-600 px-6 py-2 md:px-7 md:py-3 text-xs md:text-lg font-bold tracking-wide text-white transition hover:bg-green-700"
+            >
+                <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
+                </svg>
+                {t.cta.buttonLabel}
+            </a>
 
-        <a
-            href="https://wa.me/6281376928398"
-            target="_blank"
-            class="inline-flex mt-10 items-center gap-2 rounded-full bg-green-600 px-6 py-2 md:px-7 md:py-3 text-xs md:text-lg font-bold tracking-wide text-white transition hover:bg-green-700"
-        >
-            <!-- WhatsApp icon SVG -->
-            <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
-            </svg>
-            Konsultasi
-        </a>
-
-    </div>
-
+        </div>
     </section>
+
     <Footer />
 </Layout>

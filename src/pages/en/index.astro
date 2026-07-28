@@ -1,0 +1,93 @@
+---
+// import Welcome from '../components/Welcome.astro';
+import Layout from '../../layouts/Layout.astro';
+import '../../styles/global.css';
+import { Icon } from 'astro-icon/components'
+import Navbar from '../../components/Navbar.astro';
+import Hero from '../../section/Index/Hero.astro';
+import About from '../../section/Index/About.astro';
+import Layanan from '../../section/Index/Layanan.astro';
+import Klien from '../../section/Index/Klien.astro';
+import Proyek from '../../section/Index/Proyek.astro';
+import Faq from '../../section/Index/Faq.astro';
+import Artikel from '../../section/Index/Artikel.astro';
+import Cta from '../../section/Index/Cta.astro';
+import Footer from '../../components/Footer.astro';
+import KapanAudit from '../../section/Index/Kapan-audit.astro';
+import { getLangFromUrl, usePageTranslations } from '../../i18n/utils';
+import { home } from '../../i18n/pages/home';
+const lang = getLangFromUrl(Astro.url); 
+const t = usePageTranslations(home, lang);
+import { getRelativeLocaleUrl } from 'astro:i18n';
+---
+
+<Layout title={t.meta.title} description={t.meta.description}>
+	<Navbar />
+	<Hero
+        title={t.hero.title}
+        subtitle={t.hero.subtitle}
+        ctaLabel={t.hero.cta}
+    />
+	<About
+        heading={t.about.heading}
+        headingSubtitle={t.about.headingSubtitle}
+        cardTitle={t.about.cardTitle}
+        cardDescription={t.about.cardDescription}
+        readMore={t.about.readMore}
+        readMoreHref={getRelativeLocaleUrl(lang, '/about-us')}
+    />
+	<KapanAudit
+		eyebrow={t.kapanAudit.eyebrow}
+		heading={t.kapanAudit.heading}
+		subtitle={t.kapanAudit.subtitle}
+		conditions={t.kapanAudit.conditions}
+		ctaBadge={t.kapanAudit.cta.badge}
+		ctaTitle={t.kapanAudit.cta.title}
+		ctaDescription={t.kapanAudit.cta.description}
+		ctaButtonLabel={t.kapanAudit.cta.buttonLabel}
+		lang={lang}
+	/>
+	<Layanan
+		heading={t.layananSection.heading}
+		subtitle={t.layananSection.subtitle}
+		services={t.layananSection.services}
+		whyUsHeading={t.layananSection.whyUsHeading}
+		reasons={t.layananSection.reasons}
+	/>
+	<Klien
+    eyebrow={t.klienSection.eyebrow}
+    heading={t.klienSection.heading}
+    logoAlt={t.klienSection.logoAlt}
+/>
+	<Proyek
+		eyebrow={t.proyekSection.eyebrow}
+		heading={t.proyekSection.heading}
+		subtitle={t.proyekSection.subtitle}
+		projects={t.proyekSection.projects}
+		detailLabel={t.proyekSection.detailLabel}
+		viewAllLabel={t.proyekSection.viewAllLabel}
+		statsHeading={t.stats.heading}
+		statsItems={t.stats.items}
+		lang={lang}
+	/>
+	<Faq
+		heading={t.faqSection.heading}
+		subtitle={t.faqSection.subtitle}
+		items={t.faqSection.items}
+	/>
+	<Artikel
+		heading={t.artikelSection.heading}
+		subtitle={t.artikelSection.subtitle}
+		emptyMessage={t.artikelSection.emptyMessage}
+		readMoreLabel={t.artikelSection.readMoreLabel}
+		readMoreAriaLabel={t.artikelSection.readMoreAriaLabel}
+		dateLocale={t.artikelSection.dateLocale}
+		lang={lang}
+	/>
+	<Cta
+		heading={t.ctaSection.heading}
+		description={t.ctaSection.description}
+		buttonLabel={t.ctaSection.buttonLabel}
+	/>
+	<Footer />
+</Layout>

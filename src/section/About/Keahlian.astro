@@ -1,84 +1,47 @@
 ---
-const expertise = [
-  {
-    title: "Assessment & Building Audit",
-    description:
-      "Evaluasi menyeluruh terhadap kesehatan struktur bangunan untuk memastikan keamanan operasional dan kepatuhan terhadap izin SLF.",
-  },
-  {
-    title: "Planning & Design",
-    description:
-      "Perencanaan desain struktur yang mengutamakan efisiensi material tanpa mengesampingkan keamanan dan ketahanan gempa.",
-  },
-  {
-    title: "Analysis & Project Management",
-    description:
-      "Manajemen proyek terpadu untuk memastikan setiap fase konstruksi berjalan sesuai jadwal, anggaran, dan standar kualitas.",
-  },
-];
+interface ExpertiseItem {
+  title: string;
+  description: string;
+}
+
+interface Props {
+  heading: string;
+  subtitle: string;
+  items: readonly ExpertiseItem[];
+}
+
+const { heading, subtitle, items } = Astro.props;
 ---
 
-<section
-  class="bg-slate-50 py-18 lg:py-24"
->
+<section class="bg-slate-50 py-18 lg:py-24">
 
   <div class="mx-auto max-w-7xl px-6">
 
     <header class="text-center">
-
-      <h2
-        class="text-2xl font-bold text-amber-950 md:text-4xl"
-      >
-        Keahlian Kami
+      <h2 class="text-2xl font-bold text-amber-950 md:text-4xl">
+        {heading}
       </h2>
-      <p
-        class="mx-auto mt-6 text-sm md:text-lg max-w-3xl text-slate-600"
-      >
-        Kami hadir dengan tim konsultan ahli yang memiliki kualifikasi bersertifikat dan pengalaman praktis yang relevan. Kami spesialis dalam menangani berbagai aspek teknis.
+      <p class="mx-auto mt-6 text-sm md:text-lg max-w-3xl text-slate-600">
+        {subtitle}
       </p>
-
     </header>
 
-    <div
-      class="
-        mt-14
-        grid
-        gap-8
-        md:grid-cols-2
-        lg:grid-cols-3
-      "
-    >
-
+    <div class="mt-14 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
       {
-        expertise.map((item) => (
-          <article
-            class="
-              transition
-              hover:-translate-y-2
-              hover:shadow-xl
-              rounded-3xl
-              bg-white
-              p-10
-              shadow-lg
-            "
-          >
+        items.map((item) => (
+          <article class="transition hover:-translate-y-2 hover:shadow-xl rounded-3xl bg-white p-10 shadow-lg">
 
-            <h3
-              class="text-xl md:text-2xl font-bold text-amber-950"
-            >
+            <h3 class="text-xl md:text-2xl font-bold text-amber-950">
               {item.title}
             </h3>
 
-            <p
-              class="mt-4 text-sm md:text-md lg:text-lg leading-relaxed text-slate-600"
-            >
+            <p class="mt-4 text-sm md:text-md lg:text-lg leading-relaxed text-slate-600">
               {item.description}
             </p>
 
           </article>
         ))
       }
-
     </div>
 
   </div>

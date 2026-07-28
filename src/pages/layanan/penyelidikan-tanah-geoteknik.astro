@@ -5,371 +5,101 @@ import { Icon } from "astro-icon/components";
 import '../../styles/global.css';
 import Navbar from '../../components/Navbar.astro';
 import Footer from '../../components/Footer.astro';
+import { getLangFromUrl, usePageTranslations } from '../../i18n/utils';
+import { penyelidikanTanahGeoteknik } from '../../i18n/pages/layanan/penyelidikan-tanah-geoteknik';
 
-const reasons = [
-  {
-    icon: "heroicons:shield-check",
-    title: "Mitigasi Resiko Penurunan",
-    description:
-      "Mencegah terjadinya penurunan bangunan yang tidak merata (differential settlement) yang dapat menyebabkan dinding retak atau struktur miring.",
-  },
-  {
-    icon: "heroicons:shield-check",
-    title: "Stabilitas Lahan Ekstrem",
-    description:
-      "Memberikan solusi teknis untuk pembangunan di area lereng atau tanah lunak agar tetap kokoh dan stabil terhadap beban rencana.",
-  },
-  {
-    icon: "heroicons:shield-check",
-    title: "Optimasi Desain Fondasi",
-    description:
-      "Menentukan jenis dan kedalaman fondasi yang paling efisien sehingga tidak terjadi pemborosan material namun tetap memenuhi faktor keamanan.",
-  },
-  {
-    icon: "heroicons:shield-check",
-    title: "Kepastian Data Teknis",
-    description:
-      "Menyediakan parameter tanah yang akurat sebagai basis utama bagi struktur engineer dalam merancang kerangka bangunan yang aman.",
-  },
-];
+const lang = getLangFromUrl(Astro.url);
+const t = usePageTranslations(penyelidikanTanahGeoteknik, lang);
 
-
-const faqs = [
-  {
-    question: "Mengapa uji sondir diperlukan untuk rumah tinggal?",
-    answer:
-      "Untuk memastikan fondasi rumah tidak bergeser, terutama jika dibangun di lahan bekas sawah atau urukan.",
-  },
-  {
-    question: "Berapa titik sondir yang ideal untuk bangunan ruko?",
-    answer:
-      "Minimal dilakukan di 2 titik yang mewakili bentang terjauh bangunan.",
-  },
-  {
-    question: "Apakah laporan Geoteknik dari PT. JTI bisa diterima dinas untuk PBG?",
-    answer:
-      "Ya, laporan kami disusun oleh tenaga ahli bersertifikat dan memenuhi standar dokumen SIMBG.",
-  },
-  {
-    question:
-      "Apa perbedaan sondir dan boring?",
-    answer:
-      "Sondir mengukur tekanan ujung, sedangkan Boring mengambil sampel tanah untuk diuji secara detail di laboratorium.",
-  },
-];
-const risks = [
-  {
-    title: "Fondasi Mesin Retak",
-    description:
-      "Getaran mesin produksi dapat mempercepat kerusakan fondasi apabila daya dukung tanah tidak diketahui secara akurat.",
-    icon: "heroicons:cpu-chip",
-  },
-  {
-    title: "Rak Gudang Miring",
-    description:
-      "Settlement yang tidak merata dapat menyebabkan rak tinggi bergeser hingga berisiko ambruk.",
-    icon: "heroicons:building-office",
-  },
-  {
-    title: "Lantai Pabrik Retak",
-    description:
-      "Pelat lantai yang sering dilalui forklift rentan mengalami retak apabila struktur bawah tidak memadai.",
-    icon: "heroicons:exclamation-triangle",
-  },
-];
-const benefits = [
-  {
-    title: "Penyelidikan Lapangan",
-    number: "1",
-    description:
-      "Pelaksanaan soil test (Sondir/Boring) untuk mengambil sampel dan mengetahui stratigrafi lapisan tanah.",
-  },
-  {
-    title: "Pengujian Laboratorium",
-    number: "2",
-    description:
-      "Analisis sampel tanah untuk mendapatkan parameter mekanis seperti nilai kohesi, sudut geser, dan konsolidasi.",
-  },
-  {
-    title: "Pemodelan & Perhitungan",
-    number: "3",
-    description:
-      "Simulasi beban menggunakan perangkat lunak geoteknik untuk memprediksi perilaku tanah terhadap struktur.",
-  },
-  {
-    title: "Rekomendasi Teknis",
-    number: "4",
-    description:
-      "Penyusunan laporan akhir yang berisi saran metode konstruksi fondasi dan sistem perkuatan tanah yang paling sesuai.",
-  },
-];
+const reasonIcons = ["heroicons:shield-check", "heroicons:shield-check", "heroicons:shield-check", "heroicons:shield-check"];
+const reasons = t.whyImportant.items.map((item, i) => ({ ...item, icon: reasonIcons[i] }));
 ---
 
-<Layout>
+<Layout title={t.meta.title} description={t.meta.description}>
     <Navbar />
+
     <!-- HERO -->
     <section class="relative h-140 lg:h-170 overflow-hidden">
+        <img src={HeroImage.src} alt="" class="absolute inset-0 h-full w-full object-cover" />
+        <div class="absolute inset-0 bg-black/70"></div>
 
-    <!-- Background Image -->
-    <img
-        src={HeroImage.src}
-        alt=""
-        class="absolute inset-0 h-full w-full object-cover"
-    />
-    <div class="absolute inset-0 bg-black/70"></div>
-
-    <!-- Content -->
-    <div
-        class="relative z-10 flex h-full items-center justify-start"
-    >
-        <div class="mx-10 lg:mx-40 max-w-5xl px-6 text-left text-white">
-
-        <h1
-            class="text-[27px] font-bold leading-tight md:text-4xl lg:text-5xl"
-        >
-        Jasa Penyelidikan Tanah & Geoteknik
-        </h1>
-
-        <p
-            class="mt-8 max-w-3xl text-sm leading-relaxed text-white/90 md:text-xl"
-        >
-        Layanan Penyelidikan Tanah Geoteknik Sesuai Standar SNI & ASTM untuk Pabrik dan Gudang Industri
-
-        </p>
-
+        <div class="relative z-10 flex h-full items-center justify-start">
+            <div class="mx-10 lg:mx-40 max-w-5xl px-6 text-left text-white">
+                <h1 class="text-[27px] font-bold leading-tight md:text-4xl lg:text-5xl">
+                    {t.hero.title}
+                </h1>
+                <p class="mt-8 max-w-3xl text-sm leading-relaxed text-white/90 md:text-xl">
+                    {t.hero.subtitle}
+                </p>
+            </div>
         </div>
-    </div>
-
     </section>
 
     <!-- APA ITU -->
     <section class="bg-white py-20 lg:py-28">
-        <div
-            class="mx-auto max-w-7xl px-6"
-        >
-            <div class="
-                grid
-                gap-14
-                lg:grid-cols-2
-                lg:items-center
-            "
-            >
+        <div class="mx-auto max-w-7xl px-6">
+            <div class="grid gap-14 lg:grid-cols-2 lg:items-center">
 
                 <!-- LEFT -->
                 <div>
-
-                    <span
-                    class="
-                        text-sm md:text-base lg:text-lg
-                        font-semibold
-                        uppercase
-                        tracking-[0.25em]
-                        text-orange-500
-                    "
-                    >
-                    Penyelidikan Tanah & Geoteknik
+                    <span class="text-sm md:text-base lg:text-lg font-semibold uppercase tracking-[0.25em] text-orange-500">
+                        {t.intro.eyebrow}
                     </span>
 
-                    <h1
-                    class="
-                        mt-4
-                        text-xl
-                        md:text-2xl
-                        lg:text-4xl
-                        font-bold
-                        leading-tight
-                        text-amber-950
-                    "
-                    >
-                    Layanan Penyelidikan Tanah & Geoteknik
+                    <h1 class="mt-4 text-xl md:text-2xl lg:text-4xl font-bold leading-tight text-amber-950">
+                        {t.intro.heading}
                     </h1>
 
-                    <p
-                    class="
-                        mt-8
-                        text-sm
-                        leading-relaxed
-                        text-slate-600
-                        md:text-md
-                        lg:text-lg
-                    "
-                    >
-                    Jasa Penyelidikan Tanah (Geoteknik) Sesuai Standar SNI & ASTM adalah proses krusial menilai daya dukung lahan. Langkah ini wajib dilakukan sebelum mendirikan struktur bangunan berat. Akurasi pengujian ini mencegah kegagalan fondasi pabrik industri. Data ini secara langsung mengamankan investasi konstruksi bernilai tinggi Anda.
+                    <p class="mt-8 text-sm leading-relaxed text-slate-600 md:text-md lg:text-lg">
+                        {t.intro.paragraph1}
                     </p>
                 </div>
 
                 <!-- RIGHT -->
                 <div>
-
-                    <h2
-                    class="
-                        mt-6
-                        font-bold
-                        leading-tight
-                        text-amber-950
-                        text-lg
-                        md:text-xl
-                        lg:text-2xl
-                    "
-                    >
-                    Kenapa Penyelidikan Tanah Wajib Dibereskan Sebelum Fondasi Pabrik Dibangun?
+                    <h2 class="mt-6 font-bold leading-tight text-amber-950 text-lg md:text-xl lg:text-2xl">
+                        {t.intro.whyHeading}
                     </h2>
 
-                    <p
-                    class="
-                        mt-6
-                        text-sm
-                        md:text-base
-                        lg:text-lg
-                        leading-relaxed
-                        text-slate-600
-                    "
-                    >
-                    Penyelidikan tanah geoteknik merupakan langkah mitigasi
-                    wajib sebelum pengecoran fondasi dilakukan. Mengabaikan
-                    fase ini sering menyebabkan pembengkakan biaya proyek,
-                    kerusakan struktur, hingga gangguan operasional yang
-                    merugikan perusahaan dalam jangka panjang.
+                    <p class="mt-6 text-sm md:text-base lg:text-lg leading-relaxed text-slate-600">
+                        {t.intro.whyParagraph1}
                     </p>
 
-                    <p
-                    class="
-                        mt-4
-                        text-sm
-                        md:text-base
-                        lg:text-lg
-                        leading-relaxed
-                        text-slate-600
-                    "
-                    >
-                    Risiko settlement atau penurunan tanah yang tidak merata
-                    menjadi salah satu penyebab utama kegagalan fondasi pada
-                    bangunan industri dan fasilitas produksi.
+                    <p class="mt-4 text-sm md:text-base lg:text-lg leading-relaxed text-slate-600">
+                        {t.intro.whyParagraph2}
                     </p>
-
                 </div>
 
             </div>
         </div>
     </section>
 
-     <!-- MENGAPA SANGAT PENTING -->
+    <!-- MENGAPA SANGAT PENTING -->
     <section class="bg-slate-50 py-20">
         <div class="mx-auto max-w-7xl px-6">
 
-            <header
-            class="max-w-2xl"
-            >
+            <header class="max-w-2xl">
+                <span class="text-sm md:text-base lg:text-lg font-semibold uppercase tracking-[0.25em] text-orange-500">
+                    {t.whyImportant.eyebrow}
+                </span>
 
-            <span
-                class="
-                text-sm
-                md:text-base
-                lg:text-lg
-                font-semibold
-                uppercase
-                tracking-[0.25em]
-                text-orange-500
-                "
-            >
-                Rekayasa Geoteknik
-            </span>
-
-            <h2
-                class="
-                mt-4
-                text-xl md:text-2xl lg:text-4xl
-                font-bold
-                text-amber-950
-                "
-            >
-                Mengapa Rekayasa Geoteknik Sangat Penting?
-            </h2>
-
+                <h2 class="mt-4 text-xl md:text-2xl lg:text-4xl font-bold text-amber-950">
+                    {t.whyImportant.heading}
+                </h2>
             </header>
 
-            <div
-            class="
-                mt-14
-                grid
-                gap-6
-                md:grid-cols-2
-                xl:grid-cols-4
-            "
-            >
-
-            {
-                reasons.map((item) => (
-
-                <article
-                    class="
-                    group
-                    rounded-3xl
-                    border
-                    border-slate-200
-                    bg-white
-                    p-8
-                    transition-all
-                    duration-300
-                    hover:-translate-y-2
-                    hover:shadow-xl
-                    "
-                >
-
-                    <div
-                    class="
-                        flex
-                        h-12
-                        w-12
-                        md:h-16
-                        md:w-16
-                        items-center
-                        justify-center
-                        rounded-2xl
-                        bg-orange-100
-                    "
-                    >
-
-                    <Icon
-                        name={item.icon}
-                        class="
-                        h-8
-                        w-8
-                        text-orange-600
-                        "
-                    />
-
-                    </div>
-
-                    <h3
-                    class="
-                        mt-6
-                        text-xl
-                        md:text-2xl
-                        font-bold
-                        text-amber-950
-                    "
-                    >
-                    {item.title}
-                    </h3>
-
-                    <p
-                    class="
-                        mt-4
-                        text-sm
-                        md:text-base
-                        leading-relaxed
-                        text-slate-600
-                    "
-                    >
-                    {item.description}
-                    </p>
-
-                </article>
-
-                ))
-            }
-
+            <div class="mt-14 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+                {
+                    reasons.map((item) => (
+                        <article class="group rounded-3xl border border-slate-200 bg-white p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+                            <div class="flex h-12 w-12 md:h-16 md:w-16 items-center justify-center rounded-2xl bg-orange-100">
+                                <Icon name={item.icon} class="h-8 w-8 text-orange-600" />
+                            </div>
+                            <h3 class="mt-6 text-xl md:text-2xl font-bold text-amber-950">{item.title}</h3>
+                            <p class="mt-4 text-sm md:text-base leading-relaxed text-slate-600">{item.description}</p>
+                        </article>
+                    ))
+                }
             </div>
 
         </div>
@@ -377,585 +107,169 @@ const benefits = [
 
     <!-- DAMPAK -->
     <section class="bg-slate-50 py-20">
-      <div
-        class="mx-auto max-w-7xl px-6"
-      >
+        <div class="mx-auto max-w-7xl px-6">
 
-        <header
-          class="text-center"
-        >
-
-          <h3
-            class="
-              text-xl
-              md:text-2xl
-              lg:text-3xl
-              font-bold
-              text-amber-950
-            "
-          >
-            Dampak Jika Penyelidikan Tanah Diabaikan
-          </h3>
-
-          <p
-            class="
-              mx-auto
-              mt-4
-              max-w-3xl
-              text-sm
-              md:text-base
-              lg:text-lg
-              leading-relaxed
-              text-slate-600
-            "
-          >
-            Kesalahan pada tahap awal dapat memicu kerugian besar
-            selama umur bangunan berlangsung.
-          </p>
-
-        </header>
-
-        <div
-          class="
-            mt-14
-            grid
-            gap-6
-            md:grid-cols-2
-            lg:grid-cols-3
-          "
-        >
-
-          {
-            risks.map((item) => (
-
-              <article
-                class="
-                  rounded-3xl
-                  bg-white
-                  p-8
-                  shadow-sm
-                  transition
-                  hover:-translate-y-2
-                  hover:shadow-xl
-                "
-              >
-
-                <Icon
-                  name={item.icon}
-                  class="
-                    h-12
-                    w-12
-                    text-orange-500
-                  "
-                />
-
-                <h4
-                  class="
-                    mt-6
-                    text-lg
-                    md:text-xl
-                    font-bold
-                    text-amber-950
-                  "
-                >
-                  {item.title}
-                </h4>
-
-                <p
-                  class="
-                    mt-4
-                    text-sm
-                    md:text-base
-                    leading-relaxed
-                    text-slate-600
-                  "
-                >
-                  {item.description}
+            <header class="text-center">
+                <h3 class="text-xl md:text-2xl lg:text-3xl font-bold text-amber-950">
+                    {t.dampak.heading}
+                </h3>
+                <p class="mx-auto mt-4 max-w-3xl text-sm md:text-base lg:text-lg leading-relaxed text-slate-600">
+                    {t.dampak.subtitle}
                 </p>
+            </header>
 
-              </article>
-
-            ))
-          }
+            <div class="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                {
+                    t.dampak.items.map((item) => (
+                        <article class="rounded-3xl bg-white p-8 shadow-sm transition hover:-translate-y-2 hover:shadow-xl">
+                            <Icon name={item.icon} class="h-12 w-12 text-orange-500" />
+                            <h4 class="mt-6 text-lg md:text-xl font-bold text-amber-950">{item.title}</h4>
+                            <p class="mt-4 text-sm md:text-base leading-relaxed text-slate-600">{item.description}</p>
+                        </article>
+                    ))
+                }
+            </div>
 
         </div>
-
-      </div>
     </section>
 
     <!-- KAPAN VALIDASI -->
     <section class="bg-white py-20">
+        <div class="mx-auto max-w-6xl px-6">
+            <div class="rounded-4xl border border-slate-200 bg-slate-100 p-10 lg:p-14">
 
-      <div
-        class="mx-auto max-w-6xl px-6"
-      >
+                <h3 class="text-xl md:text-2xl lg:text-3xl font-bold text-amber-950">
+                    {t.validasi.heading}
+                </h3>
 
-        <div
-          class="
-            rounded-4xl
-            border
-            border-slate-200
-            bg-slate-100
-            p-10
-            lg:p-14
-          "
-        >
+                <div class="mt-10 grid gap-6 md:grid-cols-3">
+                    {
+                        t.validasi.items.map((item) => (
+                            <div>
+                                <div class="text-lg md:text-xl lg:text-2xl font-bold text-orange-500">
+                                    {item.number}
+                                </div>
+                                <h4 class="mt-3 text-lg md:text-xl font-semibold text-amber-950">
+                                    {item.title}
+                                </h4>
+                                <p class="mt-3 text-sm md:text-base text-slate-600">
+                                    {item.description}
+                                </p>
+                            </div>
+                        ))
+                    }
+                </div>
 
-          <h3
-            class="
-              text-xl
-              md:text-2xl
-              lg:text-3xl
-              font-bold
-              text-amber-950
-            "
-          >
-            Kapan Validasi Tanah Harus Dilakukan Kembali?
-          </h3>
-
-          <div
-            class="
-              mt-10
-              grid
-              gap-6
-              md:grid-cols-3
-            "
-          >
-
-            <div>
-              <div
-                class="
-                  text-lg
-                  md:text-xl
-                  lg:text-2xl
-                  font-bold
-                  text-orange-500
-                "
-              >
-                01
-              </div>
-
-              <h4
-                class="
-                  mt-3
-                  text-lg
-                  md:text-xl
-                  font-semibold
-                  text-amber-950
-                "
-              >
-                Ekspansi Area
-              </h4>
-
-              <p
-                class="
-                  mt-3
-                  text-sm
-                  md:text-base
-                  text-slate-600
-                "
-              >
-                Memastikan pembangunan baru tidak memengaruhi fondasi bangunan lama.
-              </p>
             </div>
-
-            <div>
-              <div
-                class="
-                   text-lg
-                  md:text-xl
-                  lg:text-2xl
-                  font-bold
-                  text-orange-500
-                "
-              >
-                02
-              </div>
-
-              <h4
-                class="
-                  mt-3
-                   text-lg
-                  md:text-xl
-                  font-semibold
-                  text-amber-950
-                "
-              >
-                Retrofit Struktur
-              </h4>
-
-              <p
-                class="
-                  mt-3
-                  text-sm
-                  md:text-base
-                  text-slate-600
-                "
-              >
-                Mengevaluasi kemampuan tanah menerima tambahan beban bangunan.
-              </p>
-            </div>
-
-            <div>
-              <div
-                class="
-                   text-lg
-                  md:text-xl
-                  lg:text-2xl
-                  font-bold
-                  text-orange-500
-                "
-              >
-                03
-              </div>
-
-              <h4
-                class="
-                  mt-3
-                   text-lg
-                  md:text-xl
-                  font-semibold
-                  text-amber-950
-                "
-              >
-                Fasilitas Industri Lama
-              </h4>
-
-              <p
-                class="
-                  mt-3
-                  text-sm
-                  md:text-base
-                  text-slate-600
-                "
-              >
-                Mengurangi risiko ambles dan kerusakan struktur akibat perubahan kondisi tanah.
-              </p>
-            </div>
-
-          </div>
-
         </div>
-
-      </div>
-
     </section>
 
     <!-- TAHAPAN -->
     <section class="bg-white py-20 md:py-20">
-        <div
-            class="mx-auto max-w-4xl px-6"
-        >
+        <div class="mx-auto max-w-4xl px-6">
+            <div class="grid gap-16">
 
-            <div
-            class="grid gap-16"
-            >
-
-                <!-- CONTENT -->
                 <div>
-
-                    <span
-                    class="
-                        font-semibold
-                        text-base
-                        md:text-lg
-                        uppercase
-                        tracking-[0.25em]
-                        text-orange-500
-                    "
-                    >
-                    Alur Rekayasa
+                    <span class="font-semibold text-base md:text-lg uppercase tracking-[0.25em] text-orange-500">
+                        {t.tahapan.eyebrow}
                     </span>
 
-                    <h2
-                    class="
-                        mt-4
-                        text-2xl
-                        font-bold
-                        text-amber-950
-                        md:text-3xl
-                        lg:text-4xl
-                    "
-                    >
-                    Tahapan Rekayasa Geoteknik
+                    <h2 class="mt-4 text-2xl font-bold text-amber-950 md:text-3xl lg:text-4xl">
+                        {t.tahapan.heading}
                     </h2>
 
-                    <div
-                    class="mt-10 space-y-6"
-                    >
-
-                    {
-                        benefits.map((item) => (
-
-                        <div
-                            class="flex gap-4"
-                        >
-
-                            <div
-                            class="
-                                mt-1
-                                flex h-10 w-10 shrink-0
-                                items-center justify-center
-                                rounded-full
-                                text-white
-                                bg-orange-500
-                            "
-                            >
-
-                            {item.number}
-
-                            </div>
-
-                            <div>
-
-                            <h3
-                                class="
-                                text-base
-                                md:text-lg
-                                lg:text-xl
-                                font-semibold
-                                text-amber-950
-                                "
-                            >
-                                {item.title}
-                            </h3>
-
-                            <p
-                                class="
-                                mt-2
-                                text-sm
-                                md:text-base
-                                lg:text-lg
-                                text-slate-600
-                                "
-                            >
-                                {item.description}
-                            </p>
-
-                            </div>
-
-                        </div>
-
-                        ))
-                    }
-
+                    <div class="mt-10 space-y-6">
+                        {
+                            t.tahapan.items.map((item) => (
+                                <div class="flex gap-4">
+                                    <div class="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-white bg-orange-500">
+                                        {item.number}
+                                    </div>
+                                    <div>
+                                        <h3 class="text-base md:text-lg lg:text-xl font-semibold text-amber-950">
+                                            {item.title}
+                                        </h3>
+                                        <p class="mt-2 text-sm md:text-base lg:text-lg text-slate-600">
+                                            {item.description}
+                                        </p>
+                                    </div>
+                                </div>
+                            ))
+                        }
                     </div>
-
                 </div>
 
             </div>
-
         </div>
     </section>
 
     <!-- FAQ STYLE -->
     <style>
-  .faq-item summary::-webkit-details-marker {
-  display: none;
-  }
-
-  .faq-item[open] .faq-icon {
-    transform: rotate(45deg);
-  }
-  .faq-item div {
-    display: grid;
-    grid-template-rows: 0fr;
-    transition: all 0.3s ease;
-  }
-
-  .faq-item[open] div {
-    grid-template-rows: 1fr;
-  }
-  .faq-item summary:hover h3 {
-    color: #92400e;
-  }
+        .faq-item summary::-webkit-details-marker { display: none; }
+        .faq-item[open] .faq-icon { transform: rotate(45deg); }
+        .faq-item div { display: grid; grid-template-rows: 0fr; transition: all 0.3s ease; }
+        .faq-item[open] div { grid-template-rows: 1fr; }
+        .faq-item summary:hover h3 { color: #92400e; }
     </style>
 
     <!-- FAQ -->
-    <section
-      id="faq"
-      aria-labelledby="faq-heading"
-      class="bg-slate-50 py-14 lg:py-24"
-    >
-      <div class="mx-auto max-w-6xl px-6">
+    <section id="faq" aria-labelledby="faq-heading" class="bg-slate-50 py-14 lg:py-24">
+        <div class="mx-auto max-w-6xl px-6">
 
-        <!-- Heading -->
-        <header class="mb-16 text-center">
+            <header class="mb-16 text-center">
+                <h2 id="faq-heading" class="text-xl font-bold tracking-tight text-amber-950 md:text-2xl lg:text-4xl">
+                    {t.faq.heading}
+                </h2>
+                <p class="mx-auto mt-6 max-w-4xl text-sm md:text-md lg:text-xl leading-relaxed text-slate-600">
+                    {t.faq.subtitle}
+                </p>
+            </header>
 
-          <h2
-            id="faq-heading"
-            class="
-              text-xl
-              font-bold
-              tracking-tight
-              text-amber-950
-              md:text-2xl
-              lg:text-4xl
-            "
-          >
-            Pertanyaan Umum Seputar
-            Penyelidikan Tanah & Geoteknik
-          </h2>
-
-          <p
-            class="
-              mx-auto
-              mt-6
-              max-w-4xl
-              text-sm
-              md:text-md
-              lg:text-xl
-              leading-relaxed
-              text-slate-600
-            "
-          >
-            Pertanyaan yang umum ditanyakan oleh klien terkait Penyelidikan Tanah & Geoteknik
-          </p>
-
-        </header>
-
-        <!-- FAQ List -->
-        <div class="space-y-0">
-
-          {
-            faqs.map((faq) => (
-              <details
-                class="
-                  faq-item
-                  border-t
-                  border-slate-300
-                  py-2
-                "
-              >
-                <summary
-                  class="
-                    flex
-                    cursor-pointer
-                    list-none
-                    items-center
-                    justify-between
-                    gap-6
-                    py-6
-                    text-left
-                  "
-                >
-
-                  <h3
-                    class="
-                      text-md
-                      font-semibold
-                      text-amber-950
-                      md:text-xl
-                    "
-                  >
-                    {faq.question}
-                  </h3>
-
-                  <span
-                    class="
-                      faq-icon
-                      flex
-                      h-10
-                      w-10
-                      items-center
-                      justify-center
-                      text-4xl
-                      font-light
-                      text-black
-                      transition-transform
-                    "
-                  >
-                    +
-                  </span>
-
-                </summary>
-
-                <div
-                  class="
-                    max-w-5xl
-                    pb-8
-                    pr-12
-                  "
-                >
-                  <p
-                    class="
-                      text-sm
-                      md:text-lg
-                      leading-relaxed
-                      text-slate-700
-                    "
-                  >
-                    {faq.answer}
-                  </p>
-                </div>
-
-              </details>
-            ))
-          }
-
-          <div class="border-t border-slate-300"></div>
+            <div class="space-y-0">
+                {
+                    t.faq.items.map((faq) => (
+                        <details class="faq-item border-t border-slate-300 py-2">
+                            <summary class="flex cursor-pointer list-none items-center justify-between gap-6 py-6 text-left">
+                                <h3 class="text-md font-semibold text-amber-950 md:text-xl">{faq.question}</h3>
+                                <span class="faq-icon flex h-10 w-10 items-center justify-center text-4xl font-light text-black transition-transform">+</span>
+                            </summary>
+                            <div class="max-w-5xl pb-8 pr-12">
+                                <p class="text-sm md:text-lg leading-relaxed text-slate-700">{faq.answer}</p>
+                            </div>
+                        </details>
+                    ))
+                }
+                <div class="border-t border-slate-300"></div>
+            </div>
 
         </div>
-
-      </div>
     </section>
 
     <!-- CTA -->
-    <section
-    class="
-        bg-white
-        py-14
-        md:py-24
-        text-center
-        text-amber-950
-    "
-    >
+    <section class="bg-white py-14 md:py-24 text-center text-amber-950">
+        <div class="mx-auto max-w-4xl px-6">
 
-    <div
-        class="
-        mx-auto
-        max-w-4xl
-        px-6
-        "
-    >
+            <h2 class="text-2xl font-bold md:text-3xl lg:text-5xl">
+                {t.cta.heading}
+            </h2>
 
-        <h2
-        class="
-            text-2xl
-            font-bold
-            md:text-3xl
-            lg:text-5xl
-        "
-        >
-        Masih Punya Pertanyaan?
-        </h2>
+            <p class="mt-6 text-md md:text-lg lg:text-xl text-slate-700">
+                <Fragment set:html={t.cta.description} />
+            </p>
 
-        <p
-        class="
-            mt-6
-            text-md
-            md:text-lg
-            lg:text-xl
-            text-slate-700
-        "
-        >
-        Hubungi kami untuk konsultasi kebutuhan Anda, <b>Gratis!</b>
-        </p>
+            <a
+                href="https://wa.me/6281376928398"
+                target="_blank"
+                class="inline-flex mt-10 items-center gap-2 rounded-full bg-green-600 px-6 py-2 md:px-7 md:py-3 text-xs md:text-lg font-bold tracking-wide text-white transition hover:bg-green-700"
+            >
+                <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
+                </svg>
+                {t.cta.buttonLabel}
+            </a>
 
-        <a
-            href="https://wa.me/6281376928398"
-            target="_blank"
-            class="inline-flex mt-10 items-center gap-2 rounded-full bg-green-600 px-6 py-2 md:px-7 md:py-3 text-xs md:text-lg font-bold tracking-wide text-white transition hover:bg-green-700"
-        >
-            <!-- WhatsApp icon SVG -->
-            <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
-            </svg>
-            Konsultasi
-        </a>
-
-    </div>
-
+        </div>
     </section>
+
     <Footer />
 </Layout>
