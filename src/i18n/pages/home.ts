@@ -2,8 +2,10 @@ export const home = {
   // Indonesia
   id: {
     meta: {
-      title: "Beranda | PT Join Teknologi Internasional",
-      description: "",
+      title:
+        "Jasa Konsultan Bangunan & Audit Struktur Terpercaya | PT Join Teknologi Internasional",
+      description:
+        "Jasa konsultan bangunan profesional: audit struktur, desain struktur, investigasi geoteknik, dan manajemen konstruksi terpercaya di Indonesia.",
     },
     hero: {
       title: "Jasa Konsultan Bangunan<br />Terpercaya di Indonesia",
@@ -212,8 +214,10 @@ export const home = {
   // English
   en: {
     meta: {
-      title: "Home | PT Join Teknologi Internasional",
-      description: "",
+      title:
+        "Trusted Building Consultancy & Structural Audit Services | PT Join Teknologi Internasional",
+      description:
+        "Professional building consultancy services: structural audits, structural design, geotechnical investigations, and trusted construction management in Indonesia.",
     },
     hero: {
       title: "Trusted Building Consultant<br />Services in Indonesia",

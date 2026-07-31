@@ -66,12 +66,9 @@ const serviceLinks = [
           {
             navLinks.map((item) => (
               <li>
-                <a 
-                  href={getRelativeLocaleUrl(lang, item.href)}
-                  class="footer-link"
-                >
+                <p class="footer-link">
                   {t(item.key)}
-                </a>
+                </p>
               </li>
             ))
           }
@@ -88,12 +85,9 @@ const serviceLinks = [
           {
             serviceLinks.map((item) => (
               <li>
-                <a 
-                  href={getRelativeLocaleUrl(lang, item.href)}
-                  class="footer-link"
-                >
+                <p class="footer-link">
                   {t(item.key)}
-                </a>
+                </p>
               </li>
             ))
           }

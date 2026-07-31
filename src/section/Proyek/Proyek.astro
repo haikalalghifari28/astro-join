@@ -130,72 +130,72 @@ interface Props {
 const { button } = Astro.props;
 
 const projects = [
-  { id: 1, title: "Retaining Wall Jakarta", description: "Terdapat retakan pada struktur Retaining Wall. PT JTI melakukan pengujian UPV Crack untuk mengetahui kedalaman retak pada struktur beton tersebut.", location: "Jakarta", year: 2026, category: "Audit Struktur", cover: RetainingWall1,
+  { id: 1, title: "Pengujian Retaining Wall Jakarta", description: "Terdapat retakan pada struktur Retaining Wall. PT JTI melakukan pengujian UPV Crack untuk mengetahui kedalaman retak pada struktur beton tersebut.", location: "Jakarta", year: 2026, category: "Audit Struktur", cover: RetainingWall1,
     gallery: [
       RetainingWall1,RetainingWall2, RetainingWall3
     ],
   },
-  { id: 2, title: "Bangunan MTS", description: "Mengetahui umur bangunan dan kapasitas bangunan di karenakan bangunan tersebut sudah berumur dan owner tidak mengetahui masa bangunan tersebut, dan owner ada  rencana untuk menambah lantai pada bangunan tersebut. Adapun item pengujian yang kami lakukan adalah Pengujian UPV & Pengujian cover meter. ", location: "Jakarta", year: 2025, category: "Audit Struktur", cover: mts1,
+  { id: 2, title: "Pengujian Bangunan MTS", description: "Mengetahui umur bangunan dan kapasitas bangunan di karenakan bangunan tersebut sudah berumur dan owner tidak mengetahui masa bangunan tersebut, dan owner ada  rencana untuk menambah lantai pada bangunan tersebut. Adapun item pengujian yang kami lakukan adalah Pengujian UPV & Pengujian cover meter. ", location: "Jakarta", year: 2025, category: "Audit Struktur", cover: mts1,
     gallery: [
       mts1, mts2, mts3
     ],
   },
-  { id: 3, title: "Bank Indonesia", description: "Maksud dan tujuan pengujian ini adalah untuk memastikan keamanan bangunan dan pengecekan rutin pada bangunan setiap 5 tahun sekali sesuai peraturan pemerintah yang mana setiap bangunan wajib untuk pengecekan berkala yaitu 5 tahun sekali.", location: "Serang", year: 2025, category: "Audit Struktur", cover: bi1,
+  { id: 3, title: "Pengujian Bank Indonesia", description: "Maksud dan tujuan pengujian ini adalah untuk memastikan keamanan bangunan dan pengecekan rutin pada bangunan setiap 5 tahun sekali sesuai peraturan pemerintah yang mana setiap bangunan wajib untuk pengecekan berkala yaitu 5 tahun sekali.", location: "Serang", year: 2025, category: "Audit Struktur", cover: bi1,
     gallery: [
       bi1, bi2, bi3, bi4, bi5, bi6, bi7
     ],
   },
-  { id: 4, title: "Dermaga Kendal Jawa Tengah", description: "Rencana owner akan mulai mengoprasikan dermaga tersebut, Maka dari itu PT JOIN di tunjuk untuk mengecek struktur dermaga untuk memastikan kelayakan pada dermaga tersebut Item pengujian yang kami lakukan adalah pengujian HAMERR TEST dan Analisis Struktur Dermaga Uji Hammer Test (Schmidt Hammer Test) adalah metode pengujian tidak merusak (non-destructive testing) yang digunakan untuk memperkirakan kuat tekan dan mutu permukaan beton secara cepat di lapangan. Metode ini mengukur jarak pantulan (rebound) dari palu pegas yang ditembakkan ke permukaan beton.", location: "Jawa Tengah", year: 2025, category: "Audit Struktur", cover: dermaga1,
+  { id: 4, title: "Pengujian Dermaga Kendal Jawa Tengah", description: "Rencana owner akan mulai mengoprasikan dermaga tersebut, Maka dari itu PT JOIN di tunjuk untuk mengecek struktur dermaga untuk memastikan kelayakan pada dermaga tersebut Item pengujian yang kami lakukan adalah pengujian HAMERR TEST dan Analisis Struktur Dermaga Uji Hammer Test (Schmidt Hammer Test) adalah metode pengujian tidak merusak (non-destructive testing) yang digunakan untuk memperkirakan kuat tekan dan mutu permukaan beton secara cepat di lapangan. Metode ini mengukur jarak pantulan (rebound) dari palu pegas yang ditembakkan ke permukaan beton.", location: "Jawa Tengah", year: 2025, category: "Audit Struktur", cover: dermaga1,
     gallery: [
       dermaga1, dermaga2, dermaga3, dermaga4, dermaga5, dermaga6, dermaga7
     ],
   },
-  { id: 5, title: "Gedung DPRD Lampung", description: "PT JOIN melakukan pengujian pada struktur bangunan DPRD Lampung. Item pengujian yang kami lakukan adalah Pengujian UPV & Pengujian cover meter. Tujuan pengujian adalah Mengetahui kepadatan dan keseragaman beton pada struktur bangunan, Menemukan rongga (void), retakan internal (crack), atau keropos (honeycomb) di dalam beton, Estimasi Kuat Tekan: Digunakan bersamaan dengan metode pengujian lain (seperti Hammer Test) untuk memperkirakan kuat tekan beton dan Pengukuran Kedalaman Retak: Membantu mengukur seberapa dalam retakan yang terjadi pada permukaan beton.", location: "Lampung", year: 2024, category: "Audit Struktur", cover: dprd1,
+  { id: 5, title: "Pengujian Gedung di Lampung", description: "PT JOIN melakukan pengujian pada struktur bangunan di Lampung. Item pengujian yang kami lakukan adalah Pengujian UPV & Pengujian cover meter. Tujuan pengujian adalah Mengetahui kepadatan dan keseragaman beton pada struktur bangunan, Menemukan rongga (void), retakan internal (crack), atau keropos (honeycomb) di dalam beton, Estimasi Kuat Tekan: Digunakan bersamaan dengan metode pengujian lain (seperti Hammer Test) untuk memperkirakan kuat tekan beton dan Pengukuran Kedalaman Retak: Membantu mengukur seberapa dalam retakan yang terjadi pada permukaan beton.", location: "Lampung", year: 2024, category: "Audit Struktur", cover: dprd1,
     gallery: [
       dprd1, dprd2, dprd3, dprd4, dprd5, dprd6, dprd7, dprd8, dprd9, dprd10, dprd11, dprd12
     ],
   },
-  { id: 6, title: "GS Batery Karawang", description: "Maksud dan tujuan assessment ini adalah rencana owner akan memasang solar panel pada struktur atap bangunan GS BATERY,  maka  PT JIT di tunjuk untuk mengevaluasi struktur dan memberian rekomendasi pada bangunan yang akan di pasang solar panel. Item pengujian yang kami lakukan adalah Pengujian UPV & Pengujian cover meter. Serta Pengujian leveling dan verticality yaitu prosedur kritikal dalam rekayasa struktur untuk memastikan bangunan berdiri tegak lurus (tidak miring) serta memiliki kerataan elevasi yang presisi. Pengujian ini menjamin integritas struktural, keamanan, dan kelayakan fungsi bangunan sesuai standar yang berlaku", location: "Karawang", year: 2025, category: "Assessment", cover: gs1,
+  { id: 6, title: "Pengujian GS Batery Karawang", description: "Maksud dan tujuan assessment ini adalah rencana owner akan memasang solar panel pada struktur atap bangunan GS BATERY,  maka  PT JIT di tunjuk untuk mengevaluasi struktur dan memberian rekomendasi pada bangunan yang akan di pasang solar panel. Item pengujian yang kami lakukan adalah Pengujian UPV & Pengujian cover meter. Serta Pengujian leveling dan verticality yaitu prosedur kritikal dalam rekayasa struktur untuk memastikan bangunan berdiri tegak lurus (tidak miring) serta memiliki kerataan elevasi yang presisi. Pengujian ini menjamin integritas struktural, keamanan, dan kelayakan fungsi bangunan sesuai standar yang berlaku", location: "Karawang", year: 2025, category: "Assessment", cover: gs1,
     gallery: [
       gs1, gs2, gs3, gs4, gs5, gs6, gs7, gs8, gs9
     ],
   },
-  { id: 7, title: "Jembatan Purworejo", description: "Fungsi jembatan adalah sebagai jalur Pipa Pertamina. Case pada jembatan terjadi lendutan pada bentang struktur jembatan Sudah ada perkuatan pada jembatan, namun masih terjadi lendutan pada struktur jembatan. PT JIT di tunjuk untuk mengevaluasi struktur jembatan dan memberikan rekomendasi perkuatan agar jembatan mampu untuk menahan Beban pipa pertamina yang menumpu pada struktur jembatan. Item pengujian yang dilakukan adalah Upv Test, Hammer Test, Covermeter Test, BRINELL TEST.", location: "Jawa Tengah", year: 2025, category: "Audit Struktur", cover: jembatan21,
+  { id: 7, title: "Pengujian Jembatan Purworejo", description: "Fungsi jembatan adalah sebagai jalur Pipa Pertamina. Case pada jembatan terjadi lendutan pada bentang struktur jembatan Sudah ada perkuatan pada jembatan, namun masih terjadi lendutan pada struktur jembatan. PT JIT di tunjuk untuk mengevaluasi struktur jembatan dan memberikan rekomendasi perkuatan agar jembatan mampu untuk menahan Beban pipa pertamina yang menumpu pada struktur jembatan. Item pengujian yang dilakukan adalah Upv Test, Hammer Test, Covermeter Test, BRINELL TEST.", location: "Jawa Tengah", year: 2025, category: "Audit Struktur", cover: jembatan21,
     gallery: [
       jembatan21, jembatan1, jembatan2, jembatan3, jembatan4, jembatan5, jembatan6, jembatan7, jembatan8, jembatan9, jembatan10, jembatan11, jembatan12, jembatan13, jembatan14, jembatan15
     ],
   },
-  { id: 8, title: "Jembatan Palembang", description: "Fungsi jembatan adalah sebagai jembatan penghubung antar daerah. Case yang terjadi pada jembatan adalah Girder pada struktur jembatan tertabrak Tongkang saat melintas di bawah jembatan. Kondisi existing pada jembatan ada sedikit perubahan PT JIT di tunjuk untuk mengevaluasi dan memberikan rekomendasi perkuatan pada struktur jembatan. Item pengujian yang dilakukan adalah UPV Test, Hameer Test, Covermeter Test, Coredrill Test ", location: "Palembang", year: 2025, category: "Audit Struktur", cover: jembatanP1,
+  { id: 8, title: "Pengujian Jembatan Palembang", description: "Fungsi jembatan adalah sebagai jembatan penghubung antar daerah. Case yang terjadi pada jembatan adalah Girder pada struktur jembatan tertabrak Tongkang saat melintas di bawah jembatan. Kondisi existing pada jembatan ada sedikit perubahan PT JIT di tunjuk untuk mengevaluasi dan memberikan rekomendasi perkuatan pada struktur jembatan. Item pengujian yang dilakukan adalah UPV Test, Hameer Test, Covermeter Test, Coredrill Test ", location: "Palembang", year: 2025, category: "Audit Struktur", cover: jembatanP1,
     gallery: [
       jembatanP1, jembatanP2, jembatanP3, jembatanP4, jembatanP5, jembatanP6, jembatanP7, jembatanP8, jembatanP9, jembatanP10, jembatanP11, jembatanP12
     ],
   },
-  { id: 9, title: "JPO Polda Jakarta", description: "Fungsi Jembatan sebagai Jembatan Penyebrangan Orang. Case yang terjad Pengecekan struktur bangunan berkala setaip 5 tahun sekali. Item pengujian yaitu Upv Test Hammer,  Test Covermeter, Test Levellin verticality", location: "Jakarta", year: 2025, category: "Audit Struktur", cover: jpo1,
+  { id: 9, title: "Pengujian JPO Polda Jakarta", description: "Fungsi Jembatan sebagai Jembatan Penyebrangan Orang. Case yang terjad Pengecekan struktur bangunan berkala setaip 5 tahun sekali. Item pengujian yaitu Upv Test Hammer,  Test Covermeter, Test Levellin verticality", location: "Jakarta", year: 2025, category: "Audit Struktur", cover: jpo1,
     gallery: [
       jpo1, jpo2, jpo3, jpo4, jpo5, jpo6, jpo7
     ],
   },
-  { id: 10, title: "Kantor Bupati Muara Enim", description: "fungsi bangunan sebagai kantor bupati Case pada bangunan pengecekan struktur berkala. Item pengujian yaitu Upv Test Hammer,  Test Covermeter, Test Levellin verticality", location: "Sumatra Selatan", year: 2025, category: "Audit Struktur", cover: bupati5,
+  { id: 10, title: "Pengujian Kantor Bupati Muara Enim", description: "fungsi bangunan sebagai kantor bupati Case pada bangunan pengecekan struktur berkala. Item pengujian yaitu Upv Test Hammer,  Test Covermeter, Test Levellin verticality", location: "Sumatra Selatan", year: 2025, category: "Audit Struktur", cover: bupati5,
     gallery: [
       bupati1, bupati2, bupati3, bupati4, bupati5
     ],
   },
-   { id: 11, title: "Masjid Baitul Huda", description: "Fungsi bangunan untuk tempat ibadah. Jumlah Lantai 3. Case pada banguna terjadi penuruan dan retak pada struktur bangunan PT JOIN di tunjuk untuk mengevaluasi struktur bangunan, dan menganalisis  struktur bangunan serta memberikan rekomendasi pada struktur banguna. Item pengujian Upv Test Covermeter Test", location: "Jakarta", year: 2024, category: "Audit Struktur", cover: masjid1,
+   { id: 11, title: "Pengujian Masjid Baitul Huda", description: "Fungsi bangunan untuk tempat ibadah. Jumlah Lantai 3. Case pada banguna terjadi penuruan dan retak pada struktur bangunan PT JOIN di tunjuk untuk mengevaluasi struktur bangunan, dan menganalisis  struktur bangunan serta memberikan rekomendasi pada struktur banguna. Item pengujian Upv Test Covermeter Test", location: "Jakarta", year: 2024, category: "Audit Struktur", cover: masjid1,
     gallery: [
       masjid1, masjid2, masjid3, masjid4, masjid5, masjid6, masjid7, masjid8, masjid9, masjid10, masjid11, masjid12, masjid13, masjid14
     ],
   },
-  { id: 12, title: "RS. Husada Jawa Timur", description: "Bangunan rumah sakit. Jumlah lantai 3. Case yang terjadi perencanaan penambahan lantai pada struktur bangunan PT JIT di tunjuk untuk menghitung struktur bangunan apabila di tambah lantai bangunan tersebut kuat atau tidak Item pengujian UPV Test Covermeter Test Halfcell Test", location: "Jawa Timur", year: 2024, category: "Audit Struktur", cover: rs1,
+  { id: 12, title: "Pengujian RS. Husada Jawa Timur", description: "Bangunan rumah sakit. Jumlah lantai 3. Case yang terjadi perencanaan penambahan lantai pada struktur bangunan PT JIT di tunjuk untuk menghitung struktur bangunan apabila di tambah lantai bangunan tersebut kuat atau tidak Item pengujian UPV Test Covermeter Test Halfcell Test", location: "Jawa Timur", year: 2024, category: "Audit Struktur", cover: rs1,
     gallery: [
       rs1, rs2, rs3, rs4, rs5, rs6, rs7, rs8, rs9, rs10, rs11
     ],
   },
-  { id: 13, title: "Ruko Surabaya", description: "Jumlah Lantai 4. Bangunan Baja. Fungsi ruko sebagai pusat penjualan Buku. Case pada struktur bangunan adalah Untuk menghitung ulang kekuatan bangunan, karena pada saat Pembangunan LANTAI 1 DAN 2 di kerjakan oleh kontraktor yang berbeda, maka dari itu PT JOIN di minta untuk menghitung struktur bangunan apakah bangunan ini benar benar kuat aman dan layak. Item Pengujian Hardnest Test, Thikness Test", location: "Surabaya", year: 2025, category: "Audit Struktur", cover: ruko1,
+  { id: 13, title: "Pengujian Ruko Surabaya", description: "Jumlah Lantai 4. Bangunan Baja. Fungsi ruko sebagai pusat penjualan Buku. Case pada struktur bangunan adalah Untuk menghitung ulang kekuatan bangunan, karena pada saat Pembangunan LANTAI 1 DAN 2 di kerjakan oleh kontraktor yang berbeda, maka dari itu PT JOIN di minta untuk menghitung struktur bangunan apakah bangunan ini benar benar kuat aman dan layak. Item Pengujian Hardnest Test, Thikness Test", location: "Surabaya", year: 2025, category: "Audit Struktur", cover: ruko1,
     gallery: [
       ruko1, ruko2, ruko3, ruko4, ruko5, ruko6, ruko7, ruko8, ruko9
     ],
   },
-   { id: 14, title: "Rumah Tinggal 4 Lantai", description: "Rumah 4 lantai. Rumah baru selesai terbangun. Owner ingin memastikan Ulang Apakah bangunan tersebut benar benar aman dan sesuai perhitungan awal oleh perencana dan kontraktor. Item pengujian Upv Test, Covermeter test, Brinell Test, Thikness Test, GPR TEST Pengujian GPR (Ground Penetrating Radar) adalah metode geofisika non-destruktif (Non Destructive Testing/NDT) yang menggunakan gelombang elektromagnetik frekuensi tinggi untuk memetakan objek atau anomali di bawah permukaan.", location: "Jakarta", year: 2026, category: "Audit Struktur", cover: rumahTinggal1,
+   { id: 14, title: "Pengujian Rumah Tinggal 4 Lantai", description: "Rumah 4 lantai. Rumah baru selesai terbangun. Owner ingin memastikan Ulang Apakah bangunan tersebut benar benar aman dan sesuai perhitungan awal oleh perencana dan kontraktor. Item pengujian Upv Test, Covermeter test, Brinell Test, Thikness Test, GPR TEST Pengujian GPR (Ground Penetrating Radar) adalah metode geofisika non-destruktif (Non Destructive Testing/NDT) yang menggunakan gelombang elektromagnetik frekuensi tinggi untuk memetakan objek atau anomali di bawah permukaan.", location: "Jakarta", year: 2026, category: "Audit Struktur", cover: rumahTinggal1,
     gallery: [
       rumahTinggal1, rumahTinggal2, rumahTinggal3, rumahTinggal4, rumahTinggal5, rumahTinggal6, rumahTinggal7
     ],

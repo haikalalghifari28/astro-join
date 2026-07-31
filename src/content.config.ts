@@ -17,6 +17,7 @@ const articles = defineCollection({
     author: z.string(),
     readingTime: z.number().optional(),
     tags: z.array(z.string()).optional(),
+    lang: z.enum(["id", "en"]).default("id"),
   }),
 });
 

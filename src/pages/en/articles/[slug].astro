@@ -1,18 +1,18 @@
 ---
 import { getCollection, render } from 'astro:content';
-import Layout from '../../layouts/Layout.astro';
-import Navbar from '../../components/Navbar.astro';
-import Footer from '../../components/Footer.astro';
-import '../../styles/global.css';
-import '../../styles/mdx.css';
-import { getLangFromUrl, usePageTranslations, getLocalizedPath } from '../../i18n/utils';
+import Layout from '../../../layouts/Layout.astro';
+import Navbar from '../../../components/Navbar.astro';
+import Footer from '../../../components/Footer.astro';
+import '../../../styles/global.css';
+import '../../../styles/mdx.css';
+import { getLangFromUrl, usePageTranslations, getLocalizedPath } from '../../../i18n/utils';
 import { getRelativeLocaleUrl } from 'astro:i18n';
-import { artikel } from '../../i18n/pages/artikel';
+import { artikel } from '../../../i18n/pages/artikel';
 
 export async function getStaticPaths() {
   const allArticles = await getCollection('articles');
-  const idArticles = allArticles.filter((a) => a.data.lang === 'id');
-  return idArticles.map((article) => ({
+  const enArticles = allArticles.filter((a) => a.data.lang === 'en');
+  return enArticles.map((article) => ({
     params: { slug: article.id },
     props: { article },
   }));
@@ -81,7 +81,7 @@ const relatedArticles = allArticles.filter(
           </li>
           <li class="text-white">/</li>
           <li>
-            <a href={getRelativeLocaleUrl(lang, '/artikel')} class="hover:text-orange-400 transition-colors">
+            <a href={getRelativeLocaleUrl(lang, '/articles')} class="hover:text-orange-400 transition-colors">
               {t.detail.breadcrumbArticles}
             </a>
           </li>

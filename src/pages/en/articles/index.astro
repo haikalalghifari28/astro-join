@@ -1,20 +1,23 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import '../../styles/global.css';
-import Navbar from '../../components/Navbar.astro';
-import Hero from '../../section/Artikel/Hero.astro';
-import Footer from '../../components/Footer.astro';
+import Layout from '../../../layouts/Layout.astro';
+import '../../../styles/global.css';
+import Navbar from '../../../components/Navbar.astro';
+import Hero from '../../../section/Artikel/Hero.astro';
+import Footer from '../../../components/Footer.astro';
 import { getCollection } from 'astro:content';
-
-import { getLangFromUrl, usePageTranslations } from '../../i18n/utils';
-import { artikel } from '../../i18n/pages/artikel';
+import { getLangFromUrl, usePageTranslations } from '../../../i18n/utils';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import { artikel } from '../../../i18n/pages/artikel';
+import { getLocalizedPath } from '../../../i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
 const t = usePageTranslations(artikel, lang);
 
-const articles = await getCollection('articles');
+const allArticles = await getCollection('articles');
+const articles = allArticles.filter((a) => a.data.lang === lang);
 
-// Urutkan artikel terbaru
+const articlesBasePath = getLocalizedPath(lang, 'articles');
+
 articles.sort((a, b) => {
   const dateA = a.data.publishDate instanceof Date ? a.data.publishDate : new Date(a.data.publishDate);
   const dateB = b.data.publishDate instanceof Date ? b.data.publishDate : new Date(b.data.publishDate);
@@ -23,7 +26,7 @@ articles.sort((a, b) => {
 
 function formatDate(date: Date | string) {
   const d = date instanceof Date ? date : new Date(date);
-  return d.toLocaleDateString('id-ID', {
+  return d.toLocaleDateString(t.detail.dateLocale, {
     day: 'numeric',
     month: 'long',
     year: 'numeric',
@@ -31,14 +34,14 @@ function formatDate(date: Date | string) {
 }
 ---
 
-<Layout>
+<Layout title={t.meta.title} description={t.meta.description}>
   <Navbar />
   <Hero
         badge={t.hero.badge}
         heading={t.hero.heading}
         subtitle={t.hero.subtitle}
     />
-  
+
   <section
     aria-labelledby="artikel-heading"
     class="py-10 lg:py-24 bg-white"
@@ -46,10 +49,10 @@ function formatDate(date: Date | string) {
     itemtype="https://schema.org/Blog"
   >
     <div class="w-full md:max-w-[85%] mx-auto px-4 sm:px-6 lg:px-8">
-      
+
       {articles.length === 0 ? (
         <div class="text-center py-10">
-          <p class="text-gray-500">Belum ada artikel.</p>
+          <p class="text-gray-500">{t.listing.emptyMessage}</p>
         </div>
       ) : (
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 mb-10">
@@ -60,8 +63,8 @@ function formatDate(date: Date | string) {
               itemscope
               itemtype="https://schema.org/BlogPosting"
             >
-              <a
-                href={`/artikel/${article.id}`}  
+             <a 
+                 href={getRelativeLocaleUrl(lang, `${articlesBasePath}/${article.id}`)}
                 class="flex flex-col h-full"
                 aria-label={article.data.title}
               >
@@ -112,6 +115,6 @@ function formatDate(date: Date | string) {
       )}
     </div>
   </section>
-  
+
   <Footer />
 </Layout>
