@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jointeknologi.com/sitemap-index.xml

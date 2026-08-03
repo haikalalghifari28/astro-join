@@ -23,7 +23,7 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.url.origin).toString();
 <html lang={lang}>
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
@@ -45,6 +45,25 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.url.origin).toString();
 		<meta property="og:description" content={description} />
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content={canonicalUrl} />
+		<meta property="og:site_name" content="PT Join Teknologi Internasional" />
+		<meta property="og:image" content="https://jointeknologi.com/og-image.jpg" />
+		<meta property="og:image:alt" content="PT Join Teknologi Internasional" />
+		<meta name="robots" content="index, follow" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={new URL('/og-image.jpg', Astro.url.origin).toString()} />
+		<script type="application/ld+json" set:html={JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "ProfessionalService",
+			"name": "PT Join Teknologi Internasional",
+			"description": description,
+			"url": canonicalUrl,
+			"address": {
+				"@type": "PostalAddress",
+				"addressCountry": "ID"
+			}
+		})} />
 	</head>
 	<body>
 		<slot />
