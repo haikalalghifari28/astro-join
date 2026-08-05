@@ -38,8 +38,13 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.url.origin).toString();
 		{alternates.map((alt) => (
 			<link rel="alternate" hreflang={alt.hreflang} href={alt.href} />
 		))}
+		
 
 		<!-- Open Graph -->
+		<meta name="theme-color" content="#0F172A" />
+		<meta name="geo.region" content="ID" />
+		<meta name="geo.country" content="Indonesia" />
+		<meta name="author" content="PT Join Teknologi Internasional" />
 		<meta property="og:locale" content={lang === 'id' ? 'id_ID' : 'en_US'} />
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
@@ -55,15 +60,25 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.url.origin).toString();
 		<meta name="twitter:image" content={new URL('/og-image.jpg', Astro.url.origin).toString()} />
 		<script type="application/ld+json" set:html={JSON.stringify({
 			"@context": "https://schema.org",
-			"@type": "ProfessionalService",
+			"@type": "WebSite",
+			"url": "https://jointeknologi.com",
 			"name": "PT Join Teknologi Internasional",
+			"alternateName": "Join Teknologi",
+			"inLanguage":"id-ID",
 			"description": description,
-			"url": canonicalUrl,
 			"address": {
 				"@type": "PostalAddress",
 				"addressCountry": "ID"
 			}
 		})} />
+		<script type="application/ld+json" set:html={JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "Organization",
+			"name": "PT Join Teknologi Internasional",
+			"url": "https://jointeknologi.com",
+			"logo": "https://jointeknologi.com/logo.png"
+		})}
+		/>
 	</head>
 	<body>
 		<slot />
