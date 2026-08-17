@@ -24,7 +24,9 @@ const {
   dateLocale,
 } = Astro.props;
 
-const articles = await getCollection('articles');
+const allArticles = await getCollection('articles');
+const articles = allArticles.filter((a) => a.data.lang === lang);
+const articlesBasePath = getLocalizedPath(lang, 'articles');
 
 articles.sort((a, b) => {
   const dateA = a.data.publishDate instanceof Date ? a.data.publishDate : new Date(a.data.publishDate);
@@ -78,7 +80,7 @@ function formatDate(date: Date | string) {
               itemtype="https://schema.org/BlogPosting"
             >
               <a 
-                href={getRelativeLocaleUrl(lang, `/artikel/${article.id}`)}
+                href={getRelativeLocaleUrl(lang, `${articlesBasePath}/${article.id}`)}
                 class="flex flex-col h-full"
                 aria-label={article.data.title}
               >
@@ -143,4 +145,3 @@ function formatDate(date: Date | string) {
         </a>
       </div>
     </div>
-  </section>
