@@ -19,6 +19,7 @@ tags:
 lang: "en"
 ---
 
+<div style="text-align: justify;">
 In every construction project, the strength and safety of a building are aspects that cannot be overlooked. Behind every solid building lies a detailed planning and calculation process carried out by expert professionals. Therefore, using structural consulting services is an essential step to ensure a building can function properly and meet applicable safety standards.
 
 Whether for residential homes, office buildings, apartments, warehouses, factories, or other commercial facilities, structural consultants play a role in designing structural systems that are safe, efficient, and economical. With precise calculations, the risk of structural damage or failure can be minimized from the planning stage onward.
@@ -54,6 +55,8 @@ Using structural consulting services provides several important benefits, includ
 Structural consulting services are an essential solution to ensure buildings are designed safely, solidly, and efficiently. Through precise analysis and calculation, structural consultants help reduce the risk of building failure, optimize material usage, and ensure projects meet applicable safety standards.
 
 Whether for residential homes, multi-story buildings, warehouses, or industrial facilities, involving a structural consultant from the planning stage onward is an investment that provides long-term benefits. With the support of experienced professionals, buildings can achieve better quality, longer service life, and a higher level of safety.
+
+</div>
 
 ---
 
