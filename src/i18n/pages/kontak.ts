@@ -1,8 +1,10 @@
 export const kontak = {
   id: {
     meta: {
-      title: "Kontak | PT Join Teknologi Internasional",
-      description: "",
+      title:
+        "Hubungi Kami - Konsultasi Gratis Jasa Audit Struktur Bangunan | Join Teknologi",
+      description:
+        "Konsultasikan kebutuhan audit struktur, SLF, atau perizinan bangunan Anda secara gratis. Hubungi tim ahli bersertifikat kami sekarang.",
     },
     hero: {
       eyebrow: "Hubungi Kami",
@@ -37,8 +39,10 @@ export const kontak = {
   },
   en: {
     meta: {
-      title: "Contact | PT Join Teknologi Internasional",
-      description: "",
+      title:
+        "Contact Us – Free Consultation for Building Structural Audit Services | Join the Technology",
+      description:
+        "Consult your building structural audit, SLF, or construction permit needs for free. Contact our certified expert team now.",
     },
     hero: {
       eyebrow: "Contact Us",
