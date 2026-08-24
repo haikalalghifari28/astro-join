@@ -225,133 +225,73 @@ const projects = [
     ],
   },
 ];
+
+// SORTING
+const sortedProjects = [...projects].sort((a, b) => b.id - a.id);
 ---
 
 <section class="py-10 md:py-14">
-  <div class="mx-auto w-[95%] px-6">
+    <div class="mx-auto w-[95%] px-6">
 
-    <div
-      id="project-grid"
-      class="grid gap-8 md:grid-cols-2 lg:grid-cols-4"
-    >
+        <div id="project-grid" class="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+            {sortedProjects.map((project, index) => (
+            <article class={`project-card ${index>= 8 ? "hidden-project hidden" : ""}`}>
+                <button
+                    class="group overflow-hidden rounded-lg border border-slate-200 bg-white text-left transition hover:shadow-xl"
+                    data-project={JSON.stringify({ id: project.id, title: project.title, description:
+                    project.description, location: project.location, year: project.year, category: project.category,
+                    images: project.gallery.map(img=> img.src),
+                    })}
+                    >
+                    <Image src={project.cover} alt={project.title} width={800} height={600} loading="lazy" />
 
-      {
-        projects.map((project, index) => (
+                    <div class="p-6">
+                        <h2 class="text-xl font-bold text-amber-950">
+                            {project.title}
+                        </h2>
 
-          <article
-            class={`project-card ${
-              index >= 8 ? "hidden-project hidden" : ""
-            }`}
-          >
+                        <div class="mt-4 border-t"></div>
 
-            <button
-              class="
-                group
-                overflow-hidden
-                rounded-lg
-                border
-                border-slate-200
-                bg-white
-                text-left
-                transition
-                hover:shadow-xl
-              "
-              data-project={JSON.stringify({
-              id: project.id,
-              title: project.title,
-              description: project.description,
-              location: project.location,
-              year: project.year,
-              category: project.category,
-              images: project.gallery.map(img => img.src),
-        })}
-            >
+                        <div class="mt-4 flex items-center justify-between gap-4">
+                            <p class="line-clamp-2 text-sm md:text-base text-slate-600">
+                                {project.description}
+                            </p>
 
-              <Image
-                src={project.cover}
-                alt={project.title}
-                width={800}
-                height={600}
-                loading="lazy"
-              />
+                            <span class="shrink-0 text-sm text-slate-500">
+                                {project.location}, {project.year}
+                            </span>
+                        </div>
+                    </div>
+                </button>
+            </article>
+            ))}
+        </div>
 
-              <div class="p-6">
+        <div class="mt-12 text-center">
 
-                <h2
-                  class="text-xl font-bold text-amber-950"
-                >
-                  {project.title}
-                </h2>
-
-                <div
-                  class="mt-4 border-t"
-                ></div>
-
-                <div
-                  class="
-                    mt-4
-                    flex
-                    items-center
-                    justify-between
-                    gap-4
-                  "
-                >
-
-                  <p
-                    class="line-clamp-2 text-sm md:text-base text-slate-600"
-                  >
-                    {project.description}
-                  </p>
-
-                  <span
-                    class="shrink-0 text-sm text-slate-500"
-                  >
-                    {project.location}, {project.year}
-                  </span>
-
-                </div>
-
-              </div>
-
+            <button id="load-more"
+                class="
+                    rounded-full
+                    bg-orange-500
+                    px-5
+                    py-2
+                    md:px-8
+                    md:py-4
+                    font-semibold
+                    text-white
+                    transition
+                    hover:bg-orange-600
+                  ">
+                {button}
             </button>
 
-          </article>
-
-        ))
-      }
+        </div>
 
     </div>
-
-    <div
-      class="mt-12 text-center"
-    >
-
-      <button
-        id="load-more"
-        class="
-          rounded-full
-          bg-orange-500
-          px-5
-          py-2
-          md:px-8
-          md:py-4
-          font-semibold
-          text-white
-          transition
-          hover:bg-orange-600
-        "
-      >
-        {button}
-      </button>
-
-    </div>
-
-  </div>
 </section>
 
-  <!-- Modal -->
-  <div
-    id="project-modal"
+<!-- Modal -->
+<div id="project-modal"
     class="
       fixed
       inset-0
@@ -359,11 +299,10 @@ const projects = [
       hidden
       bg-black/70
       md:p-20
-    "
-  >
+    ">
 
     <div
-      class="
+        class="
         mx-auto
         mt-10
         w-full
@@ -371,87 +310,75 @@ const projects = [
         rounded-3xl
         bg-white
         p-8
-      "
-    >
+      ">
 
-      <button
-        id="close-modal"
-        class="ml-auto block text-3xl"
-      >
-        ×
-      </button>
+        <button id="close-modal" class="ml-auto block text-3xl">
+            ×
+        </button>
 
-      <div
-        class="
+        <div class="
           mt-4
           grid
           gap-10
           lg:grid-cols-2
-        "
-      >
+        ">
 
-        <!-- LEFT -->
-        <div class="space-y-4">
+            <!-- LEFT -->
+            <div class="space-y-4">
 
-          <div>
+                <div>
 
-            <h2
-              id="modal-title"
-              class="
+                    <h2 id="modal-title"
+                        class="
                 text-xl
                 md:text-2xl
                 lg:text-4xl
                 font-bold
                 text-amber-950
-              "
-            ></h2>
+              ">
+                    </h2>
 
-            <div class="mt-4 border-t"></div>
+                    <div class="mt-4 border-t"></div>
 
-          </div>
+                </div>
 
-          <p
-            id="modal-description"
-            class="
+                <p id="modal-description"
+                    class="
               text-xs
               md:text-sm
               lg:text-base
               leading-relaxed
               text-slate-800
-            "
-          ></p>
+            ">
+                </p>
 
-          <div class="text-sm md:text-lg italic">
+                <div class="text-sm md:text-lg italic">
 
-            <p>
-              <span id="modal-category"></span> - <span id="modal-location"></span>, <span id="modal-year"></span>
-            </p>
+                    <p>
+                        <span id="modal-category"></span> - <span id="modal-location"></span>, <span
+                            id="modal-year"></span>
+                    </p>
 
-          </div>
+                </div>
 
-        </div>
+            </div>
 
-        <!-- RIGHT -->
-        <div>
+            <!-- RIGHT -->
+            <div>
 
-          <div
-            class="relative"
-          >
+                <div class="relative">
 
-            <img
-              id="modal-image"
-              class="
+                    <img id="modal-image"
+                        class="
                 h-60
                 md:h-125
                 w-full
                 rounded-2xl
                 object-cover
-              "
-            />
+              " />
 
-            <button
-              id="prev-image"
-              class="
+                    <button id="prev-image"
+                        class="
                 absolute
                 left-4
                 top-1/2
@@ -467,14 +394,12 @@ const projects = [
                 rounded-full
                 bg-white
                 shadow-lg
-              "
-            >
-              ←
-            </button>
+              ">
+                        ←
+                    </button>
 
-            <button
-              id="next-image"
-              class="
+                    <button id="next-image"
+                        class="
                 absolute
                 right-4
                 top-1/2
@@ -490,127 +415,124 @@ const projects = [
                 rounded-full
                 bg-white
                 shadow-lg
-              "
-            >
-              →
-            </button>
+              ">
+                        →
+                    </button>
 
-          </div>
+                </div>
+
+            </div>
 
         </div>
 
-      </div>
-
     </div>
 
-  </div>
+</div>
 
 
 <!-- Script -->
 <script>
-  let visible = 8;
+    let visible = 8;
 
-  const cards = document.querySelectorAll(".hidden-project");
+    const cards = document.querySelectorAll(".hidden-project");
 
-  document
-    .getElementById("load-more")
-    ?.addEventListener("click", () => {
+    document
+        .getElementById("load-more")
+        ?.addEventListener("click", () => {
 
-      for (
-        let i = visible - 8;
-        i < visible;
-        i++
-      ) {
-        cards[i]?.classList.remove("hidden");
-      }
+            for (
+                let i = visible - 8; i < visible; i++
+            ) {
+                cards[i]?.classList.remove("hidden");
+            }
 
-      visible += 8;
+            visible += 8;
 
-      if (visible > cards.length + 8) {
-        document
-          .getElementById("load-more")
-          ?.remove();
-      }
-    });
+            if (visible > cards.length + 8) {
+                document
+                    .getElementById("load-more")
+                    ?.remove();
+            }
+        });
 
-  const modal =
-    document.getElementById("project-modal");
+    const modal =
+        document.getElementById("project-modal");
 
-  let currentImages: string[] = [];
-  let currentIndex = 0;
+    let currentImages: string[] = [];
+    let currentIndex = 0;
 
-  document
-    .querySelectorAll("[data-project]")
-    .forEach((item) => {
+    document
+        .querySelectorAll("[data-project]")
+        .forEach((item) => {
 
-      item.addEventListener("click", () => {
+            item.addEventListener("click", () => {
 
-        const data = JSON.parse(
-          item.dataset.project
-        );
+                const data = JSON.parse(
+                    item.dataset.project
+                );
 
-        document.getElementById(
-          "modal-title"
-        ).textContent = data.title;
+                document.getElementById(
+                    "modal-title"
+                ).textContent = data.title;
 
-        document.getElementById(
-          "modal-description"
-        ).textContent = data.description;
+                document.getElementById(
+                    "modal-description"
+                ).textContent = data.description;
 
-        document.getElementById(
-          "modal-location"
-        ).textContent = data.location;
+                document.getElementById(
+                    "modal-location"
+                ).textContent = data.location;
 
-        document.getElementById(
-          "modal-year"
-        ).textContent = data.year;
+                document.getElementById(
+                    "modal-year"
+                ).textContent = data.year;
 
-        document.getElementById(
-          "modal-category"
-        ).textContent = data.category;
+                document.getElementById(
+                    "modal-category"
+                ).textContent = data.category;
 
-        currentImages = data.images;
+                currentImages = data.images;
 
-        currentIndex = 0;
+                currentIndex = 0;
 
-        document.getElementById(
-          "modal-image"
-        ).src = currentImages[0];
+                document.getElementById(
+                    "modal-image"
+                ).src = currentImages[0];
 
-        modal.classList.remove("hidden");
-      });
-    });
+                modal.classList.remove("hidden");
+            });
+        });
 
-  document
-    .getElementById("close-modal")
-    ?.addEventListener("click", () => {
-      modal.classList.add("hidden");
-    });
+    document
+        .getElementById("close-modal")
+        ?.addEventListener("click", () => {
+            modal.classList.add("hidden");
+        });
 
-  document
-    .getElementById("next-image")
-    ?.addEventListener("click", () => {
+    document
+        .getElementById("next-image")
+        ?.addEventListener("click", () => {
 
-      currentIndex =
-        (currentIndex + 1) %
-        currentImages.length;
+            currentIndex =
+                (currentIndex + 1) %
+                currentImages.length;
 
-      document.getElementById(
-        "modal-image"
-      ).src = currentImages[currentIndex];
-    });
+            document.getElementById(
+                "modal-image"
+            ).src = currentImages[currentIndex];
+        });
 
-  document
-    .getElementById("prev-image")
-    ?.addEventListener("click", () => {
+    document
+        .getElementById("prev-image")
+        ?.addEventListener("click", () => {
 
-      currentIndex =
-        (currentIndex - 1 +
-          currentImages.length) %
-        currentImages.length;
+            currentIndex =
+                (currentIndex - 1 +
+                    currentImages.length) %
+                currentImages.length;
 
-      document.getElementById(
-        "modal-image"
-      ).src = currentImages[currentIndex];
-    });
+            document.getElementById(
+                "modal-image"
+            ).src = currentImages[currentIndex];
+        });
 </script>

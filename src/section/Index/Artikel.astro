@@ -28,11 +28,16 @@ const allArticles = await getCollection('articles');
 const articles = allArticles.filter((a) => a.data.lang === lang);
 const articlesBasePath = getLocalizedPath(lang, 'articles');
 
+// Urutkan artikel berdasarkan tanggal terbaru
 articles.sort((a, b) => {
   const dateA = a.data.publishDate instanceof Date ? a.data.publishDate : new Date(a.data.publishDate);
   const dateB = b.data.publishDate instanceof Date ? b.data.publishDate : new Date(b.data.publishDate);
   return dateB.getTime() - dateA.getTime();
 });
+
+// 🔥 BATASI: Hanya tampilkan 3 artikel terbaru
+const MAX_ARTICLES = 3;
+const limitedArticles = articles.slice(0, MAX_ARTICLES);
 
 function formatDate(date: Date | string) {
   const d = date instanceof Date ? date : new Date(date);
@@ -66,13 +71,13 @@ function formatDate(date: Date | string) {
       </p>
     </div>
 
-      {articles.length === 0 ? (
+      {limitedArticles.length === 0 ? (
         <div class="text-center py-10">
           <p class="text-gray-500">{emptyMessage}</p>
         </div>
       ) : (
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 mb-10">
-          {articles.map(article => (
+          {limitedArticles.map(article => (
             <article
               class="group bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100
                      hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer flex flex-col"
@@ -145,3 +150,4 @@ function formatDate(date: Date | string) {
         </a>
       </div>
     </div>
+  </section>

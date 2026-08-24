@@ -7,7 +7,7 @@ coverImage: "/images/6.webp"
 coverAlt: "Complete Guide to Building Structure Audit: When and Why Your Building Must Be Audited?"
 publishDate: "2026-08-20"
 author: "Expert Team of PT. JOIN TEKNOLOGI"
-readingTime: 15
+readingTime: 7
 lang: "en"
 ---
 

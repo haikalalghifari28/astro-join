@@ -7,7 +7,7 @@ coverImage: "/images/1.webp"
 coverAlt: "Structural Consulting Services"
 publishDate: "2026-08-12"
 author: "PT. JOIN TEKNOLOGI Expert Team"
-readingTime: 10
+readingTime: 5
 tags:
   [
     "structural consulting services",

@@ -40,6 +40,22 @@ const technologies = t.technologies.items.map((item, i) => ({ ...item, image: te
 
 <Layout title={t.meta.title} description={t.meta.description}>
 	<Navbar />
+    <script type="application/ld+json" set:html={JSON.stringify({
+		"@context": "https://schema.org",
+		"@type": "Service",
+		"serviceType": "Audit Struktur Bangunan",
+		"name": t.meta.title,
+		"description": t.meta.description,
+		"provider": {
+			"@type": "Organization",
+			"name": "PT Join Teknologi Internasional",
+			"url": "https://jointeknologi.com",
+		},
+		"areaServed": {
+			"@type": "Country",
+			"name": "Indonesia",
+		},
+	})} />
 
     <!-- HERO -->
     <section class="relative h-140 lg:h-170 overflow-hidden">

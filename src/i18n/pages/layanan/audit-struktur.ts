@@ -1,8 +1,9 @@
 export const auditStruktur = {
   id: {
     meta: {
-      title: "Audit Struktur | PT Join Teknologi Internasional",
-      description: "",
+      title: "Jasa Audit Struktur Bangunan Bersertifikat | Join Teknologi",
+      description:
+        "Jasa audit struktur bangunan profesional dengan teknologi UPV, GPR & BIM. Ketahui kondisi aktual gedung Anda dan dapatkan rekomendasi teknis akurat dari tim insinyur bersertifikat internasional.",
     },
     hero: {
       title: "Jasa Audit & Hitung Struktur <br />Bangunan Profesional",
@@ -239,8 +240,9 @@ export const auditStruktur = {
   },
   en: {
     meta: {
-      title: "Structural Audit | PT Join Teknologi Internasional",
-      description: "",
+      title: "Certified Building Structural Audit Services | Join Teknologi",
+      description:
+        "Professional structural audit services using UPV, GPR & BIM technology. Know your building's actual condition with accurate technical recommendations from our certified engineering team.",
     },
     hero: {
       title:
