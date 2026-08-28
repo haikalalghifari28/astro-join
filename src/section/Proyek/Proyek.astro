@@ -136,6 +136,11 @@ import upeSudirman2 from "../../images/proyek/upe-oasis-sudirman/2.webp";
 import upeSudirman3 from "../../images/proyek/upe-oasis-sudirman/3.webp";
 import upeSudirman4 from "../../images/proyek/upe-oasis-sudirman/4.webp";
 import upeSudirman5 from "../../images/proyek/upe-oasis-sudirman/5.webp";
+import flyoverTangerang1 from "../../images/proyek/jembatan-flyover-tangerang/1.webp";
+import flyoverTangerang2 from "../../images/proyek/jembatan-flyover-tangerang/2.webp";
+import flyoverTangerang3 from "../../images/proyek/jembatan-flyover-tangerang/3.webp";
+import flyoverTangerang4 from "../../images/proyek/jembatan-flyover-tangerang/4.webp";
+import flyoverTangerang5 from "../../images/proyek/jembatan-flyover-tangerang/5.webp";
 
 interface Props {
   button: string;
@@ -224,6 +229,11 @@ const projects = [
       upeSudirman1, upeSudirman2, upeSudirman3, upeSudirman4, upeSudirman5
     ],
   },
+  { id: 17, title: "Pengujian Susunan Tulangan Pada Struktur Jembatan Fly Over di Tangerang", description: "Pengujian Susunan Tulangan, Kerapatan dan homogenitas beton pada salah satu struktur jembatan fly over di Tangerang dengan menggunakan alat UPV Test.", location: "Jakarta", year: 2026, category: "Audit Struktur", cover: flyoverTangerang1,
+    gallery: [
+      flyoverTangerang1, flyoverTangerang2, flyoverTangerang3, flyoverTangerang4, flyoverTangerang5
+    ],
+  },
 ];
 
 // SORTING
@@ -246,14 +256,14 @@ const sortedProjects = [...projects].sort((a, b) => b.id - a.id);
                     <Image src={project.cover} alt={project.title} width={800} height={600} loading="lazy" />
 
                     <div class="p-6">
-                        <h2 class="text-xl font-bold text-amber-950">
+                        <h2 class="text-lg font-bold text-amber-950">
                             {project.title}
                         </h2>
 
                         <div class="mt-4 border-t"></div>
 
                         <div class="mt-4 flex items-center justify-between gap-4">
-                            <p class="line-clamp-2 text-sm md:text-base text-slate-600">
+                            <p class="line-clamp-2 text-sm text-slate-600">
                                 {project.description}
                             </p>
 
@@ -273,10 +283,10 @@ const sortedProjects = [...projects].sort((a, b) => b.id - a.id);
                 class="
                     rounded-full
                     bg-orange-500
-                    px-5
+                    px-4
                     py-2
-                    md:px-8
-                    md:py-4
+                    md:px-6
+                    md:py-3
                     font-semibold
                     text-white
                     transition
