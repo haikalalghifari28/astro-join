@@ -6,8 +6,7 @@ export const about = {
     },
     hero: {
       eyebrow: "Tentang Perusahaan",
-      title:
-        "Konsultan Audit Struktur & <br />Manajemen Konstruksi Profesional",
+      title: "Konsultan Bangunan & <br />Audit Struktur Profesional",
       subtitle:
         "PT Join Teknologi Internasional merupakan firma multidisiplin independen yang menyediakan layanan audit struktur, konsultansi teknik, dan manajemen proyek konstruksi untuk berbagai sektor industri di Indonesia.",
     },
@@ -91,8 +90,7 @@ export const about = {
     },
     hero: {
       eyebrow: "About the Company",
-      title:
-        "Structural Audit Consultant & <br />Professional Construction Management",
+      title: "Building Consultant & <br />Professional Structural Audit",
       subtitle:
         "PT Join Teknologi Internasional is an independent multidisciplinary firm providing structural audit services, engineering consultancy, and construction project management for various industry sectors in Indonesia.",
     },

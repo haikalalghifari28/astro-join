@@ -194,6 +194,52 @@ export const auditStruktur = {
         },
       ],
     },
+    serviceArea: {
+      eyebrow: "Wilayah Layanan",
+      heading: "Melayani Audit Struktur di Berbagai Kota di Indonesia",
+      paragraph:
+        "Tim kami telah menangani proyek audit struktur bangunan pada wilayah besar di Jawa Barat, Jawa Tengah, Jawa Timur, Sumatra Selatan, Banten, Jakarta. Baik untuk gedung perkantoran, sekolah, rumah sakit, jembatan, maupun dermaga, kami siap membantu di berbagai wilayah di Indonesia.",
+      cities: [
+        "Jakarta",
+        "Tangerang",
+        "Bekasi",
+        "Lampung",
+        "Serang",
+        "Surabaya",
+        "Muara Enim - Sumsel",
+        "Kendal",
+        "Palembang",
+        "Purworejo",
+        "Semarang",
+        "Karawang",
+      ],
+    },
+    relatedProjects: {
+      eyebrow: "Portofolio",
+      heading: "Proyek Audit Struktur yang Telah Kami Kerjakan",
+      subtitle:
+        "Beberapa contoh nyata penerapan audit struktur pada berbagai jenis bangunan dan infrastruktur.",
+      items: [
+        {
+          title: "Audit Retaining Wall, Jakarta",
+          description:
+            "Pengujian UPV untuk mendeteksi retak pada dinding penahan tanah.",
+          href: "/proyek/",
+        },
+        {
+          title: "Audit Dermaga, Kendal",
+          description:
+            "Hammer test untuk evaluasi mutu beton pada struktur dermaga.",
+          href: "/proyek/",
+        },
+        {
+          title: "Audit JPO Polda Jakarta",
+          description:
+            "Kombinasi UPV, Hammer Test, Covermeter, dan Levelling pada jembatan penyeberangan.",
+          href: "/proyek/",
+        },
+      ],
+    },
     faq: {
       heading: "Pertanyaan Umum Seputar Audit Struktur",
       subtitle: "Pertanyaan yang sering diajukan oleh klien kami.",
@@ -228,6 +274,11 @@ export const auditStruktur = {
           question: "Apakah pengujian akan mengganggu operasional gedung?",
           answer:
             "Sama sekali tidak. Seluruh metode pengujian kami bersifat non-invasif, tidak bising, dan bersih. Kami dapat berkoordinasi untuk melakukan pekerjaan di luar jam operasional atau pada waktu yang paling tidak mengganggu untuk memastikan kelancaran aktivitas di dalam gedung Anda.",
+        },
+        {
+          question: "Berapa kisaran biaya jasa audit struktur bangunan?",
+          answer:
+            "Biaya audit struktur bervariasi tergantung luas bangunan, jumlah lantai, tingkat kerumitan struktur, dan jenis pengujian NDT yang dibutuhkan. Semakin besar dan tinggi bangunan, semakin banyak titik pengujian yang diperlukan sehingga biaya menyesuaikan. Hubungi kami untuk mendapatkan penawaran presisi setelah kami mengetahui data awal bangunan Anda.",
         },
       ],
     },
@@ -431,6 +482,52 @@ export const auditStruktur = {
         },
       ],
     },
+    serviceArea: {
+      eyebrow: "Service Area",
+      heading: "Serving Structural Audits Across Indonesia",
+      paragraph:
+        "Our team has handled structural audit projects in Jawa Barat, Jawa Tengah, Jawa Timur, Sumatra Selatan, Banten, Jakarta. From office buildings, schools, and hospitals to bridges and jetties, we're ready to help across various regions in Indonesia.",
+      cities: [
+        "Jakarta",
+        "Tangerang",
+        "Bekasi",
+        "Lampung",
+        "Serang",
+        "Surabaya",
+        "Muara Enim - Sumsel",
+        "Kendal",
+        "Palembang",
+        "Purworejo",
+        "Semarang",
+        "Karawang",
+      ],
+    },
+    relatedProjects: {
+      eyebrow: "Portfolio",
+      heading: "Structural Audit Projects We've Completed",
+      subtitle:
+        "Real examples of structural audits applied to various building types and infrastructure.",
+      items: [
+        {
+          title: "Retaining Wall Audit, Jakarta",
+          description:
+            "UPV testing to detect cracks in the retaining wall structure.",
+          href: "/en/projects/",
+        },
+        {
+          title: "Dermaga (Jetty) Audit, Kendal",
+          description:
+            "Hammer test to evaluate concrete quality of the jetty structure.",
+          href: "/en/projects/",
+        },
+        {
+          title: "JPO Polda Jakarta Audit",
+          description:
+            "Combination of UPV, Hammer Test, Covermeter, and Levelling on the pedestrian bridge.",
+          href: "/en/projects/",
+        },
+      ],
+    },
     faq: {
       heading: "Frequently Asked Questions About Structural Audits",
       subtitle: "Questions frequently asked by our clients.",
@@ -467,6 +564,11 @@ export const auditStruktur = {
           question: "Will the testing disrupt building operations?",
           answer:
             "Not at all. All our testing methods are non-invasive, quiet, and clean. We can coordinate to perform work outside operating hours or at the least disruptive time to ensure the smooth running of activities within your building.",
+        },
+        {
+          question: "What is the typical cost range for a structural audit?",
+          answer:
+            "Structural audit costs vary depending on building size, number of floors, structural complexity, and the type of NDT testing required. Larger and taller buildings generally require more testing points, which affects the overall cost. Contact us for a precise quote once we know your building's initial data.",
         },
       ],
     },
