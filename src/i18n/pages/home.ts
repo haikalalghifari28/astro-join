@@ -71,31 +71,37 @@ export const home = {
           title: "Jasa Audit & Hitung Struktur Bangunan",
           description:
             "Jasa hitung struktur bangunan dengan pemodelan digital & Non-Destructive Test (NDT) untuk laporan teknis valid.",
+          link: "/layanan/audit-struktur/",
         },
         {
           title: "Perizinan Bangunan Gedung (PBG)",
           description:
             "Transformasi dari IMB ke PBG dengan proses yang transparan dan tepat waktu.",
+          link: "/layanan/perizinan-pbg/",
         },
         {
           title: "Perencanaan Mekanikal, Elektrikal, & Plumbing (MEP)",
           description:
             "Desain teknik mendetail mencakup sipil, ME (Mekanikal Elektrikal), dan plumbing atau MEP.",
+          link: "/layanan/perencanaan-mep/",
         },
         {
           title: "Manajemen Konstruksi & Pengawasan",
           description:
             "Memastikan proyek berjalan sesuai spesifikasi teknik dan standar keselamatan.",
+          link: "/layanan/manajemen-konstruksi/",
         },
         {
           title: "Sertifikat Laik Fungsi (SLF)",
           description:
             "Jasa pengurusan SLF mulai dari kajian teknis hingga terbit sertifikat untuk pemenuhan regulasi pemerintah.",
+          link: "/layanan/slf/",
         },
         {
           title: "Penyelidikan Tanah & Geoteknik",
           description:
             "Sondir dan Boring untuk memastikan daya dukung pondasi bangunan.",
+          link: "/layanan/penyelidikan-tanah-geoteknik/",
         },
       ],
       whyUsHeading: "Mengapa Memilih Kami?",
@@ -163,7 +169,7 @@ export const home = {
     faqSection: {
       heading: "Pertanyaan Umum Seputar Konsultan Audit Struktur",
       subtitle:
-        "Temukan jawaban atas pertanyaan yang sering diajukan mengenai prosedur, biaya, dan legalitas audit struktur bangunan.",
+        "Temukan jawaban atas pertanyaan yang sering diajukan mengenai prosedur, biaya, waktu, dan legalitas audit struktur bangunan.",
       items: [
         {
           question: "Apa itu jasa konsultan audit struktur?",
@@ -283,31 +289,37 @@ export const home = {
           title: "Building Structure Audit & Calculation Services",
           description:
             "Structural calculation services with digital modeling & Non-Destructive Testing (NDT) for valid technical reports.",
+          link: "/en/services/structural-audit/",
         },
         {
           title: "Building Construction Permit (PBG)",
           description:
             "Transformation from IMB to PBG with a transparent and timely process.",
+          link: "/en/services/building-permits/",
         },
         {
           title: "Mechanical, Electrical, & Plumbing (MEP) Planning",
           description:
             "Detailed engineering design covering civil, ME (Mechanical Electrical), and plumbing or MEP.",
+          link: "/en/services/mep-planning/",
         },
         {
           title: "Construction Management & Supervision",
           description:
             "Ensuring the project runs according to technical specifications and safety standards.",
+          link: "/en/services/construction-management/",
         },
         {
           title: "Certificate of Functional Suitability (SLF)",
           description:
             "SLF processing services from technical review to certificate issuance for government regulation compliance.",
+          link: "/en/services/slf/",
         },
         {
           title: "Soil & Geotechnical Investigation",
           description:
             "Sondir and Boring tests to ensure the foundation's bearing capacity.",
+          link: "/en/services/geotechnical-investigation/",
         },
       ],
       whyUsHeading: "Why Choose Us?",
@@ -375,7 +387,7 @@ export const home = {
     faqSection: {
       heading: "Frequently Asked Questions About Structural Audit Consultants",
       subtitle:
-        "Find answers to frequently asked questions regarding the procedures, costs, and legality of building structural audits.",
+        "Find answers to frequently asked questions regarding the procedures, costs, time, and legality of building structural audits.",
       items: [
         {
           question: "What is a structural audit consulting service?",

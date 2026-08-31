@@ -29,11 +29,11 @@ const { eyebrow, title, subtitle } = Astro.props;
         {eyebrow}
       </span>
 
-      <h1 class="mt-6 text-xl font-bold md:text-4xl lg:text-5xl text-white">
+      <h1 class="mt-6 text-xl font-bold md:text-4xl lg:text-[40px] text-white">
         <Fragment set:html={title} />
       </h1>
 
-      <p class="mx-auto mt-8 w-[80%] md:max-w-2xl text-sm leading-relaxed md:text-md lg:text-lg text-white/80">
+      <p class="mx-auto mt-8 w-[80%] md:max-w-2xl text-sm leading-relaxed md:text-base text-white/80">
         {subtitle}
       </p>
 

@@ -256,7 +256,7 @@ const sortedProjects = [...projects].sort((a, b) => b.id - a.id);
                     <Image src={project.cover} alt={project.title} width={800} height={600} loading="lazy" />
 
                     <div class="p-6">
-                        <h2 class="text-lg font-bold text-amber-950">
+                        <h2 class="text-base font-bold text-amber-950">
                             {project.title}
                         </h2>
 
@@ -342,7 +342,7 @@ const sortedProjects = [...projects].sort((a, b) => b.id - a.id);
                         class="
                 text-xl
                 md:text-2xl
-                lg:text-4xl
+                lg:text-3xl
                 font-bold
                 text-amber-950
               ">
@@ -356,13 +356,12 @@ const sortedProjects = [...projects].sort((a, b) => b.id - a.id);
                     class="
               text-xs
               md:text-sm
-              lg:text-base
               leading-relaxed
               text-slate-800
             ">
                 </p>
 
-                <div class="text-sm md:text-lg italic">
+                <div class="text-sm md:text-base italic">
 
                     <p>
                         <span id="modal-category"></span> - <span id="modal-location"></span>, <span

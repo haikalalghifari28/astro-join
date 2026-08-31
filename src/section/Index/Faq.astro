@@ -46,12 +46,12 @@ const { heading, subtitle, items } = Astro.props;
     <header class="mb-16 text-center">
       <h2
         id="faq-heading"
-        class="text-xl font-bold tracking-tight text-amber-950 md:text-2xl lg:text-4xl"
+        class="text-xl font-bold tracking-tight text-amber-950 md:text-2xl lg:text-3xl"
       >
         {heading}
       </h2>
 
-      <p class="mx-auto mt-6 max-w-4xl text-sm md:text-md lg:text-xl leading-relaxed text-slate-600">
+      <p class="mx-auto mt-6 max-w-4xl text-sm md:text-base lg:text-lg leading-relaxed text-slate-600">
         {subtitle}
       </p>
     </header>
@@ -63,7 +63,7 @@ const { heading, subtitle, items } = Astro.props;
           <details class="faq-item border-t border-slate-300 py-2">
             <summary class="flex cursor-pointer list-none items-center justify-between gap-6 py-6 text-left">
 
-              <h3 class="text-md font-semibold text-amber-950 md:text-xl">
+              <h3 class="text-md font-semibold text-amber-950 md:text-lg">
                 {faq.question}
               </h3>
 
@@ -74,7 +74,7 @@ const { heading, subtitle, items } = Astro.props;
             </summary>
 
             <div class="max-w-5xl pb-8 pr-12">
-              <p class="text-sm md:text-lg leading-relaxed text-slate-700">
+              <p class="text-sm md:text-base leading-relaxed text-slate-700">
                 {faq.answer}
               </p>
             </div>

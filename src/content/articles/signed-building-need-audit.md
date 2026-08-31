@@ -12,6 +12,8 @@ lang: "en"
 relatedService: "Structure"
 ---
 
+<div style="text-align: justify;">
+
 Have you ever heard a strange "click" sound from the floor as you walk? Or noticed a door that used to open smoothly now sticks every time you use it?
 
 Many building owners assume these are just normal signs of aging. In reality, a building's structure is quietly "talking" — signaling that something beneath the surface needs a closer look.
@@ -49,3 +51,5 @@ Not every sign of damage is visible to the naked eye. Age alone — without any 
 Each of these six signs may look minor on its own. But a combination of several of them is one of the most common reasons engineers recommend a structural audit. The sooner it's inspected, the lower the cost and risk you'll have to bear.
 
 If you want to understand more deeply exactly when a structural audit becomes mandatory and how the process works, our article [Complete Guide to Building Structural Audits: When and Why Your Building Must Be Audited](https://jointeknologi.com/en/articles/when-and-why-your-building-must-be-audited/) covers it in full — from testing methods and regulatory basis, to the penalties that apply to buildings without an SLF (Certificate of Worthiness).
+
+</div>
