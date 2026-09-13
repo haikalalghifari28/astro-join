@@ -1,0 +1,92 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+import { Image } from 'astro:assets';
+import { projects } from '../../data/projects';
+import '../../styles/global.css';
+
+export async function getStaticPaths() {
+  return projects.map((project) => ({
+    params: { slug: project.slug },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+
+const pageTitle = `${project.title} | Join Teknologi`;
+const pageDescription = project.description.length > 155
+  ? project.description.slice(0, 155) + "..."
+  : project.description;
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+	<Navbar />
+
+    <script type="application/ld+json" set:html={JSON.stringify({
+		"@context": "https://schema.org",
+		"@type": "CreativeWork",
+		"name": project.title,
+		"description": project.description,
+		"locationCreated": {
+			"@type": "Place",
+			"name": project.location,
+		},
+		"dateCreated": String(project.year),
+		"about": project.category,
+	})} />
+
+    <section class="relative overflow-hidden bg-[#382d26] py-28 lg:py-36">
+        <div class="relative mx-auto max-w-7xl px-6 text-white">
+            <a href="/proyek/" class="text-sm md:text-base font-semibold text-orange-600 hover:underline">
+                ← Kembali ke Semua Proyek
+            </a>
+
+            <h1 class="mt-6 text-2xl font-bold text-white md:text-4xl">
+                {project.title}
+            </h1>
+
+            <p class="mt-2 text-sm italic text-white">
+                {project.category} — {project.location}, {project.year}
+            </p>
+
+            <div class="mt-4 border-t"></div>
+
+            <p class="mt-6 w-full leading-relaxed text-white text-sm md:text-base">
+                {project.description}
+            </p>
+
+
+            <div class="mt-10 grid gap-4 md:grid-cols-2">
+                {
+                    project.gallery.map((img, i) => (
+                        <Image
+                            src={img}
+                            alt={`${project.title} - Dokumentasi ${i + 1}`}
+                            width={800}
+                            height={600}
+                            loading={i === 0 ? "eager" : "lazy"}
+                            class="w-full rounded-2xl object-cover shadow-lg"
+                        />
+                    ))
+                }
+            </div>
+
+             <div class="mt-20 rounded-3xl p-8 text-center md:p-10">
+                <p class="text-xl text-white md:text-2xl">
+                    Butuh <a href="/layanan/audit-struktur/" class="font-semibold text-orange-600 underline hover:text-orange-700">Jasa Audit Struktur Bangunan</a> serupa untuk properti Anda?
+                </p>
+                <a
+                    href="/layanan/audit-struktur/"
+                    class="mt-10 inline-block rounded-full bg-orange-700 px-6 py-3 font-semibold text-white transition hover:bg-orange-600"
+                >
+                    Konsultasikan Kebutuhan Anda
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+	<Footer />
+</Layout>

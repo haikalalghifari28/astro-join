@@ -14,7 +14,7 @@ export const auditStruktur = {
       eyebrow: "Audit Struktur",
       heading: "Apa Itu Audit Struktur Bangunan?",
       paragraph1:
-        "Audit struktur merupakan proses pemeriksaan menyeluruh terhadap kondisi bangunan untuk mengetahui tingkat keamanan, kelayakan fungsi, serta kemampuan struktur dalam menahan beban sesuai standar yang berlaku.",
+        "Join Teknologi menyediakan jasa audit struktur bangunan profesional untuk memastikan keamanan dan kelayakan fungsi gedung Anda. Audit struktur merupakan proses pemeriksaan menyeluruh terhadap kondisi bangunan untuk mengetahui tingkat keamanan, kelayakan fungsi, serta kemampuan struktur dalam menahan beban sesuai standar yang berlaku.",
       paragraph2:
         "Melalui proses evaluasi teknis yang sistematis, tim engineer kami dapat mengidentifikasi kerusakan, penurunan mutu material, serta memberikan rekomendasi perbaikan atau perkuatan yang diperlukan.",
     },
@@ -212,6 +212,7 @@ export const auditStruktur = {
         "Purworejo",
         "Semarang",
         "Karawang",
+        "Banjarmasin",
       ],
     },
     relatedProjects: {
@@ -224,19 +225,19 @@ export const auditStruktur = {
           title: "Audit Retaining Wall, Jakarta",
           description:
             "Pengujian UPV untuk mendeteksi retak pada dinding penahan tanah.",
-          href: "/proyek/",
+          href: "/proyek/audit-retaining-wall-jakarta/",
         },
         {
           title: "Audit Dermaga, Kendal",
           description:
             "Hammer test untuk evaluasi mutu beton pada struktur dermaga.",
-          href: "/proyek/",
+          href: "/proyek/audit-dermaga-kendal-jawa-tengah/",
         },
         {
           title: "Audit JPO Polda Jakarta",
           description:
             "Kombinasi UPV, Hammer Test, Covermeter, dan Levelling pada jembatan penyeberangan.",
-          href: "/proyek/",
+          href: "/proyek/audit-jpo-polda-jakarta/",
         },
       ],
     },
@@ -305,7 +306,7 @@ export const auditStruktur = {
       eyebrow: "Structural Audit",
       heading: "What Is a Building Structural Audit?",
       paragraph1:
-        "A structural audit is a comprehensive inspection process of a building's condition to determine its safety level, functional feasibility, and the structure's ability to withstand loads according to applicable standards.",
+        "Join Teknologi provides professional building structural audit services to ensure your building's safety and functional feasibility. A structural audit is a comprehensive inspection process of a building's condition to determine its safety level, functional feasibility, and the structure's ability to withstand loads according to applicable standards.",
       paragraph2:
         "Through a systematic technical evaluation process, our engineering team can identify damage, material quality degradation, and provide the necessary repair or reinforcement recommendations.",
     },
@@ -500,6 +501,7 @@ export const auditStruktur = {
         "Purworejo",
         "Semarang",
         "Karawang",
+        "Banjarmasin",
       ],
     },
     relatedProjects: {
@@ -512,19 +514,19 @@ export const auditStruktur = {
           title: "Retaining Wall Audit, Jakarta",
           description:
             "UPV testing to detect cracks in the retaining wall structure.",
-          href: "/en/projects/",
+          href: "/proyek/audit-retaining-wall-jakarta/",
         },
         {
           title: "Dermaga (Jetty) Audit, Kendal",
           description:
             "Hammer test to evaluate concrete quality of the jetty structure.",
-          href: "/en/projects/",
+          href: "/proyek/audit-dermaga-kendal-jawa-tengah/",
         },
         {
           title: "JPO Polda Jakarta Audit",
           description:
             "Combination of UPV, Hammer Test, Covermeter, and Levelling on the pedestrian bridge.",
-          href: "/en/projects/",
+          href: "/proyek/audit-jpo-polda-jakarta/",
         },
       ],
     },
