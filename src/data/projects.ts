@@ -454,7 +454,7 @@ export const projects = [
       "Asessment Testing dan Analisis Struktur Pelat Lantai Pabrik di Sukabumi, Jawa barat",
     description:
       "Asessment Testing dan Analisis Struktur pada salah satu pabrik di sukabumi dengan melakukan pemeriksaan teknis untuk menilai kekuatan, kondisi, dan kelayakan pelat lantai beton dari risiko kerusakan atau lendutan berlebih",
-    location: "Jakarta",
+    location: "Sukabumi",
     year: 2026,
     category: "Audit Struktur",
     cover: pabrikSukabumi1,
