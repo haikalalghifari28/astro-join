@@ -139,6 +139,11 @@ import flyoverTangerang2 from "../images/proyek/jembatan-flyover-tangerang/2.web
 import flyoverTangerang3 from "../images/proyek/jembatan-flyover-tangerang/3.webp";
 import flyoverTangerang4 from "../images/proyek/jembatan-flyover-tangerang/4.webp";
 import flyoverTangerang5 from "../images/proyek/jembatan-flyover-tangerang/5.webp";
+import pabrikSukabumi1 from "../images/proyek/pabrik-sukabumi-jabar/1.webp";
+import pabrikSukabumi2 from "../images/proyek/pabrik-sukabumi-jabar/2.webp";
+import pabrikSukabumi3 from "../images/proyek/pabrik-sukabumi-jabar/3.webp";
+import pabrikSukabumi4 from "../images/proyek/pabrik-sukabumi-jabar/4.webp";
+import pabrikSukabumi5 from "../images/proyek/pabrik-sukabumi-jabar/5.webp";
 
 export const projects = [
   {
@@ -440,6 +445,25 @@ export const projects = [
       flyoverTangerang3,
       flyoverTangerang4,
       flyoverTangerang5,
+    ],
+  },
+  {
+    id: 18,
+    slug: "assesment-testing-dan-analisis-struktur-pabrik-sukabumi",
+    title:
+      "Asessment Testing dan Analisis Struktur Pelat Lantai Pabrik di Sukabumi, Jawa barat",
+    description:
+      "Asessment Testing dan Analisis Struktur pada salah satu pabrik di sukabumi dengan melakukan pemeriksaan teknis untuk menilai kekuatan, kondisi, dan kelayakan pelat lantai beton dari risiko kerusakan atau lendutan berlebih",
+    location: "Jakarta",
+    year: 2026,
+    category: "Audit Struktur",
+    cover: pabrikSukabumi1,
+    gallery: [
+      pabrikSukabumi1,
+      pabrikSukabumi2,
+      pabrikSukabumi3,
+      pabrikSukabumi4,
+      pabrikSukabumi5,
     ],
   },
 ];
