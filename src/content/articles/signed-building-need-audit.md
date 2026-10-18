@@ -3,7 +3,7 @@ title: "6 'Silent' Signs Your Building Urgently Needs a Structural Audit (No. 4 
 description: "A small crack, a door that won't shut, or a slightly sagging floor are never trivial. Learn 6 hidden warning signs before your building's structural damage turns into a disaster."
 category: "Structure"
 categorySlug: "Structure"
-coverImage: "/images/tanda.webp"
+coverImage: "/images/3.webp"
 coverAlt: "6 'Silent' Signs Your Building Urgently Needs a Structural Audit (No. 4 Is Most Often Ignored!)"
 publishDate: "2026-8-24"
 author: "PT. JOIN TEKNOLOGI Expert Team"
