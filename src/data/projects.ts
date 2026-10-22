@@ -144,6 +144,13 @@ import pabrikSukabumi2 from "../images/proyek/pabrik-sukabumi-jabar/2.webp";
 import pabrikSukabumi3 from "../images/proyek/pabrik-sukabumi-jabar/3.webp";
 import pabrikSukabumi4 from "../images/proyek/pabrik-sukabumi-jabar/4.webp";
 import pabrikSukabumi5 from "../images/proyek/pabrik-sukabumi-jabar/5.webp";
+import towerPertamina1 from "../images/proyek/tower-pertamina/1.webp";
+import towerPertamina2 from "../images/proyek/tower-pertamina/2.webp";
+import towerPertamina3 from "../images/proyek/tower-pertamina/3.webp";
+import towerPertamina4 from "../images/proyek/tower-pertamina/4.webp";
+import towerPertamina5 from "../images/proyek/tower-pertamina/5.webp";
+import towerPertamina6 from "../images/proyek/tower-pertamina/6.webp";
+import towerPertamina7 from "../images/proyek/tower-pertamina/7.webp";
 
 export const projects = [
   {
@@ -464,6 +471,27 @@ export const projects = [
       pabrikSukabumi3,
       pabrikSukabumi4,
       pabrikSukabumi5,
+    ],
+  },
+  {
+    id: 19,
+    slug: "assesment-testing-dan-analisis-struktur-6-tower-pertamina-surabaya",
+    title:
+      "Asessment Testing dan Analisis 6 Tower Pertamina di Surabaya, Jawa Timur",
+    description:
+      "Asessment Testing dan Analisis Struktur pada salah satu tower pertamina di surabaya dengan melakukan pemeriksaan teknis untuk menilai kekuatan, kondisi, dan kelayakan struktur tower.",
+    location: "Surabaya",
+    year: 2026,
+    category: "Audit Struktur",
+    cover: towerPertamina1,
+    gallery: [
+      towerPertamina1,
+      towerPertamina2,
+      towerPertamina3,
+      towerPertamina4,
+      towerPertamina5,
+      towerPertamina6,
+      towerPertamina7,
     ],
   },
 ];
